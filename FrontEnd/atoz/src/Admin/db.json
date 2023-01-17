@@ -12,7 +12,7 @@
 
 
 
-
+    
     { "name": "MacBook Pro", "image": "https://example.com/macbookpro.jpg", "price": "$1,299", "category": "laptops", "rating": 4.8, "description": "Apple's latest MacBook Pro with a Retina display, Touch Bar, and powerful processing capabilities." },
     { "name": "Dell XPS 13", "image": "https://example.com/dellxps13.jpg", "price": "$999", "category": "laptops", "rating": 4.6, "description": "A high-end laptop with a slim design, InfinityEdge display, and 10th Gen Intel Core processors." },
     { "name": "Lenovo ThinkPad X1 Carbon", "image": "https://example.com/lenovox1carbon.jpg", "price": "$1,399", "category": "laptops", "rating": 4.9, "description": "A business-class laptop with a 14-inch display, long battery life, and durable design." },
