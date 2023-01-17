@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import "./AdminPage.css"
+import ISkeliton from './ISkeliton';
 
 import axios from "axios"
 import { useState } from 'react'
@@ -13,14 +15,21 @@ function Items() {
 
 
   return (
-    <div>
+    <div className='ItemCardDiv'>
         {Data.length > 0 ? Data.map((e)=>{
             return (
-                <div key={e.id}>
-                    <img src={e.image} alt="" width={"100px"} />
+                <div key={e.id} className="ImageDivofItem" >
+                    <img src={e.image} alt="" className='ItemImages' />
+                    <p className='ItemTitle'>{e.title}</p>
+                    <p className='ItemTitle'>{e.price}</p>
+                    <div className='UpAndDelBtnDiv'>
+                    <button className='UpAndDelBtn1'>Update</button>
+                    <button className='UpAndDelBtn2'>Delete</button>
+                    </div>
+                    {/* <ItemCard name={e.title} img={e.image} price={e.price} /> */}
                 </div>
             )
-        }) : <h1>Loding.....</h1>}
+        }) : <ISkeliton/>}
     </div>
   )
 }
