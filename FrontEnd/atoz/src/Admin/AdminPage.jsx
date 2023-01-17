@@ -16,17 +16,17 @@ export function AdminPage(){
       setIsActive("items")
     }
     return (
-      <>
+        <div>
           <div className='MainDiv'>
           <Flex alignItems='center' gap='10'>
-          <Button onClick={handleClick1} borderColor={isActive==='user'?"green":"red"} borderRadius={30} w={200} h={50} backgroundColor={isActive==='user'?"green":"aliceblue"} color={isActive==='user'?"aliceblue":"black"}>Manage Users</Button>
-          <Button onClick={handleClick2} borderColor={isActive==='items'?"green":"red"} borderRadius={30} backgroundColor={isActive==='items'?"green":"aliceblue"} color={isActive==='items'?"aliceblue":"black"} w={200} h={50}>Manage Items</Button>
+          <Button onClick={handleClick1} className="mainbtns" borderColor={isActive==='user'?"green":"red"}   backgroundColor={isActive==='user'?"green":"aliceblue"} color={isActive==='user'?"aliceblue":"black"}>Manage Users</Button>
+          <Button onClick={handleClick2} className="mainbtns" borderColor={isActive==='items'?"green":"red"}  backgroundColor={isActive==='items'?"green":"aliceblue"} color={isActive==='items'?"aliceblue":"black"}>Manage Items</Button>
           </Flex>
           </div>
           <div>
               {isActive==="user" ? <User/> : <Items/>}
           </div>
-          </>
+          </div>
     )
   }
 

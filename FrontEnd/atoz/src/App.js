@@ -5,7 +5,7 @@ import AdminPage from "./Admin/AdminPage"
 function App() {
   return (
     <div className="App">
-      {/* <AdminPage/> */}
+      
     </div>
   );
 }

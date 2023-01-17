@@ -6,3 +6,116 @@
     text-align: center;
     
 }
+.mainbtns{
+    width: 200px;
+    height: 150px;
+}
+.ItemCardDiv{
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-template-rows: repeat(3, auto);
+    gap: 30px;
+    margin: 2% 5% 5% 5%;
+    background-color: black;
+}
+.ImageDivofItem{
+    border: 2px solid rgb(239, 239, 243);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    width: 90%;
+    margin-left: 3%;
+}
+.ItemImages{
+    width: 400px;
+    height: 200px;
+    border-radius: 10px;
+}
+.UpAndDelBtn1{
+    background-color: greenyellow;
+    color: black;
+    width: 100px;
+    border-radius: 10px;
+}
+.UpAndDelBtn2{
+    background-color: red;
+    color: aliceblue;
+    width: 100px;
+    border-radius: 10px;
+}
+.UpAndDelBtnDiv{
+    display: flex;
+    margin-top: 10px;
+    padding: 3%;
+    background-color: black;
+    justify-content: space-around;
+}
+.ItemTitle{
+    color: aliceblue;
+}
+
+@media screen and (max-width : 900px){
+    .ItemCardDiv{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(2, auto);
+        gap: 30px;
+        margin: 2% 5% 5% 5%;
+        background-color: black;
+    }
+    .UpAndDelBtnDiv{
+        display: flex;
+        margin-top: 5px;
+        padding: 2%;
+        background-color: black;
+        justify-content: space-around;
+    }
+    .UpAndDelBtn1{
+        background-color: greenyellow;
+        color: black;
+        width: 60px;
+        border-radius: 5px;
+    }
+    .UpAndDelBtn2{
+        background-color: red;
+        color: aliceblue;
+        width: 60px;
+        border-radius: 5px;
+    }
+}
+
+@media screen and (max-width : 500px){
+    .ItemCardDiv{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-template-rows: repeat(2, auto);
+        gap: 30px;
+        margin: 2% 5% 5% 5%;
+        background-color: black;
+    }
+}
+@media screen and (max-width : 300px){
+    .ItemCardDiv{
+        margin-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(1, auto);
+        grid-template-rows: repeat(2, auto);
+        gap: 30px;
+        margin: 2% 5% 5% 5%;
+        background-color: black;
+    }
+    .MainDiv{
+        width: 90%;
+        margin-top: 20px;
+        justify-content: center;
+        text-align: center;
+    }
+    .mainbtns{
+        width: 100px;
+        height: 150px;
+    }
+}
