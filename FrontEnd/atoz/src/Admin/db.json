@@ -1,0 +1,56 @@
+[
+    { "name": "iPhone 12 Pro", "image": "https://iphone12pro.jpg", "price": "$999", "category": "mobile", "rating": 4.5, "description": "The latest iPhone with a triple-camera system, A14 Bionic chip, and Ceramic Shield front cover." },
+    { "name": "Samsung Galaxy S21", "image": "https://example.com/samsungs21.jpg", "price": "$799", "category": "mobile", "rating": 4.3, "description": "The latest Samsung flagship with a 64MP camera, 5G capability, and a long-lasting battery." },
+    { "name": "OnePlus 8 Pro", "image": "https://example.com/oneplus8pro.jpg", "price": "$699", "category": "mobile", "rating": 4.7, "description": "A high-end smartphone with a 120Hz display, 48MP camera, and fast charging technology." },
+    { "name": "Google Pixel 4a", "image": "https://example.com/googlepixel4a.jpg", "price": "$349", "category": "mobile", "rating": 4.2, "description": "A budget-friendly smartphone with a 5.81-inch OLED display and 12.2MP rear camera." },
+    { "name": "Sony Xperia 1 II", "image": "https://example.com/sonyxperia1ii.jpg", "price": "$1,199", "category": "mobile", "rating": 4.6, "description": "A high-end smartphone with a 4K OLED display, triple-lens camera system, and 5G capability." },
+    { "name": "LG V60 ThinQ 5G", "image": "https://example.com/lgv60.jpg", "price": "$799", "category": "mobile", "rating": 4.1, "description": "A 5G-enabled smartphone with a large 6.8-inch OLED display and dual-screen capabilities." },
+    { "name": "Xiaomi Mi 10 Pro", "image": "https://example.com/xiaomimi10pro.jpg", "price": "$699", "category": "mobile", "rating": 4.4, "description": "A high-end smartphone with a 108MP camera, wireless charging, and fast charging technology." },
+    { "name": "Realme Narzo 30 Pro", "image": "https://example.com/realmenarzo30pro.jpg", "price": "$199", "category": "mobile", "rating": 4.3, "description": "A budget-friendly smartphone with a 6.5-inch display, 48MP camera and 4500mAh battery." },
+    { "name": "Oppo Find X2 Pro", "image": "https://example.com/oppofindx2pro.jpg", "price": "$999", "category": "mobile", "rating": 4.5, "description": "A high-end smartphone with a 6.7-inch OLED display, 48MP camera, and fast charging technology." },
+    { "name": "Motorola Moto G Power", "image": "https://example.com/motogpower.jpg", "price": "$199", "category": "mobile", "rating": 4.5, "description": "A high-end smartphone with a 6.7-inch OLED display, 48MP camera, and fast charging technology." },
+
+
+
+    
+    { "name": "MacBook Pro", "image": "https://example.com/macbookpro.jpg", "price": "$1,299", "category": "laptops", "rating": 4.8, "description": "Apple's latest MacBook Pro with a Retina display, Touch Bar, and powerful processing capabilities." },
+    { "name": "Dell XPS 13", "image": "https://example.com/dellxps13.jpg", "price": "$999", "category": "laptops", "rating": 4.6, "description": "A high-end laptop with a slim design, InfinityEdge display, and 10th Gen Intel Core processors." },
+    { "name": "Lenovo ThinkPad X1 Carbon", "image": "https://example.com/lenovox1carbon.jpg", "price": "$1,399", "category": "laptops", "rating": 4.9, "description": "A business-class laptop with a 14-inch display, long battery life, and durable design." },
+    { "name": "HP Spectre x360", "image": "https://example.com/hpspectrex360.jpg", "price": "$1,199", "category": "laptops", "rating": 4.5, "description": "A 2-in-1 laptop with a 13.3-inch 4K display, long battery life, and Intel Core i7 processor." },
+    { "name": "Microsoft Surface Laptop 4", "image": "https://example.com/microsoftsurfacelaptop4.jpg", "price": "$999", "category": "laptops", "rating": 4.7, "description": "A premium laptop with a sleek design, touchscreen display, and 11th Gen Intel Core processors." },
+    { "name": "Acer Swift 5", "image": "https://example.com/acerswift5.jpg", "price": "$799", "category": "laptops", "rating": 4.3, "description": "A lightweight laptop with a 14-inch display, long battery life, and 10th Gen Intel Core processors." },
+    { "name": "Asus ROG Zephyrus G15", "image": "https://example.com/asusrogzephyrusg15.jpg", "price": "$1,499", "category": "laptops", "rating": 4.9, "description": "A gaming laptop with a 15.6-inch display, powerful graphics, and long battery life." },
+    { "name": "Razer Blade Pro", "image": "https://example.com/razerbladepro.jpg", "price": "$2,499", "category": "laptops", "rating": 4.8, "description": "A high-end gaming laptop with a 17-inch display, powerful graphics, and long battery life." },
+    { "name": "Google Pixelbook Go", "image": "https://example.com/googlepixelbookgo.jpg", "price": "$649", "category": "laptops", "rating": 4.5, "description": "A lightweight laptop with a 13.3-inch display, long battery life, and Chrome OS." },
+
+
+    { "name": "Levi's 501 Original Fit Jeans", "image": "https://example.com/levis501jeans.jpg", "price": "$69.50", "category": "clothes", "rating": 4.7, "description": "The original straight leg denim jeans, made with 100% cotton and iconic leather patch." },
+    { "name": "Nike Dri-FIT Running T-Shirt", "image": "https://example.com/nikerunningtshirt.jpg", "price": "$25", "category": "clothes", "rating": 4.5, "description": "A moisture-wicking running shirt with a breathable design and made with soft, lightweight fabric." },
+    { "name": "Adidas Originals Superstar Sneakers", "image": "https://example.com/adidassuperstarsneakers.jpg", "price": "$80", "category": "clothes", "rating": 4.8, "description": "The iconic low-top sneakers with a rubber shell toe, made with leather and featuring the classic stripes on the side." },
+    { "name": "Calvin Klein Modern Cotton Bralette", "image": "https://example.com/calvinkleinbralette.jpg", "price": "$28", "category": "clothes", "rating": 4.6, "description": "A soft bralette made with cotton blend fabric and featuring the iconic Calvin Klein logo on the elastic band." },
+    { "name": "H&M Conscious Collection Maxi Dress", "image": "https://example.com/hmconsciousmaxidress.jpg", "price": "$49.99", "category": "clothes", "rating": 4.7, "description": "A flowy maxi dress made with sustainable materials and featuring a flattering V-neckline." },
+    { "name": "The North Face Denali Fleece Jacket", "image": "https://example.com/thenorthfacedenali.jpg", "price": "$99", "category": "clothes", "rating": 4.8, "description": "A warm fleece jacket made with recycled materials, featuring a durable water-repellent finish." },
+    { "name": "Under Armour HeatGear Leggings", "image": "https://example.com/underarmourleggings.jpg", "price": "$45", "category": "clothes", "rating": 4.5, "description": "A moisture-wicking leggings made with stretchy fabric and featuring flatlock seams for added comfort." },
+    { "name": "Zara Basic V-Neck T-Shirt", "image": "https://example.com/zarabasictshirt.jpg", "price": "$12.90", "category": "clothes", "rating": 4.3, "description": "A classic v-neck t-shirt made with soft cotton fabric and featuring a slim fit." },
+
+
+
+    { "name": "Nike Air Max 270", "image": "https://example.com/nikeairmax270.jpg", "price": "$150", "category": "shoes", "rating": 4.7, "description": "A popular running shoe with a large air cushion in the heel, made with breathable mesh upper and synthetic overlays." },
+    { "name": "Adidas UltraBoost 21", "image": "https://example.com/adidasultraboost21.jpg", "price": "$180", "category": "shoes", "rating": 4.9, "description": "A running shoe with a responsive Boost midsole, made with a breathable knit upper and a Torsion System for stability." },
+    { "name": "Converse Chuck Taylor All Star", "image": "https://example.com/conversechucktaylor.jpg", "price": "$55", "category": "shoes", "rating": 4.8, "description": "An iconic low-top canvas shoe with a rubber toe cap, featuring the classic Chuck Taylor patch on the inner ankle." },
+    { "name": "Vans Old Skool", "image": "https://example.com/vansoldskool.jpg", "price": "$65", "category": "shoes", "rating": 4.6, "description": "A classic skate shoe with a durable suede and canvas upper, featuring the iconic Vans side stripe." },
+    { "name": "Puma Cali Sport", "image": "https://example.com/pumacalisport.jpg", "price": "$90", "category": "shoes", "rating": 4.5, "description": "A stylish low-top shoe with a suede upper and a rubber outsole, featuring the iconic Puma Formstrip on the side." },
+    { "name": "Jordan 1 Mid", "image": "https://example.com/jordan1mid.jpg", "price": "$115", "category": "shoes", "rating": 4.7, "description": "A mid-top basketball shoe featuring the iconic Jordan design and made with a leather and synthetic upper." },
+    { "name": "New Balance 990v5", "image": "https://example.com/newbalance990v5.jpg", "price": "$175", "category": "shoes", "rating": 4.9, "description": "A premium running shoe with a ENCAP midsole technology and made with a blend of suede and mesh upper." },
+    { "name": "Skechers GOwalk 5", "image": "https://example.com/skechersgowalk5.jpg", "price": "$55", "category": "shoes", "rating": 4.6, "description": "A comfortable walking shoe with a responsive 5GEN cushioning, made with a knit upper and featuring a GOimpulse outsole." },
+
+
+    { "name": "Kellogg's Frosted Flakes", "image": "https://example.com/frostedflakes.jpg", "price": "$3.99", "category": "grocery", "rating": 4.5, "description": "A classic cereal made with whole grain corn and lightly sweetened with sugar." },
+    { "name": "Quaker Oats Old Fashioned", "image": "https://example.com/quakeroats.jpg", "price": "$2.99", "category": "grocery", "rating": 4.7, "description": "A wholesome and nourishing oats made with 100% whole grain Quaker oats and no preservatives." },
+    { "name": "Campbell's Chicken Noodle Soup", "image": "https://example.com/campbellchickennoodlesoup.jpg", "price": "$1.69", "category": "grocery", "rating": 4.3, "description": "A classic comforting soup made with quality chicken broth, tender chicken meat, and egg noodles." },
+    { "name": "Folgers Classic Roast Ground Coffee", "image": "https://example.com/folgerscoffee.jpg", "price": "$5.99", "category": "grocery", "rating": 4.6, "description": "A classic medium roast ground coffee made with 100% pure coffee beans for a rich and satisfying taste." },
+    { "name": "Heinz Ketchup", "image": "https://example.com/heinzketchup.jpg", "price": "$2.99", "category": "grocery", "rating": 4.4, "description": "A classic ketchup made with ripened tomatoes, distilled vinegar, and natural spices for a sweet and tangy taste." },
+    { "name": "Hellmann's Real Mayonnaise", "image": "https://example.com/hellmannsmayo.jpg", "price": "$3.99", "category": "grocery", "rating": 4.5, "description": "A classic mayonnaise made with high-quality ingredients like cage-free eggs, oil, and vinegar." },
+    { "name": "Coca-Cola Classic", "image": "https://example.com/cocacola.jpg", "price": "$1.99", "category": "grocery", "rating": 4.7, "description": "The classic cola soda made with a secret blend of natural flavors and real sugar." },
+    { "name": "Lay's Classic Potato Chips", "image": "https://example.com/layschips.jpg", "price": "$3.29", "category": "grocery", "rating": 4.6, "description": "A classic chip made with potatoes, oil and salt, for a satisfying crunch and great taste." }
+]
