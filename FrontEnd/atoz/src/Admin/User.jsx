@@ -1,6 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-
+import './user.css'
+import {
+    List,
+    ListItem,
+    ListIcon,
+    OrderedList,
+    UnorderedList,
+    MdCheckCircle
+  } from '@chakra-ui/react'
 function User() {
   const [Data, setData] = useState([]);
 
@@ -10,7 +18,7 @@ function User() {
       .catch((e)=>console.log(e))
   },[])
   return (
-    <div>
+    <div className='usersDiv'>
         {Data.length > 0 ? Data.map((e)=>{
             return (
                 <div key={e.id}>
@@ -18,6 +26,14 @@ function User() {
                 </div>
             )
         }) : <h1>Loding.....</h1>}
+        <List spacing={3}>
+        <ListItem>
+            <ListIcon as={MdCheckCircle} color='green.500' />
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit
+            <button>BanUser</button>
+        </ListItem>
+        </List>
+
     </div>
   )
 }
