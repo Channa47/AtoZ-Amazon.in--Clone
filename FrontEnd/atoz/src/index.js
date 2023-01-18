@@ -7,10 +7,6 @@ import { store } from "./Redux/store";
 import { ChakraProvider } from '@chakra-ui/react'
 import reportWebVitals from "./reportWebVitals";
 
-
-
-
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <ChakraProvider>
