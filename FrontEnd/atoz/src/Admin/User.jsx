@@ -7,8 +7,10 @@ import {
     ListIcon,
     OrderedList,
     UnorderedList,
-    MdCheckCircle
+    CheckboxIcon,
+    
   } from '@chakra-ui/react'
+// import {MdCheckCircle} from "@chakra-ui/icons"
 function User() {
   const [Data, setData] = useState([]);
 
@@ -28,7 +30,7 @@ function User() {
         }) : <h1>Loding.....</h1>}
         <List spacing={3}>
         <ListItem>
-            <ListIcon as={MdCheckCircle} color='green.500' />
+            <ListIcon as={CheckboxIcon} color='green.500' />
             Lorem ipsum dolor sit amet, consectetur adipisicing elit
             <button>BanUser</button>
         </ListItem>
