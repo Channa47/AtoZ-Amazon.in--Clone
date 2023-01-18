@@ -1,4 +1,72 @@
 .usersDiv{
-    margin-top: 20px;
-    border: 2px solid red;
+    margin-top: 50px;
+    
+}
+.emails{
+   font-weight: bold;
+   font-size: xx-large;
+}
+.emailsDiv{
+    border: 2px solid gray;
+    width: 70%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+.emailsubdiv{
+    display: flex;
+    justify-content: space-around;
+    /* gap: 20px; */
+}
+.emailsDiv  :hover{
+    background-color: cyan;
+}
+
+.ButtonsbanandRem{
+    background-color: #ffbd03;
+    width: 40%;
+    border-radius: 10px;
+}
+.ButtonsbanandRem :hover{
+    background-color: red;
+}
+.btnsDiv{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 2px;
+    width: 30%;
+}
+
+@media screen and (max-width : 900px){
+    .btnsDiv{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 2px;
+        width: 50%;
+    }
+    .emailsDiv{
+        border: 2px solid gray;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+}
+@media screen and (max-width : 600px){
+    .emailsDiv{
+        border: 2px solid gray;
+        width: 100%;
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    .btnsDiv{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        gap: 2px;
+        width: 30%;
+    }
+    .ButtonsbanandRem{
+        width: 50%;
+    }
 }
