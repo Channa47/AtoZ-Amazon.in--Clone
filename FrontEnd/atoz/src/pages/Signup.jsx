@@ -13,49 +13,59 @@ import {
   Button,
   useToast,
 } from "@chakra-ui/react";
+
+import { Toast } from "@chakra-ui/toast";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { registerUser } from "../Redux/AuthReducer/action";
+import { useEffect } from "react";
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
+  const dispatch = useDispatch();
+  const isRegisteredLoading = useSelector(
+    (state) => state.AuthReducer.isRegisteredLoading
+  );
+  const isRegistered = useSelector((state) => state.AuthReducer.isRegistered);
+  const isRegisteredFailure = useSelector(
+    (state) => state.AuthReducer.isRegisteredFailure
+  );
+  console.log(isRegisteredLoading);
   const handleSubmit = () => {
-    setIsLoading(true);
     const payload = {
       name,
       email,
       password,
     };
 
-    axios
-      .post(
-        `https://better-gold-grasshopper.cyclic.app/users/register`,
-        payload
-      )
-      .then((res) => {
-        console.log(res.data);
-        setIsLoading(false);
-        toast({
-          title: "Account Created.",
-          description: `${name} your account successfully created`,
-          status: "success",
-          duration: 5000,
-          isClosable: true,
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-        toast({
-          title: "Account Created.",
-          description: `Failed to Register`,
-          status: "error",
-          duration: 5000,
-          isClosable: true,
-        });
-      });
+    if (payload) {
+      dispatch(registerUser(payload));
+    }
   };
+
+  useEffect(() => {
+    if (isRegistered) {
+      toast({
+        title: "Account Created.",
+        description: `${name} your account successfully created`,
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+    if (isRegisteredFailure) {
+      toast({
+        title: "Failed.",
+        description: `Failed to Register`,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  }, [isRegistered, isRegisteredFailure]);
   return (
     <div>
       <Box m="auto" w={{ base: "60%", sm: "50%", md: "40%", lg: "28%" }}>
@@ -132,7 +142,7 @@ const Signup = () => {
               Message and data rates may apply.
             </Text>
             <Button
-              isLoading={isLoading}
+              isLoading={isRegisteredLoading}
               loadingText="Submitting"
               h="8"
               bgColor="#f1c350"

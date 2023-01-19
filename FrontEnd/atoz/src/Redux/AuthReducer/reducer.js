@@ -5,6 +5,9 @@ const initialState = {
   token: "",
   isAuthLoading: false,
   isAuthFailure: false,
+  isRegistered: false,
+  isRegisteredLoading: false,
+  isRegisteredFailure: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -17,6 +20,18 @@ const reducer = (state = initialState, action) => {
       return { ...state, isAuthLoading: false, isAuth: true, token: payload };
     case types.USER_LOGIN_FAILURE:
       return { ...state, isAuthFailure: true, isAuth: false };
+    case types.USER_REGISTER_REQUEST:
+      console.log("-------");
+      return { ...state, isRegisteredLoading: true };
+    case types.USER_REGISTER_SUCCESS:
+      return { ...state, isRegisteredLoading: false, isRegistered: true };
+    case types.USER_REGISTER_FAILURE:
+      return {
+        ...state,
+        isRegisteredFailure: true,
+        isRegistered: false,
+        isRegisteredLoading: false,
+      };
     default:
       return state;
   }
