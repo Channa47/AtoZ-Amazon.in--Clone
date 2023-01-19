@@ -1,0 +1,23 @@
+.navigation_container {
+  width: 100%;
+  height: 45px;
+  background-color: #232f3e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 5px;
+}
+.nav_link {
+  border: 1px solid transparent;
+  padding: 5px;
+}
+.nav_link:hover {
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.drawer_opt:hover {
+  cursor: pointer;
+  color: #f08804;
+}
