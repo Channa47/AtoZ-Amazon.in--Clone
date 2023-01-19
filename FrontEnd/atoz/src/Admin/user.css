@@ -26,9 +26,7 @@
     width: 40%;
     border-radius: 10px;
 }
-.ButtonsbanandRem :hover{
-    background-color: red;
-}
+
 .btnsDiv{
     display: flex;
     justify-content: center;
