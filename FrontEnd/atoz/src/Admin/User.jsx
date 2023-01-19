@@ -7,6 +7,7 @@ import {
     ListIcon,
   } from '@chakra-ui/react'
   import { PhoneIcon, AddIcon, WarningIcon, CloseIcon, DeleteIcon, WarningTwoIcon } from '@chakra-ui/icons'
+import UserSkeliton from './UserSkeliton';
 
 function User() {
   const [Data, setData] = useState([]);
@@ -52,7 +53,7 @@ function User() {
                 </div>
             
             )
-        }) : <h1>Loding.....</h1>}
+        }) : <UserSkeliton/>}
        
     </div>
   )
