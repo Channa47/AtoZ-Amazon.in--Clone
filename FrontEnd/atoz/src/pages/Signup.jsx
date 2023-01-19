@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import {
   Image,
   Box,
@@ -10,9 +11,51 @@ import {
   Flex,
   Container,
   Button,
+  useToast,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 const Signup = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const toast = useToast();
+  const handleSubmit = () => {
+    setIsLoading(true);
+    const payload = {
+      name,
+      email,
+      password,
+    };
+
+    axios
+      .post(
+        `https://better-gold-grasshopper.cyclic.app/users/register`,
+        payload
+      )
+      .then((res) => {
+        console.log(res.data);
+        setIsLoading(false);
+        toast({
+          title: "Account Created.",
+          description: `${name} your account successfully created`,
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+        toast({
+          title: "Account Created.",
+          description: `Failed to Register`,
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+      });
+  };
   return (
     <div>
       <Box m="auto" w={{ base: "60%", sm: "50%", md: "40%", lg: "28%" }}>
@@ -31,7 +74,7 @@ const Signup = () => {
           >
             Create Account
           </Text>
-          <FormControl>
+          <form>
             <FormLabel
               mb="0.5"
               mt="2"
@@ -41,32 +84,27 @@ const Signup = () => {
             >
               Your Name
             </FormLabel>
-            <Input mb="2" h="9" placeholder="First and last name" />
+            <Input
+              mb="2"
+              h="9"
+              placeholder="First and last name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
             <FormLabel mb="0.5" mt="2" fontSize={13} fontWeight="bold">
-              Mobile Number
+              Email
             </FormLabel>
-            <Flex>
-              <Select
-                placeholder="IN +91"
-                h="9"
-                w="18%"
-                m="auto"
-                textAlign="left"
-                fontSize={10}
-                bg="#ebedf0"
-              >
-                <option value="option1">USA +21</option>
-                <option value="option2">UK +65</option>
-                <option value="option3">RS +44</option>
-              </Select>
-              <Input
-                mb="2"
-                m="auto"
-                h="9"
-                placeholder="Mobile number"
-                w="80%"
-              />
-            </Flex>
+            <Input
+              mb="2"
+              m="auto"
+              h="9"
+              placeholder="Enter Your Email ID"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+
             <FormLabel
               mb="0.5"
               mt="2"
@@ -81,6 +119,9 @@ const Signup = () => {
               h="9"
               placeholder="At least 6 characters"
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
             <Text textAlign="left" fontSize={11} mt="-1" mb="3">
               Passwords must be at least 6 characters.
@@ -90,10 +131,19 @@ const Signup = () => {
               automated security notifications via text message from Amazon.
               Message and data rates may apply.
             </Text>
-            <Button h="8" bgColor="#f1c350" w="100%" mt="3" mb="4">
+            <Button
+              isLoading={isLoading}
+              loadingText="Submitting"
+              h="8"
+              bgColor="#f1c350"
+              w="100%"
+              mt="3"
+              mb="4"
+              onClick={handleSubmit}
+            >
               Continue
             </Button>
-          </FormControl>
+          </form>
           <Box
             boxShadow="base"
             p="0.5"
