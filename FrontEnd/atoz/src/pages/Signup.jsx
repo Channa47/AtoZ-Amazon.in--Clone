@@ -10,9 +10,8 @@ import {
   Flex,
   Container,
   Button,
-  Link,
 } from "@chakra-ui/react";
-
+import { Link } from "react-router-dom";
 const Signup = () => {
   return (
     <div>
@@ -106,7 +105,7 @@ const Signup = () => {
           <Text textAlign="left" fontSize={14} mt="2">
             Already have an account ?
             <Link color="blue" to="/login">
-              Sign in
+              <span style={{ color: "blue" }}> Sign in</span>
             </Link>
           </Text>
           <Text textAlign="left" fontSize={14} mt="2">
