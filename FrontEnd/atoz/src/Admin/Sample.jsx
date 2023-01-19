@@ -19,11 +19,15 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import MainLogo from "./Logo/MainLogo.png"
+import MainLogo2 from "./Logo/MainLogo2.png"
+
 import { useState } from 'react';
 import Items from './Items';
 import User from './User';
 import Orders from './Orders';
 import AddNewItem from './AddNewItem';
+import UserSkeliton from './UserSkeliton';
+
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -69,7 +73,7 @@ export default function Simple() {
                 minW={0}>
                 <Image
                   src={
-                    MainLogo
+                    MainLogo2
                   }
                   w={100}
                 />
