@@ -3,6 +3,7 @@ import { Navigation } from '../Components/Navigation'
 import { Header } from '../Components/Header'
 import "../Components/SinglePage.css"
 import Silder from '../Components/Slider';
+import SlideShowTwo from '../Components/ShowSlide';
 function SinglePage() {
   // let array = 
  const Data = {
@@ -19,16 +20,16 @@ function SinglePage() {
     {img:'https://m.media-amazon.com/images/I/31SOygUjpUL._AC_SR160,160_.jpg'},
    ],
    arra2:[
-    {img:'https://m.media-amazon.com/images/I/41TDTtZ-CJL._AC_SR160,160_.jpg'},
-    {img:'https://m.media-amazon.com/images/I/41xVK9e62GL._AC_SR160,160_.jpg'},
-    {img:'https://m.media-amazon.com/images/I/41SZg53ADYL._AC_SR480,480_.jpg'},
-    {img:'https://m.media-amazon.com/images/I/416F65svKlL._AC_SR480,480_.jpg'},
-    {img:'https://m.media-amazon.com/images/I/41uEnk5g9zL._AC_SR480,480_.jpg'},
-    {img:'https://m.media-amazon.com/images/I/41PnIUzyYML._AC_SR480,480_.jpg'},
-    {img:'https://m.media-amazon.com/images/I/41dlM3P-RYL._AC_SR160,160_.jpg'},
-    {img:'https://m.media-amazon.com/images/I/41CF84t1CzL._AC_SR160,160_.jpg'},
-    {img:'https://m.media-amazon.com/images/I/41RsGKCW7EL._AC_SR160,160_.jpg'},
-    {img:'https://m.media-amazon.com/images/I/41zsaCwgnsL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41TDTtZ-CJL._AC_SR160,160_.jpg',name: "MacBook Pro",},
+    {img:'https://m.media-amazon.com/images/I/41xVK9e62GL._AC_SR160,160_.jpg',name: "Dell XPS 13",},
+    {img:'https://m.media-amazon.com/images/I/41SZg53ADYL._AC_SR480,480_.jpg',name: "Lenovo ThinkPad X1 Carbon"},
+    {img:'https://m.media-amazon.com/images/I/416F65svKlL._AC_SR480,480_.jpg',name: "HP Spectre x360",},
+    {img:'https://m.media-amazon.com/images/I/41uEnk5g9zL._AC_SR480,480_.jpg',name: "Microsoft Surface Laptop 4"},
+    {img:'https://m.media-amazon.com/images/I/41PnIUzyYML._AC_SR480,480_.jpg',name: "Acer Swift 5",},
+    {img:'https://m.media-amazon.com/images/I/41dlM3P-RYL._AC_SR160,160_.jpg',name: "Asus ROG Zephyrus G15"},
+    {img:'https://m.media-amazon.com/images/I/41CF84t1CzL._AC_SR160,160_.jpg',name: "Razer Blade Pro",},
+    {img:'https://m.media-amazon.com/images/I/41RsGKCW7EL._AC_SR160,160_.jpg',name: "Google Pixelbook Go"},
+    {img:'https://m.media-amazon.com/images/I/41zsaCwgnsL._AC_SR160,160_.jpg',name: "MacBook Pro"},
    ]
  }
   let rat = 5 ; 
@@ -112,10 +113,10 @@ console.log(rray);
                 <p className='OfferText'>&#8377;999</p>
             </div>
             <div>
-                <p className='ffddll'>FREE delivery Monday, January </p>
+                <p className='ffddll'>FREE delivery Monday, This Month </p>
             </div>
             <div>
-                <p  className='DeliveryTexts'>Or fastest delivery Tomorrow, January. <br />  Order within 9 hrs 40 mins.</p>
+                <p  className='DeliveryTexts'>Or fastest delivery Tomorrow, <br />  Order within 9 hrs 40 mins.</p>
             </div>
             <div>
                 <p className='SoldByText'>Sold by Appario Retail Private Ltd <br /> and Fulfilled by Amazon</p>
@@ -128,10 +129,12 @@ console.log(rray);
      </div>
       <br />
        <br />
-      <Silder array={Data.array1}/>
+       <SlideShowTwo array={Data.arra2}/>
+      {/* <Silder array={Data.array1}/> */}
       <br />
       <br />
-      <Silder array={Data.arra2}/>
+       {/* <SlideShowTwo array={Data.arra2}/> */}
+       <Silder array={Data.array1}/>
       <br />
       <br />
     </div>
