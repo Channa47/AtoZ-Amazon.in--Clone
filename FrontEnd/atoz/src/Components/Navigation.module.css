@@ -21,3 +21,8 @@
   cursor: pointer;
   color: #f08804;
 }
+@media (max-width: 850px) {
+  .navigation_container {
+    display: none;
+  }
+}
