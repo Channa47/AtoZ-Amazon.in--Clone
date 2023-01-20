@@ -1,4 +1,23 @@
 .MainDivOfOrder{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     margin-top: 100px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, rgb(51, 51, 51) 0px 0px 0px 3px;
+}
+.table{
+    display: flex;
+    gap: 20px;
+    justify-content: space-around;
+    text-align: justify;
+    width: 100%;
+}
+.subDiv{
+    border-color: red;
+    /* border: 2px solid black; */
+    display: grid;
+    gap: 20px;
+}
+.Details{
+    font-weight: 500;
+    font-size: larger;
+    margin-left: 10px;
 }
