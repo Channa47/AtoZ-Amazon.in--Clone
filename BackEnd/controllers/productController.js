@@ -18,7 +18,7 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 
 //get All products
 exports.getAllProducts = catchAsyncErrors(async (req, res) => {
-  const resultPerPage = 5;
+  const resultPerPage = 20;
   const productCount=await Product.countDocuments()
 
   const apiFeature = new ApiFeatures(Product.find(), req.query)
@@ -32,18 +32,18 @@ exports.getAllProducts = catchAsyncErrors(async (req, res) => {
   });
 });
 
-//get product details --Admin
-
+// Get Product Details
 exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
   const product = await Product.findById(req.params.id);
+
   if (!product) {
     return next(new ErrorHander("Product not found", 404));
   }
 
   res.status(200).json({
     success: true,
-    product,
-    productCount
+    product
+    
   });
 });
 
