@@ -2,7 +2,35 @@ import React from 'react'
 import { Navigation } from '../Components/Navigation'
 import { Header } from '../Components/Header'
 import "../Components/SinglePage.css"
+import Silder from '../Components/Slider';
 function SinglePage() {
+  // let array = 
+ const Data = {
+   array1:[
+    {img:'https://m.media-amazon.com/images/I/31jQ91XUDhS._AC_SR320,320_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/411yU+n3UkL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/31SOygUjpUL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/31VzlB4YXRL._AC_SR320,320_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41Ya7dFJs9L._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/4121yWSVFmL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41qtHPngSaL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/411yU+n3UkL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41c9-pKijiL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/31SOygUjpUL._AC_SR160,160_.jpg'},
+   ],
+   arra2:[
+    {img:'https://m.media-amazon.com/images/I/41TDTtZ-CJL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41xVK9e62GL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41SZg53ADYL._AC_SR480,480_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/416F65svKlL._AC_SR480,480_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41uEnk5g9zL._AC_SR480,480_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41PnIUzyYML._AC_SR480,480_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41dlM3P-RYL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41CF84t1CzL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41RsGKCW7EL._AC_SR160,160_.jpg'},
+    {img:'https://m.media-amazon.com/images/I/41zsaCwgnsL._AC_SR160,160_.jpg'},
+   ]
+ }
   let rat = 5 ; 
 
 const rray = new Array(rat).fill(0);
@@ -98,6 +126,14 @@ console.log(rray);
             </div>
         </div>
      </div>
+      <br />
+       <br />
+      <Silder array={Data.array1}/>
+      <br />
+      <br />
+      <Silder array={Data.arra2}/>
+      <br />
+      <br />
     </div>
   )
 }
