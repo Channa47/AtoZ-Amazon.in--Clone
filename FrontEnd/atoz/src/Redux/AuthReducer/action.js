@@ -29,7 +29,7 @@ const userRegisterSuccess = () => {
 const registerUser = (payload) => (dispatch) => {
   dispatch(userRegisterRequest());
   return axios
-    .post(`https://better-gold-grasshopper.cyclic.app/users/register`, payload)
+    .post(`deployed backend url`, payload)
     .then((res) => {
       console.log(res.data);
       dispatch(userRegisterSuccess());
