@@ -48,6 +48,14 @@ const Address = () => {
   const [bphone, setbPhone] = React.useState("");
   const [badtype, setbAdtype] = React.useState("");
   const [dadd,setDadd]=React.useState(0)
+  // const [userData, setUserData] = useState({
+  //   fullName: "",
+  //   city: "",
+  //   state: "",
+  //   country: "",
+  //   pinCode:"",
+  //   phoneNo:""
+  // });
   // const [user,setUser]=React.useState([]);
 
   useEffect(() => {
