@@ -1,5 +1,7 @@
 import * as types from "./actionTypes";
 import axios from "axios";
+import { useToast } from "@chakra-ui/react";
+import { Toast } from "@chakra-ui/toast";
 
 const userLoginRequest = () => {
   return { type: types.USER_LOGIN_REQUEST };
@@ -40,8 +42,24 @@ const registerUser = (payload) => (dispatch) => {
     });
 };
 
+const loginUser = (payload) => (dispatch) => {
+  dispatch(userLoginRequest());
+
+  return axios
+    .post(`https://long-plum-ray-ring.cyclic.app/api/v1/login`, payload)
+    .then((res) => {
+      console.log(res.data);
+      dispatch(userLoginSuccess());
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch(userLoginFailure());
+    });
+};
+
 export {
   registerUser,
+  loginUser,
   userRegisterRequest,
   userRegisterSuccess,
   userRegisterFailure,
