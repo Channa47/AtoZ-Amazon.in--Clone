@@ -1,4 +1,4 @@
-#top_container{
+#top_container {
   position: sticky;
   top: 0;
   z-index: 100;
@@ -92,6 +92,7 @@
 .seachbox input {
   height: 47px;
   width: 100%;
+  padding: 10px;
 }
 .language {
   color: white;
