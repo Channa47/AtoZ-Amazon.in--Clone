@@ -3,6 +3,7 @@ import { Navigation } from '../Components/Navigation'
 import { Header } from '../Components/Header'
 import "../Components/SinglePage.css"
 import Silder from '../Components/Slider';
+// import Silder from '../Components/Slider'
 import SlideShowTwo from '../Components/ShowSlide';
 function SinglePage() {
   // let array = 

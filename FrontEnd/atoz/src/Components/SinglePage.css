@@ -212,6 +212,7 @@
     .MainOfferDiv{
         /* border: 2px solid blue; */
         width: 100%;
+       
     }
     #ProductTitle{
         font-weight: 500;
@@ -222,5 +223,9 @@
     }
     .freeDeliveryuDiv{
         grid-template-columns: repeat(2,1fr);
+    }
+    .MainImgDiv{
+        display: grid;
+        /* border: 2px solid red; */
     }
 }
