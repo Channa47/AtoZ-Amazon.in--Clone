@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Image,
   Box,
@@ -12,10 +13,51 @@ import {
   Container,
   Button,
   Divider,
+  useToast,
 } from "@chakra-ui/react";
+import { Toast } from "@chakra-ui/toast";
 import { GoTriangleRight } from "react-icons/go";
 import { Link } from "react-router-dom";
+import { loginUser } from "../Redux/AuthReducer/action";
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const toast = useToast();
+  const dispatch = useDispatch();
+  const isAuthLoading = useSelector((state) => state.AuthReducer.isAuthLoading);
+  const isAuth = useSelector((state) => state.AuthReducer.isAuth);
+  const isAuthFailure = useSelector((state) => state.AuthReducer.isAuthFailure);
+
+  const handleSubmit = () => {
+    const payload = {
+      email,
+      password,
+    };
+    console.log(payload);
+    dispatch(loginUser(payload));
+  };
+
+  useEffect(() => {
+    if (isAuth) {
+      toast({
+        title: `You are successfully logged in`,
+        description: `Login Successful`,
+        status: "success",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+    if (isAuthFailure) {
+      toast({
+        title: "Failed to Log in",
+        description: `Please enter correct details`,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
+  }, [isAuth, isAuthFailure]);
   return (
     <div>
       <Box m="auto" w={{ base: "60%", sm: "50%", md: "40%", lg: "28%" }}>
@@ -43,6 +85,8 @@ const Login = () => {
               h="9"
               placeholder="Enter your email address"
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <FormLabel mb="0.5" mt="2" fontSize={13} fontWeight="bold">
               Password
@@ -52,8 +96,19 @@ const Login = () => {
               h="9"
               placeholder="Enter your password"
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <Button h="8" bgColor="#f1c350" w="100%" mt="3" mb="4">
+            <Button
+              isLoading={isAuthLoading}
+              loadingText="Logging In"
+              h="8"
+              bgColor="#f1c350"
+              w="100%"
+              mt="3"
+              mb="4"
+              onClick={handleSubmit}
+            >
               Continue
             </Button>
           </FormControl>
