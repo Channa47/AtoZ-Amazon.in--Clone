@@ -13,6 +13,10 @@ import {
     useColorModeValue,
     Select 
   } from '@chakra-ui/react';
+
+  const init={
+      
+  }
   
   export default function AddNewItem() {
     return (
