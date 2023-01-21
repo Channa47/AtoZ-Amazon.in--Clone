@@ -29,7 +29,7 @@ const userRegisterSuccess = () => {
 const registerUser = (payload) => (dispatch) => {
   dispatch(userRegisterRequest());
   return axios
-    .post(`deployed backend url`, payload)
+    .post(`https://long-plum-ray-ring.cyclic.app/api/v1/register`, payload)
     .then((res) => {
       console.log(res.data);
       dispatch(userRegisterSuccess());
