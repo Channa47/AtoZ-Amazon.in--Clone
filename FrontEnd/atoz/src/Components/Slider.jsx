@@ -234,7 +234,7 @@ export default function Silder({array}) {
                 return (
                     <Box onClick={()=>navigate(`/`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                       
-                        <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
+                        <Image src={item.img} width="150px"  height={'100%'} borderRadius="10px"  />
                        
         
                     </Box>
@@ -304,7 +304,7 @@ export default function Silder({array}) {
                 return (
                     <Box onClick={()=>navigate(`/`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                       
-                        <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
+                        <Image src={item.img} width="150px"  height={'100%'} borderRadius="10px"  />
                        
         
                     </Box>
@@ -373,7 +373,7 @@ export default function Silder({array}) {
           
                 return (
                     <Box onClick={()=>navigate(`/`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
-                        <Image src={item.img} width="100%"  height={'100%'} borderRadius="10px"  />
+                        <Image src={item.img} width="150px"  height={'100%'} borderRadius="10px"  />
                     </Box>
                 )
             
