@@ -1,0 +1,25 @@
+.banner_ontainer {
+  max-width: 320px;
+  height: 400px;
+  padding: 15px;
+  justify-items: left;
+  background-color: white;
+}
+.product_card_container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+}
+.grid_product > p {
+  text-align: left;
+  font-size: 12.3px;
+}
+.offer_link {
+  text-align: left;
+  padding-top: 15px;
+  color: #0e8094;
+  font-size: 14px;
+}
+.offer_link:hover {
+  text-decoration: underline;
+}
