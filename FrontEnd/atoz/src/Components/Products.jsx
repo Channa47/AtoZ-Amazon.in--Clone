@@ -39,32 +39,33 @@ const Products = () => {
   const [items, setItems] = useState([]);
   const [sort, setSort] = useState("");
   const [val,setVal]=useState("");
-
+  const [cat,setCat] =useState("mobile");
 
   useEffect(() => {
-    fetch(`https://long-plum-ray-ring.cyclic.app/api/v1/products?category=laptop&page=${page}`)
+    fetch(`https://long-plum-ray-ring.cyclic.app/api/v1/products?category=${cat}&page=${page}`)
       .then((res) => res.json())
       // .then((res)=>console.log(res))
       .then((res) => {setItems(res.products)
         console.log(res.products)
         console.log(items)
+ 
       })
     
       .catch((err) => console.log(err));
-  }, [page,val]);
+  }, [cat,page]);
 
 
   return (
     <div>
 
-      <Grid templateColumns="21% 78.5%" gap={1} bg="gray.100">
+      <Grid templateColumns="21% 78.5%" gap={1} bg="white">
         <GridItem w="100%" h="auto" px="2">
           
           <Box
             h="auto"
             p="3"
             pl="4"
-            border="1px"
+            // border="1px"
             borderColor="gray.300"
             mt="2"
             align="left"
@@ -86,10 +87,11 @@ const Products = () => {
             h="auto"
             p="3"
             pl="4"
-            border="1px"
+            // border="1px"
             borderColor="gray.300"
             mt="2"
             align="left"
+            display="grid"
             bg="white"
           >
             <Text
@@ -100,15 +102,27 @@ const Products = () => {
             >
               Category
             </Text>
-            <Checkbox mt="2" colorScheme="blue">
+            <Checkbox mt="2" colorScheme="blue" value="mobile" onChange={(e) => setCat(e.target.value)}>
               Smartphones
+            </Checkbox>
+            <Checkbox mt="2" colorScheme="blue" value="laptop" onChange={(e) => setCat(e.target.value)}>
+              Laptops
+            </Checkbox>
+            <Checkbox mt="2" colorScheme="blue" value="grocery" onChange={(e) => setCat(e.target.value)}>
+              Grocery
+            </Checkbox>
+            <Checkbox mt="2" colorScheme="blue" value="clothes" onChange={(e) => setCat(e.target.value)}>
+              Fashion
+            </Checkbox>
+            <Checkbox mt="2" colorScheme="blue" value="shoes" onChange={(e) => setCat(e.target.value)}>
+              Shoes
             </Checkbox>
           </Box>
           <Box
             h="auto"
             p="3"
             pl="4"
-            border="1px"
+            // border="1px"
             borderColor="gray.300"
             mt="2"
             align="left"
@@ -123,7 +137,7 @@ const Products = () => {
             >
               Brand
             </Text>
-            <Checkbox mt="2" colorScheme="blue" value="1000" onChange={(e) => setVal(e.target.value)}>
+            <Checkbox mt="2" colorScheme="blue" >
               Samsung
             </Checkbox>
             <Checkbox mt="2" colorScheme="blue">
@@ -143,11 +157,13 @@ const Products = () => {
             </Checkbox>
           </Box>
 
+          
+
           <Box
             h="auto"
             p="3"
             pl="4"
-            border="1px"
+            // border="1px"
             borderColor="gray.300"
             mt="2"
             align="left"
@@ -182,7 +198,7 @@ const Products = () => {
             h="auto"
             p="3"
             pl="4"
-            border="1px"
+            // border="1px"
             borderColor="gray.300"
             mt="2"
             bg="white"
@@ -236,7 +252,7 @@ const Products = () => {
             h="auto"
             p="3"
             pl="4"
-            border="1px"
+            // border="1px"
             borderColor="gray.300"
             mt="2"
             align="left"
@@ -272,7 +288,7 @@ const Products = () => {
             gap="auto"
             bg="white"
             mt="2"
-            border="1px"
+            // border="1px"
             borderColor="gray.300"
           >
             <GridItem w="auto" h="auto" >
@@ -305,6 +321,7 @@ const Products = () => {
                   borderColor="green"
                   ml="2"
                   fontSize="xs"
+                  p={5}
                   value={sort}
                   onClick={() => setSort("asc")}
                 >
@@ -315,6 +332,7 @@ const Products = () => {
                   ml="2"
                   border="1px"
                   borderColor="green"
+                  p={5}
                   fontSize="xs"
                   value={sort}
                   onClick={() => setSort("desc")}
