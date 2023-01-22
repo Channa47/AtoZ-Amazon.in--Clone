@@ -169,68 +169,121 @@ const Cart = () => {
           })}
         </Box>
         {/* R I G H T   S I D E  O F    F L E X */}
-        <Box w="24%" border="solid black 1px" m="5" ml="0" bg="white" p="4">
-          <Text
-            textAlign="left"
-            fontSize={{ base: "5", sm: "6", md: "10", lg: "14" }}
-          >
-            <Icon textAlign="left" color="green" as={CheckCircleIcon} /> Your
-            order is eligible for FREE Delivery. Select this option at checkout.
-          </Text>
-          <Text
-            m="2"
-            textAlign="left"
-            fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
-            fontWeight="semibold"
-          >
-            Subtotal ({cartData.length} items) :
+        <Box w="24%" border="solid black 1px" m="5" ml="0" bg="#eaeded">
+          <Box borderRadius={5} bg="white" p="2">
             <Text
-              fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
-              fontWeight="bold"
+              textAlign="left"
+              fontSize={{ base: "5", sm: "6", md: "10", lg: "14" }}
             >
-              ₹{totalSum}
+              <Icon textAlign="left" color="green" as={CheckCircleIcon} /> Your
+              order is eligible for FREE Delivery. Select this option at
+              checkout.
             </Text>
-          </Text>
-          <Button
-            w="100%"
-            mt="2"
-            mb="2"
-            bgColor="#ffd814"
-            fontWeight="normal"
-            fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
-          >
-            Proceed to Buy
-          </Button>
-          <Box
-            borderRadius="5"
-            mt="3"
-            mb="2"
-            w={{ base: "90%", sm: "90%", md: "90%", lg: "100%" }}
-          >
-            <Accordion allowToggle>
-              <AccordionItem>
-                <h2>
-                  <AccordionButton>
-                    <Box
-                      as="span"
-                      flex="1"
+            <Text
+              m="2"
+              textAlign="left"
+              fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
+              fontWeight="semibold"
+            >
+              Subtotal ({cartData.length} items) :
+              <Text
+                fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
+                fontWeight="bold"
+              >
+                ₹{totalSum}
+              </Text>
+            </Text>
+            <Button
+              w="100%"
+              mt="2"
+              mb="2"
+              bgColor="#ffd814"
+              fontWeight="normal"
+              fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
+            >
+              Proceed to Buy
+            </Button>
+            <Box
+              borderRadius="5"
+              mt="3"
+              mb="2"
+              w={{ base: "90%", sm: "90%", md: "90%", lg: "100%" }}
+            >
+              <Accordion allowToggle>
+                <AccordionItem>
+                  <h2>
+                    <AccordionButton>
+                      <Box
+                        as="span"
+                        flex="1"
+                        textAlign="left"
+                        fontSize={{ base: "8", sm: "10", md: "12", lg: "14" }}
+                      >
+                        EMI Available
+                      </Box>
+                      <AccordionIcon />
+                    </AccordionButton>
+                  </h2>
+                  <Box>
+                    <AccordionPanel pb={4} textAlign="left">
+                      Your order qualifies for EMI with valid credit cards (not
+                      available on purchase of Gold, Jewelry, Gift cards and
+                      Amazon pay balance top up)
+                    </AccordionPanel>
+                  </Box>
+                </AccordionItem>
+              </Accordion>
+            </Box>
+          </Box>
+          <Box borderRadius={15} bg="white" p="2" mt="5">
+            <Text
+              textAlign="left"
+              fontWeight="bold"
+              fontSize={{ base: "6", sm: "8", md: "12", lg: "15" }}
+            >
+              Similar products like this
+            </Text>
+            {cartData.map((el) => {
+              return (
+                <Flex mt="4">
+                  <Box w="35%">
+                    <Image
+                      m="auto"
+                      w="60%"
+                      h={{ base: "55", sm: "70", md: "75", lg: "100" }}
+                      src={el.images[0].url}
+                    />
+                  </Box>
+                  <Box w="65%">
+                    <Text
                       textAlign="left"
-                      fontSize={{ base: "8", sm: "10", md: "12", lg: "14" }}
+                      color="blue.400"
+                      fontSize={{ base: "10", sm: "12", md: "14", lg: "16" }}
                     >
-                      EMI Available
+                      {el.name}
+                    </Text>
+                    <Text
+                      textAlign="left"
+                      color="brown"
+                      fontSize={{ base: "10", sm: "12", md: "14", lg: "16" }}
+                    >
+                      ₹{el.price}
+                    </Text>
+                    <Box textAlign="left">
+                      <Button
+                        m="1"
+                        w={{ base: "3", sm: "4", md: "5", lg: "14" }}
+                        fontSize={{ base: "5", sm: "6", md: "7", lg: "8" }}
+                        h={{ base: "3", sm: "4", md: "5", lg: "7" }}
+                        bgColor="#ffd814"
+                      >
+                        Add to Cart
+                      </Button>
                     </Box>
-                    <AccordionIcon />
-                  </AccordionButton>
-                </h2>
-                <Box>
-                  <AccordionPanel pb={4} textAlign="left">
-                    Your order qualifies for EMI with valid credit cards (not
-                    available on purchase of Gold, Jewelry, Gift cards and
-                    Amazon pay balance top up)
-                  </AccordionPanel>
-                </Box>
-              </AccordionItem>
-            </Accordion>
+                  </Box>
+                </Flex>
+              );
+            })}
           </Box>
         </Box>
       </Flex>
