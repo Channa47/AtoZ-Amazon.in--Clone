@@ -320,30 +320,7 @@ const Products = () => {
                   Price: High to Low
                   </option>
                 </Select>
-                <Button
-                  bg="none"
-                  border="1px"
-                  borderColor="green"
-                  ml="2"
-                  fontSize="xs"
-                  p={5}
-                  value={sort}
-                  onClick={() => setSort("asc")}
-                >
-                  Price(Low-High)
-                </Button>
-                <Button
-                  bg="none"
-                  ml="2"
-                  border="1px"
-                  borderColor="green"
-                  p={5}
-                  fontSize="xs"
-                  value={sort}
-                  onClick={() => setSort("desc")}
-                >
-                  Price(High-Low)
-                </Button>
+
               </Box>
             </GridItem>
           </Grid>

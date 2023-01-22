@@ -242,7 +242,7 @@ function Header() {
                 Sign Out
                 </MenuItem>:
                 <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }} onClick={()=>navigate('/login')} >
-                LOG In
+                Sign In
               </MenuItem> }
               </MenuList>
             </Menu>
@@ -273,7 +273,7 @@ function Header() {
                 Sign Out
                 </MenuItem>:
                 <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }} onClick={()=>navigate('/login')} >
-                LOG In
+                Sign In
               </MenuItem> }
               </MenuList>
             </Menu>

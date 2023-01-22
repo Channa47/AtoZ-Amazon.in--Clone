@@ -7,7 +7,7 @@ import visa from "../assets/visa.png";
 import americanExpress from "../assets/americanExpress.png";
 import dinersClub from "../assets/dinersClub.png";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
-
+import amzlogo from "../assets/amzlogo.png";
 import {
   Grid,
   GridItem,
@@ -53,6 +53,7 @@ const Payment = () => {
   const [isLoading, setIsLoading] = useState(true);
   const toast = useToast();
   const cancelRef = useRef();
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
  
   const [bupi, setbUpi] = React.useState("");
   const [bank, setBank] = React.useState("");
@@ -61,7 +62,10 @@ const [pmethod,setpMethod] = React.useState("")
 const { isOpen, onOpen, onClose } = useDisclosure();
 const [dadd,setDadd]=React.useState(0)
 const navigate = useNavigate();
-
+let totalSum = 0;
+  cartItems.map((el) => {
+    totalSum += el.price;
+  });
 
   const elements = useElements();
   const stripe = useStripe();
@@ -340,25 +344,45 @@ const navigate = useNavigate();
       </AccordionButton>
     </h2>
     <AccordionPanel pb={4} value={dadd} onChange={(e) => setDadd(e.target.value)}>
-    <RadioGroup >
-      <Stack direction='column'>
-        <Box>
-      <Radio value='1'>
-      <Text fontWeight="bold" >Victor Paul Choudhury</Text>
-     <Text>Flat no.810, Model apartment, Kahilipara road, Guwahati, Assam, 781086, India,</Text>
-     <Text>Phone number: 8632893425</Text>
-     </Radio>
-     </Box>
-     <Box>
-      <Radio value='2'>
-      <Text fontWeight="bold" >Nick</Text>
-     <Text>House no.10, M.G road, Delhi, Delhi, 481086, India,</Text>
-     <Text>Landmark: Near N.K hotel</Text>
-     <Text>Phone number: 5896315420</Text>
-     </Radio>
-     </Box>
-      </Stack>
-    </RadioGroup>
+    {cartItems.map((el) => {
+            return (
+    <Box
+        // border="1px"
+        borderColor="gray.300"
+        display="flex"
+        align="left"
+        p="4"
+        bg="white"
+        cursor="pointer"
+      >
+        <Box w="30%" mr={5} ml={5}>
+          <Text>Items dispatched by Amazon</Text>
+            <Box bg="gray.50">
+            <Image src={el.images[0].url} m="auto" h="180px" ></Image>
+            </Box>
+        </Box>
+          <Box>
+            <Text mt="2">{el.name}</Text>
+            <Box display="flex" fontSize="sm" mt="2" m="auto">
+              <Text fontWeight="medium" fontSize="2xl">
+                ₹{el.price}
+              </Text>
+              <Text ml="2" color="grey" fontWeight="medium" mt={2}>
+       
+                ₹<del>5000</del>
+              </Text>
+              <Text ml="2" color="black" fontWeight="medium" mt={2} border="1px" p=
+              {1} borderRadius={5}>Qty: 1</Text>
+            </Box>
+            <Box display="flex" mt={4}>
+              <Image src={amzlogo} h={4} mt={1.5}></Image>
+              <Text ml={1}>FREE One-Day</Text>
+            </Box>
+            <Text mt={2}>FREE Delivery by Tomorrow, January 20</Text>
+          </Box>
+      </Box>
+       );
+      })}
     </AccordionPanel>
   </AccordionItem>
   </Accordion>
@@ -447,7 +471,7 @@ const navigate = useNavigate();
                     <Box borderBottom="1px" borderBottomColor="gray.400">
                     <Flex justifyContent="space-between">
                       <Text>Items:</Text>
-                      <Text>₹1,490.00</Text>
+                      <Text>₹{totalSum}</Text>
                     </Flex>
                     <Flex justifyContent="space-between">
                       <Text>Delivery:</Text>
@@ -455,17 +479,17 @@ const navigate = useNavigate();
                     </Flex>
                     <Flex justifyContent="space-between">
                       <Text>Total:</Text>
-                      <Text>₹1,490.00</Text>
+                      <Text>₹{totalSum}</Text>
                     </Flex>
                     <Flex justifyContent="space-between">
                       <Text>Promotion Applied:</Text>
-                      <Text>-₹660.35</Text>
+                      <Text>-₹0.00</Text>
                     </Flex>
                     </Box>
                     <Box borderBottom="1px" borderBottomColor="gray.400" fontWeight="bold" align="left" fontSize="lg" mt={2} pb={2} color="#B12704">
                     <Flex justifyContent="space-between">
                       <Text>Order Total:</Text>
-                      <Text >₹829.65</Text>
+                      <Text >₹{totalSum}</Text>
                     </Flex>
                     </Box>
                     <Box align="left">
