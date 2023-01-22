@@ -20,6 +20,7 @@ import { useSelector } from "react-redux";
 import Cookies from 'js-cookie'
 import axios from "axios";
 
+
 function Header() {
   const role =JSON.parse(localStorage.getItem('role'));
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,7 +37,6 @@ function Header() {
   console.log(cccc)
   let loggedInUser =JSON.parse(localStorage.getItem('user')) || {}
   const toast = useToast();
-  
   useEffect(()=>{
     setCount(catItems.length)
     if(loggedInUser.user){
@@ -57,6 +57,7 @@ function Header() {
       duration: 3000,
       isClosable: true,
     })
+    window.location.reload();
   }
 
   // console.log(query);
@@ -237,12 +238,12 @@ function Header() {
                 </div>
               </MenuButton>
               <MenuList w="15px">
-                <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }}>
-                  Sign in
-                </MenuItem>
-                <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }}>
-                  Register
-                </MenuItem>
+                {loggedInUser.user ? <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }}onClick={handleLogOut} >
+                Sign Out
+                </MenuItem>:
+                <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }} onClick={()=>navigate('/login')} >
+                LOG In
+              </MenuItem> }
               </MenuList>
             </Menu>
           ) : (
@@ -268,9 +269,12 @@ function Header() {
                 </div>
               </MenuButton>
               <MenuList>
-                <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }} onClick={handleLogOut}>
-                  Sign Out
-                </MenuItem>
+              {loggedInUser.user ? <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }}onClick={handleLogOut} >
+                Sign Out
+                </MenuItem>:
+                <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }} onClick={()=>navigate('/login')} >
+                LOG In
+              </MenuItem> }
               </MenuList>
             </Menu>
           )}
