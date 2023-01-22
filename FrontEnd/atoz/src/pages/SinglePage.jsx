@@ -7,6 +7,7 @@ import Silder from '../Components/Slider';
 import SlideShowTwo from '../Components/ShowSlide';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import { Footer } from '../Components/Footer';
 
 import axios from 'axios';
 import { useToast } from '@chakra-ui/react';
@@ -60,7 +61,10 @@ function SinglePage() {
     {img:'https://m.media-amazon.com/images/I/41zsaCwgnsL._AC_SR160,160_.jpg',name: "MacBook Pro"},
    ]
  }
-  let rat = 5 ; 
+  let random = Math.floor(Math.random() * 5) ; 
+
+  let rat = random
+   
 
   const handelAddToCart = () =>{
       let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
@@ -184,6 +188,7 @@ const rray = new Array(rat).fill(0);
        <Silder array={Data.array1}/>
       <br />
       <br />
+      <Footer/>
     </div>
   )
 }
