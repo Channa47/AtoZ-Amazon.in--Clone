@@ -54,7 +54,7 @@ const settingsForTablet = {
 };
 
 export default function Silder({array}) {
-    console.log(array);
+    // console.log(array);
   // As we have used custom buttons, we need a reference variable to
   // change the state
   const [slider, setSlider] = React.useState();

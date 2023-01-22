@@ -5,8 +5,35 @@ import "../Components/SinglePage.css"
 import Silder from '../Components/Slider';
 // import Silder from '../Components/Slider'
 import SlideShowTwo from '../Components/ShowSlide';
+import { useState } from 'react';
+import { useEffect } from 'react';
+
+import axios from 'axios';
+import { useToast } from '@chakra-ui/react';
 function SinglePage() {
-  // let array = 
+  const [Base , setBase]  = useState([]);
+  let [MainData , setMainData] = useState([]);
+  const toast = useToast();
+
+//   useEffect(()=>{
+//     axios.get('https://long-plum-ray-ring.cyclic.app/v1/product/63c97ef79d73d1175b781d02')
+//     .then(r=>console.log(r))
+//     .catch(r=>console.log(r))
+//   },[])
+  useEffect(()=>{
+   axios.get('https://long-plum-ray-ring.cyclic.app/api/v1/allproducts')
+       .then(r=>{
+         // console.log(r.data.product);
+         setBase(r.data.product);
+         let obj = r.data.product.filter((e)=>{
+            return e._id === '63c97ef79d73d1175b781d02'
+         })
+         console.log('SingleEl',obj)
+         setMainData(obj);
+         })
+       .catch(r=>console.log(r))
+  },[])
+//   console.log(MainData[0].name)
  const Data = {
    array1:[
     {img:'https://m.media-amazon.com/images/I/31jQ91XUDhS._AC_SR320,320_.jpg'},
@@ -35,8 +62,26 @@ function SinglePage() {
  }
   let rat = 5 ; 
 
+  const handelAddToCart = () =>{
+      let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+      cartItems.push(MainData[0]);
+      localStorage.setItem('cartItems',JSON.stringify(cartItems));
+      toast({
+         title: "Wow",
+         description: `Item Added to Cart`,
+         status: "success",
+         duration: 3000,
+         isClosable: true,
+       });
+  }
+
+  const handleBuy = () =>{
+     localStorage.setItem('buyNow',JSON.stringify(MainData[0]));
+     alert("Done")
+  }
+
 const rray = new Array(rat).fill(0);
-console.log(rray);
+// console.log(rray);
   return (
     <div style={{width:"100%"}}>
      <Header/>
@@ -45,7 +90,7 @@ console.log(rray);
         <div className='MainImgDiv'>
            {/* ====Image===== */}
             <div className='ImageDiv'>
-               <img src="https://m.media-amazon.com/images/I/812yohjGZ2L._SY879_.jpg" alt="" className='IMGAGE' />
+               <img src={MainData[0] && MainData[0].images[0].url} alt="" className='IMGAGE' />
             </div>
             {/* ====Image===== */}
 
@@ -54,7 +99,7 @@ console.log(rray);
               {/* === */}
                <div className='ProductTitleDiv' >
                 <h1 id='ProductTitle'>
-                  MacBook Pro
+                 {MainData[0] && MainData[0].name}
                 </h1>
                 <div className='Rating-And-Reviws-Div'>
                       <h1>Ratings:</h1>
@@ -68,7 +113,7 @@ console.log(rray);
                 </div>
                 {/* === */}
                 <div className='priceDiv'>
-                    <p className='Price'>&#8377;999</p>
+                    <p className='Price'>&#8377;{MainData[0] && MainData[0].price}</p>
                     <p className='textsssss'>Inclusive all taxes 💯 </p>
                     <p className='textsssss'>Awailable No Cost EMI ✔</p>
                 </div>
@@ -95,7 +140,8 @@ console.log(rray);
                 <div className='DesCription-Box'>
                    <h1 className='Desc'>Description</h1>
                    <br />
-                    <p className='textsssss'>Apple's latest MacBook Pro with a Retina display, Touch Bar, and powerful processing capabilities</p>
+
+                    <p className='textsssss'>{MainData[0] && MainData[0].description}</p>
                 </div>
                 {/*  */}
                
@@ -111,7 +157,7 @@ console.log(rray);
             <div>
                 <p className='FullBoldText'>✅Without Exchange </p>
                 <br />
-                <p className='OfferText'>&#8377;999</p>
+                <p className='OfferText'>&#8377;{MainData[0] && MainData[0].price}</p>
             </div>
             <div>
                 <p className='ffddll'>FREE delivery Monday, This Month </p>
@@ -123,8 +169,8 @@ console.log(rray);
                 <p className='SoldByText'>Sold by Appario Retail Private Ltd <br /> and Fulfilled by Amazon</p>
             </div>
             <div id='BTNDIV'>
-               <button className='AddToCart'>Add To Cart</button>
-               <button className='BuyNow'>Buy Now</button>
+               <button className='AddToCart' onClick={handelAddToCart}>Add To Cart</button>
+               <button className='BuyNow' onClick={handleBuy}>Buy Now</button>
             </div>
         </div>
      </div>

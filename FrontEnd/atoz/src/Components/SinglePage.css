@@ -22,7 +22,8 @@
     
 }  */
 .IMGAGE{
-    width: 400px;
+    width: 300px;
+    padding: 10%;
 }
 /*  */
 .MainOfferDiv{
@@ -227,5 +228,9 @@
     .MainImgDiv{
         display: grid;
         /* border: 2px solid red; */
+        justify-content: center;
+    }
+    .IMGAGE{
+        width: auto;
     }
 }
