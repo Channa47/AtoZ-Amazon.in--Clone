@@ -184,7 +184,7 @@ const Cart = () => {
               fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
               fontWeight="semibold"
             >
-              Subtotal ({cartData.length} items) :
+              Subtotal ({cartItems.length} items) :
               <Text
                 fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
                 fontWeight="bold"

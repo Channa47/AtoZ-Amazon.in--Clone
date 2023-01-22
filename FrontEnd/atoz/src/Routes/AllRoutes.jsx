@@ -35,6 +35,7 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         />
+       
         <Route path="/address/" element={<PrivateRoute><Address /></PrivateRoute>}></Route>
         <Route path="/products/:name" element={<Products/>}/>
         <Route path="/payment" element={<PrivateRoute><Elements stripe={promise}><Payment /></Elements></PrivateRoute>}></Route>

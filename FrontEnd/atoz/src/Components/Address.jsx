@@ -72,7 +72,12 @@ const Address = () => {
       }
      getcountry();
   }, []);
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
 
+  let totalSum = 0;
+  cartItems.map((el) => {
+    totalSum += el.price;
+  });
 
   const handleClick = (e) => {
     e.preventDefault();
@@ -361,7 +366,7 @@ const Address = () => {
                     <Box borderBottom="1px" borderBottomColor="gray.400">
                     <Flex justifyContent="space-between">
                       <Text>Items:</Text>
-                      <Text>₹1,490.00</Text>
+                      <Text>₹{totalSum}.00</Text>
                     </Flex>
                     <Flex justifyContent="space-between">
                       <Text>Delivery:</Text>
@@ -369,17 +374,17 @@ const Address = () => {
                     </Flex>
                     <Flex justifyContent="space-between">
                       <Text>Total:</Text>
-                      <Text>₹1,490.00</Text>
+                      <Text>₹{totalSum}.00</Text>
                     </Flex>
                     <Flex justifyContent="space-between">
                       <Text>Promotion Applied:</Text>
-                      <Text>-₹660.35</Text>
+                      <Text>-₹0.00</Text>
                     </Flex>
                     </Box>
                     <Box borderBottom="1px" borderBottomColor="gray.400" fontWeight="bold" align="left" fontSize="lg" mt={2} pb={2} color="#B12704">
                     <Flex justifyContent="space-between">
                       <Text>Order Total:</Text>
-                      <Text >₹829.65</Text>
+                      <Text >₹{totalSum}.00</Text>
                     </Flex>
                     </Box>
                     <Box align="left">
