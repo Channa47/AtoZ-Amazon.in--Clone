@@ -43,12 +43,10 @@ const Cart = () => {
   console.log(cartData);
   return (
     <div style={{ backgroundColor: "#eaeded" }}>
-      <Heading>Cart Page</Heading>
       <Flex>
         {/* L E F T   S I D E  O F    F L E X */}
         <Box
           w="76%"
-          border="solid red 1px"
           m={{ base: "2", sm: "3", md: "4", lg: "5" }}
           bg="white"
           p="4"
@@ -65,10 +63,7 @@ const Cart = () => {
           {cartData.map((el) => {
             return (
               <Flex>
-                <Box
-                  border="solid green 1px"
-                  w={{ base: "26%", sm: "24%", md: "22%", lg: "20%" }}
-                >
+                <Box w={{ base: "26%", sm: "24%", md: "22%", lg: "20%" }}>
                   <Image
                     m="auto"
                     h={{ base: "80px", sm: "120px", md: "120px", lg: "160px" }}
@@ -76,10 +71,7 @@ const Cart = () => {
                     alt={el.name}
                   />
                 </Box>
-                <Box
-                  border="solid blue 1px"
-                  w={{ base: "58%", sm: "57%", md: "56%", lg: "64%" }}
-                >
+                <Box w={{ base: "58%", sm: "57%", md: "56%", lg: "64%" }}>
                   <Text
                     noOfLines={2}
                     fontWeight="semibold"
@@ -157,7 +149,6 @@ const Cart = () => {
                   </SimpleGrid>
                 </Box>
                 <Box
-                  border="solid yellow 1px"
                   w={{ base: "16%", sm: "18%", md: "22%", lg: "16%" }}
                   fontWeight="semibold"
                   fontSize={{ base: "8", sm: "10", md: "14", lg: "18" }}
@@ -169,7 +160,7 @@ const Cart = () => {
           })}
         </Box>
         {/* R I G H T   S I D E  O F    F L E X */}
-        <Box w="24%" border="solid black 1px" m="5" ml="0" bg="#eaeded">
+        <Box w="24%" m="5" ml="0" bg="#eaeded">
           <Box borderRadius={5} bg="white" p="2">
             <Text
               textAlign="left"

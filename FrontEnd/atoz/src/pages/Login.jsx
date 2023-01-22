@@ -18,9 +18,14 @@ import {
 } from "@chakra-ui/react";
 import { Toast } from "@chakra-ui/toast";
 import { GoTriangleRight } from "react-icons/go";
-import { Link, Navigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { loginUser } from "../Redux/AuthReducer/action";
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const comingFrom = location.state?.data || "/";
+  console.log("location", location);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -36,7 +41,15 @@ const Login = () => {
       password,
     };
     console.log(payload);
-    dispatch(loginUser(payload));
+    if (payload) {
+      dispatch(loginUser(payload))
+        .then((r) => {
+          navigate(comingFrom, { replace: true });
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
   };
 
   useEffect(() => {
@@ -49,6 +62,7 @@ const Login = () => {
         isClosable: true,
       });
     }
+
     if (isAuthFailure) {
       toast({
         title: "Failed to Log in",
@@ -59,10 +73,6 @@ const Login = () => {
       });
     }
   }, [isAuth, isAuthFailure]);
-
-  if (isAuth) {
-    return <Navigate to="/" />;
-  }
   return (
     <div>
       <Box m="auto" w={{ base: "60%", sm: "50%", md: "40%", lg: "28%" }}>
