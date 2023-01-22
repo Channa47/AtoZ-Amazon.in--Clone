@@ -27,7 +27,7 @@ function Items() {
 
   useEffect(() => {
     axios
-      .get("localhost:8080/api/v1/allproducts")
+      .get("https://long-plum-ray-ring.cyclic.app/api/v1/allproducts")
       .then((r) => {
         console.log(r.data.product);
         setData(r.data.product);
@@ -50,7 +50,7 @@ function Items() {
     }
     // console.log(payload)
     axios
-      .put(`localhost:8080/api/v1/product/${id}`, payload 
+      .put(`https://long-plum-ray-ring.cyclic.app/api/v1/product/${id}`, payload 
     //     headers: {
     //       token:
     //         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYzk1ZTE1MmVhNGE1NjJiMjRjZGRkNiIsImlhdCI6MTY3NDMxMDEwMCwiZXhwIjoxNjc0NzQyMTAwfQ.9Xz-HIYmL9Yoa8dYGLepLzCPmXtCG_KfiZkjYeflIVQ",
@@ -81,7 +81,7 @@ function Items() {
 
 
   const handleDelete = (id) =>{
-    axios.delete(`localhost:8080/api/v1/product/${id}`)
+    axios.delete(`https://long-plum-ray-ring.cyclic.app/api/v1/product/${id}`)
      .then((r)=>{
         console.log(r);
         toast({

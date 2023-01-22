@@ -21,9 +21,9 @@ const AllRoutes = () => {
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Sample />} />
-        <Route path="/single" element={<SinglePage />} />
+        <Route path="/single:id" element={<SinglePage />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/address" element={<Address />}></Route>
+        <Route path="/address/:id" element={<Address />}></Route>
         <Route path="/payment" element={<Elements stripe={promise}><Payment /></Elements>}></Route>
       </Routes>
     </div>

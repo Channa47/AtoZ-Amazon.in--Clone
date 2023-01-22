@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useToast } from "@chakra-ui/react";
+import Cookies from 'js-cookie'
 import "./user.css";
 import { List, ListItem, ListIcon } from "@chakra-ui/react";
 import {
@@ -16,14 +17,15 @@ import UserSkeliton from "./UserSkeliton";
 function User() {
   const [Data, setData] = useState([]);
   const toast = useToast();
-
+  let Authtoken = Cookies.get('token');
   useEffect(() => {
+    
+    console.log("from Admin Page token is ",Authtoken);
     axios
-      .get("http://localhost:8080/api/v1/admin/users", {
-        headers: {
-          token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYzk1ZTE1MmVhNGE1NjJiMjRjZGRkNiIsImlhdCI6MTY3NDMxMDEwMCwiZXhwIjoxNjc0NzQyMTAwfQ.9Xz-HIYmL9Yoa8dYGLepLzCPmXtCG_KfiZkjYeflIVQ",
-        },
+      .get("https://long-plum-ray-ring.cyclic.app/api/v1/admin/users",{
+        headers:{
+          token : Authtoken,
+        }
       })
       .then((r) => {
         console.log(r.data.users);
@@ -34,10 +36,9 @@ function User() {
 
   const handleDelete = (id) => {
     axios
-      .delete(`localhost:8080/api/v1/admin/users/${id}`, {
+      .delete(`https://long-plum-ray-ring.cyclic.app/api/v1/admin/users/${id}`, {
         headers: {
-          token:
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYzk1ZTE1MmVhNGE1NjJiMjRjZGRkNiIsImlhdCI6MTY3NDMxMDEwMCwiZXhwIjoxNjc0NzQyMTAwfQ.9Xz-HIYmL9Yoa8dYGLepLzCPmXtCG_KfiZkjYeflIVQ",
+          token: Authtoken
         },
       })
       .then((r) => {
@@ -85,7 +86,7 @@ function User() {
                 <div className="btnsDiv">
                   {/* <button className='ButtonsbanandRem'><WarningTwoIcon color='red'/>Ban</button> */}
                   <button
-                    onClick={() => deleteItem(e._id)}
+                    onClick={() => handleDelete(e._id)}
                     className="ButtonsbanandRem"
                   >
                     <DeleteIcon color="red" />
