@@ -25,7 +25,7 @@ import { useEffect, useState } from "react";
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
   const [cartTotal, setCartTotal] = useState([]);
-
+  let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   let totalSum = 0;
   cartData.map((el) => {
     totalSum += el.price;
@@ -60,7 +60,7 @@ const Cart = () => {
           </Text>
           <Text textAlign="right">Price</Text>
           <Divider />
-          {cartData.map((el) => {
+          {cartItems.map((el) => {
             return (
               <Flex>
                 <Box w={{ base: "26%", sm: "24%", md: "22%", lg: "20%" }}>
