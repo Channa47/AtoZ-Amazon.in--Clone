@@ -15,7 +15,7 @@ import {
 } from "@chakra-ui/react";
 
 import { Toast } from "@chakra-ui/toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { registerUser } from "../Redux/AuthReducer/action";
@@ -33,6 +33,8 @@ const Signup = () => {
   const isRegisteredFailure = useSelector(
     (state) => state.AuthReducer.isRegisteredFailure
   );
+  const navigate = useNavigate()
+  
   console.log(isRegisteredLoading);
   const handleSubmit = () => {
     const payload = {
@@ -66,6 +68,9 @@ const Signup = () => {
       });
     }
   }, [isRegistered, isRegisteredFailure]);
+  if(isRegistered){
+    navigate('/login')
+  }
   return (
     <div>
       <Box m="auto" w={{ base: "60%", sm: "50%", md: "40%", lg: "28%" }}>

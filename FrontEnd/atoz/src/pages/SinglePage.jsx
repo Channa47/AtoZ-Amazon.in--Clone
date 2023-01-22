@@ -8,26 +8,34 @@ import SlideShowTwo from '../Components/ShowSlide';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { Footer } from '../Components/Footer';
+import  {useSelector , useDispatch} from 'react-redux'
 
 import axios from 'axios';
 import { useToast } from '@chakra-ui/react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { cartSuccess } from '../Redux/CartReducer/action';
 function SinglePage() {
   const [Base , setBase]  = useState([]);
   let [MainData , setMainData] = useState([]);
   const toast = useToast();
+  const {id} = useParams();
+  const navigate = useNavigate()
+const dispatch = useDispatch();
 
-//   useEffect(()=>{
-//     axios.get('https://long-plum-ray-ring.cyclic.app/v1/product/63c97ef79d73d1175b781d02')
-//     .then(r=>console.log(r))
-//     .catch(r=>console.log(r))
-//   },[])
+
+
+  useEffect(()=>{
+    axios.get(`https://long-plum-ray-ring.cyclic.app/api/v1/product/${id}`)
+    .then(r=>console.log(r))
+    .catch(r=>console.log(r))
+  },[])
   useEffect(()=>{
    axios.get('https://long-plum-ray-ring.cyclic.app/api/v1/allproducts')
        .then(r=>{
          // console.log(r.data.product);
          setBase(r.data.product);
          let obj = r.data.product.filter((e)=>{
-            return e._id === '63c97ef79d73d1175b781d02'
+            return e._id === id
          })
          console.log('SingleEl',obj)
          setMainData(obj);
@@ -71,17 +79,20 @@ function SinglePage() {
       cartItems.push(MainData[0]);
       localStorage.setItem('cartItems',JSON.stringify(cartItems));
       toast({
-         title: "Wow",
          description: `Item Added to Cart`,
          status: "success",
          duration: 3000,
          isClosable: true,
        });
+       let array = JSON.parse(localStorage.getItem('cartItems'))
+       dispatch(cartSuccess(array));
+
+      //  window.location.reload()
   }
 
   const handleBuy = () =>{
-     localStorage.setItem('buyNow',JSON.stringify(MainData[0]));
-     alert("Done")
+   localStorage.setItem('buyNow',JSON.stringify(MainData[0]));
+   navigate("/address")
   }
 
 const rray = new Array(rat).fill(0);

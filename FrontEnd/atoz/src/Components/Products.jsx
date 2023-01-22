@@ -29,6 +29,9 @@ import star3 from "../assets/star3.png"
 import star2 from "../assets/star2.png"
 import star1 from "../assets/star1.png"
 import { useParams } from "react-router-dom";
+import { Header } from "./Header";
+import { Navigation } from "./Navigation";
+import { Footer } from "./Footer";
 
 const Products = () => {
   const {name}=useParams()
@@ -39,7 +42,8 @@ const Products = () => {
   const [items, setItems] = useState([]);
   const [sort, setSort] = useState("");
   const [val,setVal]=useState("");
-  const [cat,setCat] =useState("mobile");
+  const [cat,setCat] = useState(name);
+  console.log(cat)
 
   useEffect(() => {
     fetch(`https://long-plum-ray-ring.cyclic.app/api/v1/products?category=${cat}&page=${page}`)
@@ -48,16 +52,17 @@ const Products = () => {
       .then((res) => {setItems(res.products)
         console.log(res.products)
         console.log(items)
- 
+
       })
     
       .catch((err) => console.log(err));
-  }, [cat,page]);
+  }, [items,name,cat,page]);
 
 
   return (
     <div>
-
+      <Header/>
+      <Navigation/>
       <Grid templateColumns="21% 78.5%" gap={1} bg="white">
         <GridItem w="100%" h="auto" px="2">
           
@@ -375,6 +380,7 @@ const Products = () => {
           </Box>
         </GridItem>
       </Grid>
+      <Footer/>
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { useToast } from "@chakra-ui/react";
 import { useEffect } from "react";
 const PrivateRoute = ({ children }) => {
   const isAuth = useSelector((state) => state.AuthReducer.isAuth);
+  // const isAuth = true
   const location = useLocation();
   console.log("location", location);
   const toast = useToast();

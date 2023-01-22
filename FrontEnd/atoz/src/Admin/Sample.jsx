@@ -4,7 +4,6 @@ import {
   Flex,
   Avatar,
   HStack,
-  Link,
   IconButton,
   Button,
   Menu,
@@ -20,6 +19,7 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import MainLogo from "./Logo/MainLogo.png"
 import MainLogo2 from "./Logo/MainLogo2.png"
+import {Link} from 'react-router-dom'
 
 import { useState } from 'react';
 import Items from './Items';
@@ -27,11 +27,13 @@ import User from './User';
 import Orders from './Orders';
 import AddNewItem from './AddNewItem';
 import UserSkeliton from './UserSkeliton';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 export default function Simple() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [display,setdisplay] = useState("ManageItems")
+  const navigate = useNavigate()
 
   const handelClick = (e)=>{
     setdisplay(e.target.name)
@@ -70,12 +72,15 @@ export default function Simple() {
                 rounded={'full'}
                 variant={'link'}
                 cursor={'pointer'}
-                minW={0}>
+                minW={0}
+                onClick={()=>navigate("/")}
+                >
                 <Image
                   src={
                     MainLogo2
                   }
                   w={100}
+                  
                 />
               </MenuButton>
               {/* <MenuList>

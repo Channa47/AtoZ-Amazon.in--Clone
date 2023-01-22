@@ -9,25 +9,57 @@ import {
   Avatar,
   Heading,
 } from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 import React, { useState } from "react";
 import style from "./Header.module.css";
 import { Search2Icon, TriangleDownIcon } from "@chakra-ui/icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import Cookies from 'js-cookie'
+import axios from "axios";
 
 function Header() {
+  const role =JSON.parse(localStorage.getItem('role'));
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [placement, setPlacement] = useState("left");
   const [user, setUser] = useState("sign n"); // for showing logedin user name
-  const [count, setCount] = useState(1); // for showing total cart items count
+   // for showing total cart items count
   const [category, setCategory] = useState("");
   const [inputValue, setInputValue] = useState("");
-  const [query, setQuery] = useState({ category: "", search: "" });
+  // const [query, setQuery] = useState({ category: "", search: "" });
+  const navigate = useNavigate()
+  let catItems = JSON.parse(localStorage.getItem('cartItems')) || 0
+  const [count, setCount] = useState(catItems.length);
+  let cccc = useSelector((s)=>s.CartReducer.cartData)
+  console.log(cccc)
+  let loggedInUser =JSON.parse(localStorage.getItem('user')) || {}
+  const toast = useToast();
+  
+  useEffect(()=>{
+    setCount(catItems.length)
+    if(loggedInUser.user){
+      setUser(loggedInUser.user.name)
+    }
+  },[catItems])
 
-  const handleSearch = (category, input) => {
-    setQuery({ category: category, search: input });
+  const handleSearch = (input) => {
+    // setQuery({ category: category, search: input });
+    navigate(`/products/${inputValue}`)
   };
-  console.log(query);
+
+  const handleLogOut = () =>{
+     localStorage.clear()
+     toast({
+      description: `Logged Out`,
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    })
+  }
+
+  // console.log(query);
 
   return (
     <div id={style.top_container}>
@@ -71,7 +103,7 @@ function Header() {
                   <p className={style.drawer_opt}>Order History</p>
                 </Link>
                 <Link to="#">
-                  <p className={style.drawer_opt}>Sign Out</p>
+                  <p className={style.drawer_opt} onClick={handleLogOut}>Sign Out</p>
                 </Link>
               </DrawerBody>
               <DrawerBody
@@ -159,7 +191,7 @@ function Header() {
             onChange={(e) => setInputValue(e.target.value)}
           />
           <Search2Icon
-            onClick={() => handleSearch(category, inputValue)}
+            onClick={() => handleSearch(inputValue)}
             color="black"
             bg={"#febd69"}
             boxSize="47px"
@@ -179,7 +211,7 @@ function Header() {
         </div>
         {/******************************* Signin and Return & Order option ****************************/}
         <div className={style.account}>
-          {user === "sign in" ? (
+          {role === "admin" ? (
             <Menu>
               <MenuButton
                 border="1px solid transparent"
@@ -236,10 +268,7 @@ function Header() {
                 </div>
               </MenuButton>
               <MenuList>
-                <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }}>
-                  Order History
-                </MenuItem>
-                <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }}>
+                <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }} onClick={handleLogOut}>
                   Sign Out
                 </MenuItem>
               </MenuList>
@@ -250,6 +279,7 @@ function Header() {
         <div className={style.cart}>
           <div className={style.cart_icon}>
             <img
+              onClick={()=>navigate('/cart')}
               src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Amazon%20Cart.png"
               alt="Cart"
             />
@@ -257,9 +287,9 @@ function Header() {
           </div>
           <span className={style.header_line2}>Cart</span>
         </div>
-        {user === "sign in" && (
+        {role === "admin" && (
           <div className={style.admin_btn}>
-            <button className={style.admin_btn}>Admin Pannel</button>
+            <button className={style.admin_btn} onClick={()=>navigate('/admin')}>Admin Panel</button>
           </div>
         )}
       </div>

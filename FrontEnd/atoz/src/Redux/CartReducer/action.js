@@ -6,6 +6,7 @@ const cartReq = () => {
 };
 
 const cartSuccess = (payload) => {
+  console.log('action,',payload)
   return { type: types.CART_SUCCESS, payload };
 };
 

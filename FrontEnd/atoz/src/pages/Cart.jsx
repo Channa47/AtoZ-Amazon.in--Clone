@@ -21,13 +21,18 @@ import { CheckCircleIcon } from "@chakra-ui/icons";
 import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
+import { Footer } from "../Components/Footer";
+import { Header } from "../Components/Header";
+import { Navigation } from "../Components/Navigation";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
   const [cartTotal, setCartTotal] = useState([]);
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const navigate = useNavigate();
   let totalSum = 0;
-  cartData.map((el) => {
+  cartItems.map((el) => {
     totalSum += el.price;
   });
 
@@ -42,6 +47,9 @@ const Cart = () => {
   }, []);
   console.log(cartData);
   return (
+    <>
+ <Header/>
+ <Navigation/>
     <div style={{ backgroundColor: "#eaeded" }}>
       <Flex>
         {/* L E F T   S I D E  O F    F L E X */}
@@ -191,6 +199,7 @@ const Cart = () => {
               bgColor="#ffd814"
               fontWeight="normal"
               fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
+              onClick={()=>navigate("/address")}
             >
               Proceed to Buy
             </Button>
@@ -279,6 +288,8 @@ const Cart = () => {
         </Box>
       </Flex>
     </div>
+    <Footer/>
+    </>
   );
 };
 

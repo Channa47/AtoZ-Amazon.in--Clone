@@ -7,14 +7,16 @@ import SinglePage from "../pages/SinglePage";
 import Cart from "../pages/Cart";
 import Address from "../Components/Address";
 import PrivateRoute from "../Components/PrivateRoute";
-// import Payment from "../Components/payment";
-// import { Elements } from "@stripe/react-stripe-js";
-// import { loadStripe } from "@stripe/stripe-js";
+import Payment from "../Components/payment";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { Home } from "../Components/Home";
+import Products from "../Components/Products";
+import { UnderConstruction } from "../Components/UnderConstruction";
 
-// const promise = loadStripe(
-//   "pk_test_51MS3GNSAP9Ek1ttSa1Ghpc3tjOlYtKWim3SoYjapoXWX213gYGiOJdujLt0j6NS7hi9bjy7F0caxZ1aPTduUVbvy00drTtwJbM"
-// );
+const promise = loadStripe(
+  "pk_test_51MS3GNSAP9Ek1ttSa1Ghpc3tjOlYtKWim3SoYjapoXWX213gYGiOJdujLt0j6NS7hi9bjy7F0caxZ1aPTduUVbvy00drTtwJbM"
+);
 
 const AllRoutes = () => {
   return (
@@ -24,7 +26,7 @@ const AllRoutes = () => {
         <Route path="/register" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin" element={<Sample />} />
-        <Route path="/single" element={<SinglePage />} />
+        <Route path="/single/:id" element={<PrivateRoute><SinglePage /></PrivateRoute>} />
         <Route
           path="/cart"
           element={
@@ -33,8 +35,11 @@ const AllRoutes = () => {
             </PrivateRoute>
           }
         />
-        <Route path="/address/" element={<Address />}></Route>
-        {/* <Route path="/payment" element={<Elements stripe={promise}><Payment /></Elements>}></Route> */}
+        <Route path="/address/" element={<PrivateRoute><Address /></PrivateRoute>}></Route>
+        <Route path="/products/:name" element={<Products/>}/>
+        <Route path="/payment" element={<PrivateRoute><Elements stripe={promise}><Payment /></Elements></PrivateRoute>}></Route>
+        <Route path="/maintainance" element={<UnderConstruction/>} />
+        <Route path="*" element={<UnderConstruction/>} />
       </Routes>
     </div>
   );

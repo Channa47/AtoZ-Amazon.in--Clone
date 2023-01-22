@@ -163,7 +163,7 @@ export default function Silder({array}) {
         {array.map((item, index) => {
            
                 return (
-                    <Box onClick={()=>navigate(`/`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
+                    <Box  onClick={()=>navigate(`/`)} key={item.id} padding={'10px'}   h={'100%'} w={'90%'} _hover={{cursor:'pointer'}}>
                       
                         <Image src={item.img} width="150px"  height={'100%'} borderRadius="10px"  />
                        

@@ -53,6 +53,13 @@ const loginUser = (payload) => (dispatch) => {
       let authToken = res.data.token;
       console.log(authToken)
       Cookies.set('token', authToken);
+      localStorage.setItem('token',JSON.stringify(authToken));
+      if(res.data.user.role === 'user'){
+        localStorage.setItem('role',JSON.stringify("user"))
+      }else{
+        localStorage.setItem('role',JSON.stringify('admin'))
+      }
+      localStorage.setItem('user',JSON.stringify(res.data))
       dispatch(userLoginSuccess());
     })
     .catch((err) => {

@@ -19,13 +19,13 @@ const ProductsCard = ({ img, title, price, id }) => {
         cursor="pointer"
       >
         <Box w="20%" mr={5} ml={5}>
-          <Link to={`/products/${id}`}>
+          <Link to={`/single/${id}`}>
             <Box bg="gray.50">
             <Image src={img} m="auto" h="180px" ></Image>
             </Box>
           </Link>
         </Box>
-        <Link to={`/products/${id}`}>
+        <Link to={`/single/${id}`}>
           <Box>
             <Text mt="2">{title}</Text>
             <Box display="flex" fontSize="sm" mt="2" m="auto">

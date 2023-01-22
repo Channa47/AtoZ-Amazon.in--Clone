@@ -11,13 +11,14 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import style from "./Navigation.module.css";
 
 function Navigation() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [placement, setPlacement] = useState("left");
   const [user, setUser] = useState("sign in");
+  const navigate = useNavigate()
 
   return (
     <div className={style.navigation_container}>
@@ -91,31 +92,31 @@ function Navigation() {
         All
       </div>
       <div className={style.nav_link}>
-        <Link to="/">Amazon Pay</Link>
+        <Link to="/maintainance">Amazon Pay</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/">Electronics</Link>
+        <Link to="/maintainance">Electronics</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/">Computer</Link>
+        <Link to="/products/laptop">Computer</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/">Fashion</Link>
+        <Link to="/products/clothes">Fashion</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/">Shoes</Link>
+        <Link to="/products/shoes">Shoes</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/">Mobiles</Link>
+        <Link to="/products/mobile">Mobiles</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/">Health</Link>
+        <Link to="/products/grocery">Household</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/">Household</Link>
+        <Link to="/maintainance">Health</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/">Personal Care</Link>
+        <Link to="/maintainance">Personal Care</Link>
       </div>
     </div>
   );

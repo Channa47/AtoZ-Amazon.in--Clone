@@ -29,6 +29,7 @@ import {
 } from "@chakra-ui/react";
 import logo1 from "../assets/logo1.png";
 import { useState, useEffect } from "react";
+import { Footer } from "./Footer";
 
 
 const Address = () => {
@@ -316,12 +317,13 @@ const Address = () => {
     </RadioGroup>
     <Button
                       mt={5}
-                      mb={10}
+                      mb={5}
                       fontWeight=""
                       colorScheme="#FFD729"
                       bg="#FFD729"
                       color="black"
                       onClick={handleClick1}
+                      
                     >
                       Use this address
                     </Button>
@@ -339,7 +341,7 @@ const Address = () => {
           <Box border="2px" mt={5} p={2}  borderColor="gray.400" borderRadius={8} h='auto' mb={5}>
             <Box borderBottom="1px" borderBottomColor="gray.400">
           <Button
-                      w={[300]}
+                      w={[300,300,300,300,200,300]}
                       fontWeight=""
                       colorScheme="#FFD729"
                       bg="#FFD729"
@@ -391,6 +393,7 @@ const Address = () => {
           </SimpleGrid>
         </>
       )}
+      {/* <Footer/> */}
     </div>
   );
 };

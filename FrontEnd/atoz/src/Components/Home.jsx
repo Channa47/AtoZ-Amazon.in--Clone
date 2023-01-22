@@ -2,6 +2,7 @@ import React from "react";
 import style from "./Home.module.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Navigation } from "./Navigation";
 import {
   Box,
   IconButton,
@@ -18,6 +19,8 @@ import Slider from "react-slick";
 import { CardBanner } from "./CardBanner";
 import { Link } from "react-router-dom";
 import { BigCardBanner } from "./BigCardBanner";
+import { Header } from "./Header";
+import { Footer } from "./Footer";
 
 // Settings for the slider
 const settings = {
@@ -274,6 +277,9 @@ function Home() {
   ];
 
   return (
+    <>
+    <Header/>
+    <Navigation/>
     <div id={style.main}>
       <div className={style.home_container}>
         {/****************************** Top Crousel *************************************/}
@@ -546,6 +552,8 @@ function Home() {
         </Carousel>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 
