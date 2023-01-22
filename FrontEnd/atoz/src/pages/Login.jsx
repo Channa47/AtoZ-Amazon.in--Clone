@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   Image,
   Box,
@@ -17,7 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { Toast } from "@chakra-ui/toast";
 import { GoTriangleRight } from "react-icons/go";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { loginUser } from "../Redux/AuthReducer/action";
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -58,6 +59,10 @@ const Login = () => {
       });
     }
   }, [isAuth, isAuthFailure]);
+
+  if (isAuth) {
+    return <Navigate to="/" />;
+  }
   return (
     <div>
       <Box m="auto" w={{ base: "60%", sm: "50%", md: "40%", lg: "28%" }}>
