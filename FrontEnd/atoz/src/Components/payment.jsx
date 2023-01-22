@@ -426,7 +426,7 @@ const navigate = useNavigate();
           <Box border="2px" mt={5} p={2}  borderColor="gray.400" borderRadius={8} h='auto' mb={5}>
             <Box borderBottom="1px" borderBottomColor="gray.400">
           <Button
-                      w={[250 ,250, 500,300,300,300]}
+                      w={[250 ,250,300,300,300,300]}
                       fontWeight=""
                       colorScheme="#FFD729"
                       bg="#FFD729"
