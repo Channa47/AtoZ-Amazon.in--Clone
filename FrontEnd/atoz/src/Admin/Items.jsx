@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import "./AdminPage.css";
 import ISkeliton from "./ISkeliton";
 import { useToast } from "@chakra-ui/react";
+import Cookies from 'js-cookie'
+
 
 import axios from "axios";
 import { useState } from "react";
@@ -19,49 +21,54 @@ import {
   Select,
   Input,
 } from "@chakra-ui/react";
+const init = {
+  public_id:"random", url:""
+}
 function Items() {
   const [Data, setData] = useState([]);
   const [Up, setUp] = useState("name");
-  const [val, setval] = useState("");
+  const [name , setname] = useState('');
+  const [price , setprice] = useState('');
+  const [images , setimages] = useState(init)
   const toast = useToast();
+  let Authtoken = Cookies.get('token');
+ 
 
   useEffect(() => {
     axios
       .get("https://long-plum-ray-ring.cyclic.app/api/v1/allproducts")
       .then((r) => {
-        console.log(r.data.product);
+        // console.log(r.data.product);
         setData(r.data.product);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [Data]);
 
   const handleUpdate = (id) => {
     let payload = {};
-    if (Up === "name") {
-      payload = { name: val };
+    if (name !== '') {
+      payload = { name: name };
     }
-    if (Up === "IMG") {
-      payload = {
-        images: { url: "react Url" },
-      };
+    
+    if (images.url !== '') {
+      payload = {images:images}
     }
-    if (Up === "Price") {
-      payload = { price: val };
+    if (price !== '') {
+      payload = { price: Number(price) };
     }
-    // console.log(payload)
+    console.log(payload)
     axios
-      .put(`https://long-plum-ray-ring.cyclic.app/api/v1/product/${id}`, payload 
-    //     headers: {
-    //       token:
-    //         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYzk1ZTE1MmVhNGE1NjJiMjRjZGRkNiIsImlhdCI6MTY3NDMxMDEwMCwiZXhwIjoxNjc0NzQyMTAwfQ.9Xz-HIYmL9Yoa8dYGLepLzCPmXtCG_KfiZkjYeflIVQ",
-    //     },
-    //   }
+      .put(`https://long-plum-ray-ring.cyclic.app/api/v1/product/${id}`, payload, {
+        headers: {
+          token:Authtoken
+        },
+      }
         )
       .then((r) => {
         console.log(r);
         toast({
           title: "Done",
-          description: `${r.message}`,
+          description: `Updated`,
           status: "success",
           duration: 9000,
           isClosable: true,
@@ -72,7 +79,7 @@ function Items() {
         toast({
           title: "Done",
           description: `${e.message}`,
-          status: "success",
+          status: "error",
           duration: 9000,
           isClosable: true,
         });
@@ -81,12 +88,16 @@ function Items() {
 
 
   const handleDelete = (id) =>{
-    axios.delete(`https://long-plum-ray-ring.cyclic.app/api/v1/product/${id}`)
+    axios.delete(`https://long-plum-ray-ring.cyclic.app/api/v1/product/${id}`,{
+      headers: {
+        token:Authtoken
+      },
+    })
      .then((r)=>{
         console.log(r);
         toast({
             title: "Done",
-            description: `${r.message}`,
+            description: `${r.data.message}`,
             status: "success",
             duration: 9000,
             isClosable: true,
@@ -112,7 +123,7 @@ function Items() {
             <div key={e._id} className="ImageDivofItem">
               <img src={e.images[0].url} alt="" className="ItemImages" />
               <p className="ItemTitle">{e.name}</p>
-              <p className="ItemTitle">{e.price}</p>
+              <p className="ItemTitle">&#8377; {e.price}</p>
               <div className="UpAndDelBtnDiv">
                 <Popover>
                   <PopoverTrigger>
@@ -126,18 +137,37 @@ function Items() {
                       <PopoverBody>
                         <Select
                           _placeholder="What You Wish to Update"
-                          onChange={(e) => setUp(e.target.value)}
+                          onChange={(e) =>{setUp(e.target.value);}}
                         >
                           <option value="name">Name</option>
+                          <option  value="name">Name</option>
                           <option value="IMG">IMG</option>
                           <option value="Price">Price</option>
                         </Select>
+                        {Up==='name' && 
                         <Input
-                          value={val}
-                          onChange={(e) => setval(e.target.value)}
-                          placeholder="Enter Here"
+                          value={name}
+                          onChange={(e)=>setname(e.target.value)}
+                          placeholder="Title"
                           color={"red"}
                         />
+                        }
+                         {Up==='IMG' && 
+                        <Input
+                          value={images.url}
+                          onChange={(e)=>setimages({...images,url:e.target.value})}
+                          placeholder="URL"
+                          color={"red"}
+                        />
+                        }
+                         {Up==='Price' && 
+                        <Input
+                          value={price}
+                          onChange={(e)=>setprice((e.target.value))}
+                          placeholder="Price"
+                          color={"red"}
+                        />
+                        }
                       </PopoverBody>
                       <PopoverFooter>
                         {" "}

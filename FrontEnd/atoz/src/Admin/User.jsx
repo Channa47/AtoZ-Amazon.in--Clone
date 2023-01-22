@@ -18,9 +18,8 @@ function User() {
   const [Data, setData] = useState([]);
   const toast = useToast();
   let Authtoken = Cookies.get('token');
+
   useEffect(() => {
-    
-    console.log("from Admin Page token is ",Authtoken);
     axios
       .get("https://long-plum-ray-ring.cyclic.app/api/v1/admin/users",{
         headers:{
@@ -28,11 +27,11 @@ function User() {
         }
       })
       .then((r) => {
-        console.log(r.data.users);
+        // console.log(r.data.users);
         setData(r.data.users);
       })
       .catch((e) => console.log(e));
-  }, []);
+  }, [Data]);
 
   const handleDelete = (id) => {
     axios

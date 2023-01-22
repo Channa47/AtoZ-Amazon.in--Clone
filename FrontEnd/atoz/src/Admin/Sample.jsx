@@ -40,8 +40,8 @@ export default function Simple() {
 
   return (
     <>
-      <Box bg={useColorModeValue('teal.100', 'teal.900')} px={10} position="fixed" w='100%'>
-        <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
+      <Box bg={useColorModeValue('teal.100', 'teal.900')} px={10} position='fixed' w='100%'  >
+        <Flex h={16} alignItems={'center'} justifyContent={'space-between'} >
           <IconButton
             size={'md'}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
