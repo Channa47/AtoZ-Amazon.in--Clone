@@ -90,8 +90,8 @@ localhost:8080/api/v1/register
 req.body
 {
    "name":"shri",
-   "email":"geniusfactsinsta@gmail.com",
-   "password":"Shrinidhi@9999" 
+   "email":"shri@gmail.com",
+   "password":"Shri@123" 
 }
 
 ## Login User(post)
@@ -120,8 +120,8 @@ req.body
 localhost:8080/api/v1/me/update
 
 {
-    "email":"shrideshpande9177@gmail.com",
-    "name":"shripad deshpande"
+    "email":"shri@gmail.com",
+   "password":"Shri@123" 
 }
 
 ## get all reviews(get)
@@ -135,8 +135,8 @@ localhost:8080/api/v1/admin/users/63be5c31fe833b5cc5c0b825
 
 req.body
 {
-    "name":"shrivalli",
-    "email":"shrivalli@gmail.com",
+    "name":"shri",
+    "email":"shri@gmail.com",
     "role":"admin"
 }
 
@@ -145,9 +145,9 @@ localhost:8080/api/v1/logout
 
 req.body
 {
-    "oldPassword":"Shrinidhi@9999",
-    "newPassword":"shri12345678",
-    "confirmPassword":"shri12345678"
+    "oldPassword":"Shri@123",
+    "newPassword":"Shri@111",
+    "confirmPassword":"Shri@111"
 }
 
 ## Get Single User --(admin) (Get)
@@ -192,14 +192,14 @@ localhost:8080/api/v1/order/new
     }
   ],
   "shippingInfo":{
-  "address":"deshpande galli tanaji chowk latur",
-    "city": "latur",
+  "address":"xyz chowk",
+    "city": "city",
 
     "state": "maharastra",
 
     "country":"India",
     "pinCode": 413512,
-    "phoneNo": 9284149182
+    "phoneNo": 0123456789
   },
   "paymentInfo":{
       "id":"sample payment Info",
