@@ -1,7 +1,7 @@
-#amezon
+#amazon
 
 ## Description
-Amezon leading online shop selling a wide range of consumer electronic gadgets. Buy shoes, cloths, mobiles, laptops, and more. 
+Amazon leading online shop selling a wide range of consumer electronic gadgets. Buy shoes, cloths, mobiles, laptops, and more. 
 
 ## Tech Stack
 
@@ -38,4 +38,4 @@ Amezon leading online shop selling a wide range of consumer electronic gadgets. 
 
 
 ## Deployed link
-- https://6371ebf512789d75d605c3fe--extraordinary-lokum-e2535c.netlify.app/
+- https://atozamazon.netlify.app/
