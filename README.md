@@ -26,7 +26,7 @@
  * Mongodb
  * Node.js
  * Express.js
- *Mongoose
+ * Mongoose
  
 # Deployment 
 [Visit Our Website] https://atozamazon.netlify.app/
