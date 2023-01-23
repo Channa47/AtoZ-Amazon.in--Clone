@@ -1,4 +1,4 @@
-##Amazon
+## Amazon
 
 ## Description
 Amazon leading online shop selling a wide range of consumer electronic gadgets. Buy shoes, cloths, mobiles, laptops, and more. 
