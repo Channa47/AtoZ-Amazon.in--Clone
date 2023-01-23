@@ -1,6 +1,8 @@
-# AtoZ.in
- "AtoZ is E-commercer web site were users can able buy different  kind of products through online
- it is basically clone of  Amazon.in"
+<h1 align="center">AtoZ.in</h1>
+
+ AtoZ is E-commercer web site were users can able buy different  kind of products through online
+ it is basically clone of  Amazon.in
+ 
 # Team Name : AtoZ.in
 # Team Code : reflective-decision-5937
 
@@ -9,10 +11,10 @@
 
 # Team Members :-
 * Channa Keshava
-* victor paul
-* shubham Kumar
+* Victor paul
+* Shubham Kumar
 * Shripad dehspande
-* sandesh Jadhav
+* Sandesh Jadhav
 
 
 # Features
@@ -20,6 +22,8 @@
 * Sign Up.
 * Priducts Page.
 * Start Page. .
+
+
  # Tech Stacks
  # Front-End
  * JavaScript
@@ -90,8 +94,8 @@ localhost:8080/api/v1/register
 req.body
 {
    "name":"shri",
-   "email":"shri@gmail.com",
-   "password":"Shri@123" 
+   "email":"geniusfactsinsta@gmail.com",
+   "password":"Shrinidhi@9999" 
 }
 
 ## Login User(post)
@@ -120,8 +124,8 @@ req.body
 localhost:8080/api/v1/me/update
 
 {
-    "email":"shri@gmail.com",
-   "password":"Shri@123" 
+    "email":"shrideshpande9177@gmail.com",
+    "name":"shripad deshpande"
 }
 
 ## get all reviews(get)
@@ -135,8 +139,8 @@ localhost:8080/api/v1/admin/users/63be5c31fe833b5cc5c0b825
 
 req.body
 {
-    "name":"shri",
-    "email":"shri@gmail.com",
+    "name":"shrivalli",
+    "email":"shrivalli@gmail.com",
     "role":"admin"
 }
 
@@ -145,9 +149,9 @@ localhost:8080/api/v1/logout
 
 req.body
 {
-    "oldPassword":"Shri@123",
-    "newPassword":"Shri@111",
-    "confirmPassword":"Shri@111"
+    "oldPassword":"Shrinidhi@9999",
+    "newPassword":"shri12345678",
+    "confirmPassword":"shri12345678"
 }
 
 ## Get Single User --(admin) (Get)
@@ -192,14 +196,14 @@ localhost:8080/api/v1/order/new
     }
   ],
   "shippingInfo":{
-  "address":"xyz chowk",
-    "city": "city",
+  "address":"deshpande galli tanaji chowk latur",
+    "city": "latur",
 
     "state": "maharastra",
 
     "country":"India",
     "pinCode": 413512,
-    "phoneNo": 0123456789
+    "phoneNo": 9284149182
   },
   "paymentInfo":{
       "id":"sample payment Info",
