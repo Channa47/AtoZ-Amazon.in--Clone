@@ -16,6 +16,8 @@ import {
   Checkbox,
   Image,
   SimpleGrid,
+  Stack,
+  Skeleton
 } from "@chakra-ui/react";
 
 import { ChevronRightIcon } from "@chakra-ui/icons";
@@ -43,6 +45,7 @@ const Products = () => {
   const [sort, setSort] = useState("");
   const [val,setVal]=useState("");
   const [cat,setCat] = useState(name);
+  const [isLoading, setIsLoading] = useState(true);
   console.log(cat)
 
   useEffect(() => {
@@ -52,6 +55,7 @@ const Products = () => {
       .then((res) => {setItems(res.products)
         console.log(res.products)
         console.log(items)
+        setIsLoading(false)
 
       })
     
@@ -59,10 +63,12 @@ const Products = () => {
   }, [items,name,cat,page]);
 
 
+
   return (
     <div>
       <Header/>
       <Navigation/>
+       
       <Grid templateColumns="21% 78.5%" gap={1} bg="white">
         <GridItem w="100%" h="auto" px="2">
           
@@ -286,7 +292,16 @@ const Products = () => {
         </GridItem>
 
 
-
+        {isLoading ? (
+        <Stack  w="80%" margin="auto" mt="100px" gap={8}>
+          <Skeleton height="120px" />
+          <Skeleton height="120px" />
+          <Skeleton height="120px" />
+          <Skeleton height="120px" />
+          <Skeleton height="120px" />
+          <Skeleton height="120px" />
+        </Stack>
+      ) : (
         <GridItem w="100%" h="auto">
           <Grid
             templateColumns="57% 45%"
@@ -356,7 +371,9 @@ const Products = () => {
             ))}
           </Box>
         </GridItem>
+      )}
       </Grid>
+      
       <Footer/>
     </div>
   );

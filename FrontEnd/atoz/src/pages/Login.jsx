@@ -43,17 +43,25 @@ const Login = () => {
     console.log(payload);
     if (payload) {
       dispatch(loginUser(payload))
-        .then((r) => {
-          navigate(comingFrom, { replace: true });
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+        // .then((r) => {
+        //   alert("Success")
+        //   navigate(comingFrom, { replace: true });
+        // })
+        // .catch((e) => {
+        //   alert(e)
+        //   console.log(e);
+        // });
+    }else{
+      toast({
+        title: "Enter All the Credentitaiols",
+        description: `Not Found`,
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
     }
-  };
-
-  useEffect(() => {
     if (isAuth) {
+      navigate(comingFrom, { replace: true })
       toast({
         title: `You are successfully logged in`,
         description: `Login Successful`,
@@ -62,17 +70,41 @@ const Login = () => {
         isClosable: true,
       });
     }
-
-    if (isAuthFailure) {
+    else{
       toast({
         title: "Failed to Log in",
-        description: `Please enter correct details`,
+        description: `Not Found`,
         status: "error",
         duration: 5000,
         isClosable: true,
       });
     }
-  }, [isAuth, isAuthFailure]);
+    setEmail('');
+    setPassword('')
+  };
+
+  // useEffect(() => {
+    // if (isAuth) {
+    //   navigate(comingFrom, { replace: true })
+    //   toast({
+    //     title: `You are successfully logged in`,
+    //     description: `Login Successful`,
+    //     status: "success",
+    //     duration: 5000,
+    //     isClosable: true,
+    //   });
+    // }
+
+    // if (isAuthFailure) {
+    //   toast({
+    //     title: "Failed to Log in",
+    //     description: `Not Found`,
+    //     status: "error",
+    //     duration: 5000,
+    //     isClosable: true,
+    //   });
+    // }
+  // }, [isAuth, isAuthFailure]);
   return (
     <div>
       <Box m="auto" w={{ base: "60%", sm: "50%", md: "40%", lg: "28%" }}>
