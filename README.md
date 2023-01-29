@@ -1,28 +1,22 @@
-<h1 align="center">AtoZ.in</h1>
 
- AtoZ is E-commercer web site were users can able buy different  kind of products through online
- it is basically clone of  Amazon.in
- 
-# Team Name : AtoZ.in
-# Team Code : reflective-decision-5937
+ <h1  align="center">AtoZ.in -Amazon Website Clone</h1>
 
 
+<h4 align="center">AtoZ is E-Commerce Web Application were users can able buy all  kind of products through online
+ it is basically clone of  Amazon.in, Built with team of Five members using MongoDB,Express,React,NodeJS (MERN Stack) in Five Days</h4>
+<br/>
+<h4>Team Code :- reflective-decision-5937</h4>
+
+<br/>
 <img src="https://i.imgur.com/w3NzfPt.png"/>
+<br/>
+<h4 align="center">Deployed On:</h4>
 
-# Team Members :-
-* Channa Keshava
-* Victor paul
-* Shubham Kumar
-* Shripad dehspande
-* Sandesh Jadhav
+<p align="center">
+  <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="netlify" />
+</p>
 
-
-# Features
-* LOG In.
-* Sign Up.
-* Priducts Page.
-* Start Page. .
-
+<br />
 
  <h2 align="center">🖥️ Tech Stack</h2>
 
@@ -50,10 +44,39 @@
 </p>
 
  
-# Deployment 
-[Visit Our Website] https://atozamazon.netlify.app/
+<h3 align="center">Deployment</h3> 
+<h3 align="center"><a href="https://atozamazon.netlify.app/"><strong>Want to see live preview »</strong></a></h3>
+<br />
 
-##Backend
+## Screens/Pages
+- Homepage / Landing Page
+- Product Listing Page with Filters
+- Product Description Page/Single Product Page
+- Cart Management Page
+- Checkout with Address Management Page
+- Login Page
+- Signup Page
+- Admin Dashboard
+
+
+<br />
+
+
+## 🚀 Features
+- Login and Signup User Account
+- JWT (Json Web Token) Authentication and BcryptJS Password Hashing 
+- Product Filters Based on Category 
+- Cart Management  
+- Address Management
+- Payment/Checkout 
+- Admin Dashboard 
+- Add,Delete,Update Products
+- Responsive Design
+
+<br />
+<br/>
+<hr/>
+<h1 align="center">Backend</h1>
 ### Products
 
 ## Get all products --Admin
