@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import "./Login.css";
 
 import {
   Image,
@@ -35,25 +36,18 @@ const Login = () => {
   const isAuth = useSelector((state) => state.AuthReducer.isAuth);
   const isAuthFailure = useSelector((state) => state.AuthReducer.isAuthFailure);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const payload = {
       email,
       password,
     };
     console.log(payload);
     if (payload) {
-      dispatch(loginUser(payload))
-        // .then((r) => {
-        //   alert("Success")
-        //   navigate(comingFrom, { replace: true });
-        // })
-        // .catch((e) => {
-        //   alert(e)
-        //   console.log(e);
-        // });
-    }else{
+      dispatch(loginUser(payload));
+    } else {
       toast({
-        title: "Enter All the Credentitaiols",
+        title: "Enter All the Credentials",
         description: `Not Found`,
         status: "error",
         duration: 5000,
@@ -61,7 +55,6 @@ const Login = () => {
       });
     }
     if (isAuth) {
-      navigate(comingFrom, { replace: true })
       toast({
         title: `You are successfully logged in`,
         description: `Login Successful`,
@@ -69,33 +62,9 @@ const Login = () => {
         duration: 5000,
         isClosable: true,
       });
+      //navigate(comingFrom, { replace: true });
     }
-    else{
-      toast({
-        title: "Failed to Log in",
-        description: `Not Found`,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-    }
-    setEmail('');
-    setPassword('')
-  };
-
-  // useEffect(() => {
-    // if (isAuth) {
-    //   navigate(comingFrom, { replace: true })
-    //   toast({
-    //     title: `You are successfully logged in`,
-    //     description: `Login Successful`,
-    //     status: "success",
-    //     duration: 5000,
-    //     isClosable: true,
-    //   });
-    // }
-
-    // if (isAuthFailure) {
+    // else {
     //   toast({
     //     title: "Failed to Log in",
     //     description: `Not Found`,
@@ -104,7 +73,10 @@ const Login = () => {
     //     isClosable: true,
     //   });
     // }
-  // }, [isAuth, isAuthFailure]);
+    // setEmail("");
+    // setPassword("");
+  };
+  useEffect(() => {}, [isAuth]);
   return (
     <div>
       <Box m="auto" w={{ base: "60%", sm: "50%", md: "40%", lg: "28%" }}>
@@ -115,50 +87,37 @@ const Login = () => {
         />
       </Box>
 
-      <Container w={{ base: "60%", sm: "50%", md: "40%", lg: "29%" }}>
+      <Container w={{ base: "80%", sm: "60%", md: "40%", lg: "29%" }}>
         <Box m="auto" p="7" border="lightgrey solid 1px" borderRadius="5">
           <Text
-            fontSize={{ base: "12", sm: "16", md: "24", lg: "28" }}
+            fontSize={{ base: "18", sm: "16", md: "24", lg: "28" }}
             textAlign="left"
           >
             Sign in
           </Text>
-          <FormControl>
+          <form onSubmit={handleSubmit}>
             <FormLabel mb="0.5" mt="2" fontSize={13} fontWeight="bold">
               Email
             </FormLabel>
-            <Input
-              mb="2"
-              h="9"
+            <input
+              className="inputBox"
               placeholder="Enter your email address"
               type="email"
-              value={email}
+              required
               onChange={(e) => setEmail(e.target.value)}
             />
             <FormLabel mb="0.5" mt="2" fontSize={13} fontWeight="bold">
               Password
             </FormLabel>
-            <Input
-              mb="2"
-              h="9"
-              placeholder="Enter your password"
+            <input
+              className="inputBox"
+              placeholder="Enter your Password"
               type="password"
-              value={password}
+              required
               onChange={(e) => setPassword(e.target.value)}
             />
-            <Button
-              isLoading={isAuthLoading}
-              loadingText="Logging In"
-              h="8"
-              bgColor="#f1c350"
-              w="100%"
-              mt="3"
-              mb="4"
-              onClick={handleSubmit}
-            >
-              Continue
-            </Button>
-          </FormControl>
+            <input className="inputSubmitBtn" type="submit" />
+          </form>
 
           <Text textAlign="left" fontSize={12} mt="3">
             By continuing, you agree to Amazon's
@@ -205,6 +164,7 @@ const Login = () => {
           © 1996-2023, Amazon.com, Inc. or its affiliates
         </Text>
       </Container>
+      <div id="snackbar"></div>
     </div>
   );
 };

@@ -278,96 +278,96 @@ function Home() {
 
   return (
     <>
-    <Header/>
-    <Navigation/>
-    <div id={style.main}>
-      <div className={style.home_container}>
-        {/****************************** Top Crousel *************************************/}
-        <div className={style.crousel}>
-          <Box
-            position={"relative"}
-            height={"600px"}
-            width={"full"}
-            overflow={"hidden"}
-          >
-            {/* CSS files for react-slick */}
-            <link
-              rel="stylesheet"
-              type="text/css"
-              charSet="UTF-8"
-              href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
-            />
-            <link
-              rel="stylesheet"
-              type="text/css"
-              href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-            />
-            {/* Left Icon */}
-
-            <IconButton
-              aria-label="left-arrow"
-              variant="ghost"
-              position="absolute"
-              left={side}
-              // top={top}
-              top="22%"
-              transform={"translate(0%, -50%)"}
-              zIndex={2}
-              onClick={() => slider?.slickPrev()}
-              // backgroundColor="transparent"
-
-              _hover={{
-                backgroundColor: "transparent",
-                border: "2px solid #0ecbd2",
-                boxShadow: "0px 0px 2px 2px",
-              }}
-              height="240px"
-              width="90px"
+      <Header />
+      <Navigation />
+      <div id={style.main}>
+        <div className={style.home_container}>
+          {/****************************** Top Crousel *************************************/}
+          <div className={style.crousel}>
+            <Box
+              position={"relative"}
+              height={"600px"}
+              width={"full"}
+              overflow={"hidden"}
             >
-              <BiLeftArrowAlt size="40px" />
-            </IconButton>
+              {/* CSS files for react-slick */}
+              <link
+                rel="stylesheet"
+                type="text/css"
+                charSet="UTF-8"
+                href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+              />
+              <link
+                rel="stylesheet"
+                type="text/css"
+                href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+              />
+              {/* Left Icon */}
 
-            {/* Right Icon */}
-            <IconButton
-              aria-label="right-arrow"
-              variant="ghost"
-              position="absolute"
-              right={side}
-              // top={top}
-              top="22%"
-              transform={"translate(0%, -50%)"}
-              zIndex={2}
-              onClick={() => slider?.slickNext()}
-              _hover={{
-                backgroundColor: "transparent",
-                border: "2px solid #0ecbd2",
-                boxShadow: "0px 0px 2px 2px",
-              }}
-              height="240px"
-              width="90px"
-            >
-              <BiRightArrowAlt size="40px" />
-            </IconButton>
-            {/* Slider */}
-            <Slider {...settings} ref={(slider) => setSlider(slider)}>
-              {cards.map((card, index) => (
-                <Box
-                  className={style.top_carousel_img}
-                  key={index}
-                  // height={"6xl"}
-                  position="relative"
-                  backgroundPosition="center"
-                  backgroundRepeat="no-repeat"
-                  backgroundSize="cover"
-                  backgroundImage={`url(${card.image})`}
-                >
-                  {/* This is the block to change, to customize the caption */}
-                  <Container
-                    size="container.lg"
-                    height="600px"
+              <IconButton
+                aria-label="left-arrow"
+                variant="ghost"
+                position="absolute"
+                left={side}
+                // top={top}
+                top="22%"
+                transform={"translate(0%, -50%)"}
+                zIndex={2}
+                onClick={() => slider?.slickPrev()}
+                // backgroundColor="transparent"
+
+                _hover={{
+                  backgroundColor: "transparent",
+                  border: "2px solid #0ecbd2",
+                  boxShadow: "0px 0px 2px 2px",
+                }}
+                height="240px"
+                width="90px"
+              >
+                <BiLeftArrowAlt size="40px" />
+              </IconButton>
+
+              {/* Right Icon */}
+              <IconButton
+                aria-label="right-arrow"
+                variant="ghost"
+                position="absolute"
+                right={side}
+                // top={top}
+                top="22%"
+                transform={"translate(0%, -50%)"}
+                zIndex={2}
+                onClick={() => slider?.slickNext()}
+                _hover={{
+                  backgroundColor: "transparent",
+                  border: "2px solid #0ecbd2",
+                  boxShadow: "0px 0px 2px 2px",
+                }}
+                height="240px"
+                width="90px"
+              >
+                <BiRightArrowAlt size="40px" />
+              </IconButton>
+              {/* Slider */}
+              <Slider {...settings} ref={(slider) => setSlider(slider)}>
+                {cards.map((card, index) => (
+                  <Box
+                    className={style.top_carousel_img}
+                    key={index}
+                    // height={"6xl"}
                     position="relative"
+                    backgroundPosition="center"
+                    backgroundRepeat="no-repeat"
+                    backgroundSize="cover"
+                    backgroundImage={`url(${card.image})`}
                   >
-                    {/* <Stack
+                    {/* This is the block to change, to customize the caption */}
+                    <Container
+                      size="container.lg"
+                      height="600px"
+                      position="relative"
+                    >
+                      {/* <Stack
                 spacing={6}
                 w={"full"}
                 maxW={"lg"}
@@ -376,183 +376,186 @@ function Home() {
                 transform="translate(0, -50%)"
               >
               </Stack> */}
-                  </Container>
-                </Box>
-              ))}
-            </Slider>
-          </Box>
+                    </Container>
+                  </Box>
+                ))}
+              </Slider>
+            </Box>
+          </div>
+          <div className={style.top_card}>
+            {product_arr?.map((product) => (
+              <CardBanner
+                heading={product.heading}
+                content={product.prod_card}
+              />
+            ))}
+            <div className={style.app_link}>
+              <Heading size="md" textAlign="left" pb="15px">
+                Shop on the Amazon App
+              </Heading>
+              <p>Great republic day sale | Big savings for everyone</p>
+              <p id={style.download_link}>Download the Amazon App</p>
+            </div>
+          </div>
         </div>
-        <div className={style.top_card}>
-          {product_arr?.map((product) => (
+        <div className={style.offer_cat}>
+          {product_arr2?.map((product) => (
             <CardBanner heading={product.heading} content={product.prod_card} />
           ))}
-          <div className={style.app_link}>
-            <Heading size="md" textAlign="left" pb="15px">
-              Shop on the Amazon App
-            </Heading>
-            <p>Great republic day sale | Big savings for everyone</p>
-            <p id={style.download_link}>Download the Amazon App</p>
-          </div>
+        </div>
+        <div className={style.product_carousel}>
+          <Heading size="md" textAlign="left" backgroundColor="white" p="15px">
+            You might be looking for
+          </Heading>
+          <Carousel responsive={responsive}>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/81apsfnlvYL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/715239THmWL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/811E4hFuG0L._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/51Jlp-dxJEL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/51xCU5ylKAL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/519WgL-+AjL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/61MZ5sEJ+HL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/51Cvd3epkdL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/51BNv1auG3L._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/61vNUBjkcmL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/51yaVo-lPfL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+          </Carousel>
+        </div>
+        <div className={style.bigcard}>
+          {prodBigcard_arr?.map((product) => (
+            <BigCardBanner heading={product.heading} image={product.image} />
+          ))}
+        </div>
+        <div id={style.grocry} className={style.product_carousel}>
+          <Heading size="md" textAlign="left" backgroundColor="white" p="15px">
+            Frequently repurchased in Grocery
+          </Heading>
+          <Carousel responsive={responsive}>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/61d1k2cwZgL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/61ltId84kyL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/A1iVZWFncmL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/71P2iOAIi9L._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/814iBcUf1aL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/517U0BLb2bL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/81WRTbIbLAL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/71M6kMdnqTL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/91Y8ffbl-YL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/91YshjZFHEL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+            <div className={style.product_carousel_img}>
+              <img
+                src="https://m.media-amazon.com/images/I/71PFaLxovsL._AC_SY200_.jpg"
+                alt="product image"
+              />
+            </div>
+          </Carousel>
         </div>
       </div>
-      <div className={style.offer_cat}>
-        {product_arr2?.map((product) => (
-          <CardBanner heading={product.heading} content={product.prod_card} />
-        ))}
-      </div>
-      <div className={style.product_carousel}>
-        <Heading size="md" textAlign="left" backgroundColor="white" p="15px">
-          You might be looking for
-        </Heading>
-        <Carousel responsive={responsive}>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/81apsfnlvYL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/715239THmWL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/811E4hFuG0L._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/51Jlp-dxJEL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/51xCU5ylKAL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/519WgL-+AjL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/61MZ5sEJ+HL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/51Cvd3epkdL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/51BNv1auG3L._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/61vNUBjkcmL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/51yaVo-lPfL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-        </Carousel>
-      </div>
-      <div className={style.bigcard}>
-        {prodBigcard_arr?.map((product) => (
-          <BigCardBanner heading={product.heading} image={product.image} />
-        ))}
-      </div>
-      <div id={style.grocry} className={style.product_carousel}>
-        <Heading size="md" textAlign="left" backgroundColor="white" p="15px">
-          Frequently repurchased in Grocery
-        </Heading>
-        <Carousel responsive={responsive}>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/61d1k2cwZgL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/61ltId84kyL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/A1iVZWFncmL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/71P2iOAIi9L._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/814iBcUf1aL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/517U0BLb2bL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/81WRTbIbLAL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/71M6kMdnqTL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/91Y8ffbl-YL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/91YshjZFHEL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-          <div className={style.product_carousel_img}>
-            <img
-              src="https://m.media-amazon.com/images/I/71PFaLxovsL._AC_SY200_.jpg"
-              alt="product image"
-            />
-          </div>
-        </Carousel>
-      </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
   );
 }
