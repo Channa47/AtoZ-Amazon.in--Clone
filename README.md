@@ -275,7 +275,7 @@ req.body
 [Back End] https://long-plum-ray-ring.cyclic.app/api/v1
 
 
-
+admins Gamail : channa@gmail.com password : channa121
 
 
 
