@@ -54,29 +54,12 @@ const Login = () => {
         isClosable: true,
       });
     }
-    if (isAuth) {
-      toast({
-        title: `You are successfully logged in`,
-        description: `Login Successful`,
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
-      //navigate(comingFrom, { replace: true });
-    }
-    // else {
-    //   toast({
-    //     title: "Failed to Log in",
-    //     description: `Not Found`,
-    //     status: "error",
-    //     duration: 5000,
-    //     isClosable: true,
-    //   });
-    // }
-    // setEmail("");
-    // setPassword("");
   };
-  useEffect(() => {}, [isAuth]);
+  useEffect(() => {
+    if (isAuth) {
+      navigate(comingFrom, { replace: true });
+    }
+  }, [isAuth]);
   return (
     <div>
       <Box m="auto" w={{ base: "60%", sm: "50%", md: "40%", lg: "28%" }}>
@@ -116,7 +99,19 @@ const Login = () => {
               required
               onChange={(e) => setPassword(e.target.value)}
             />
-            <input className="inputSubmitBtn" type="submit" />
+            {!isAuthLoading && (
+              <input className="inputSubmitBtn" type="submit" />
+            )}
+            {isAuthLoading && (
+              <div className="InputSubmitBtnLoading">
+                <div>
+                  <img
+                    src="https://media.tenor.com/wpSo-8CrXqUAAAAi/loading-loading-forever.gif"
+                    alt="loading..."
+                  />
+                </div>
+              </div>
+            )}
           </form>
 
           <Text textAlign="left" fontSize={12} mt="3">

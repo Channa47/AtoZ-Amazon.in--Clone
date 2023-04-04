@@ -35,11 +35,28 @@ const registerUser = (payload) => (dispatch) => {
     .post(`https://long-plum-ray-ring.cyclic.app/api/v1/register`, payload)
     .then((res) => {
       console.log(res.data);
-      dispatch(userRegisterSuccess());
+
+      if (res.data.token && res.data.success) {
+        let x = document.getElementById("snackbar");
+        x.className = "show";
+        x.innerText = `Registration Successfull ${res.data.user.name}`;
+        x.style.backgroundColor = "green";
+        setTimeout(function () {
+          x.className = x.className.replace("show", "");
+          dispatch(userRegisterSuccess());
+        }, 3000);
+      }
     })
     .catch((err) => {
       console.log(err);
-      dispatch(userRegisterFailure());
+      let x = document.getElementById("snackbar");
+      x.className = "show";
+      x.innerText = `${err.response.data.message}`;
+      x.style.backgroundColor = "red";
+      setTimeout(function () {
+        x.className = x.className.replace("show", "");
+        dispatch(userRegisterFailure());
+      }, 3000);
     });
 };
 

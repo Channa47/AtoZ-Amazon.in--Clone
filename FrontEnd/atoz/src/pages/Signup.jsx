@@ -33,10 +33,11 @@ const Signup = () => {
   const isRegisteredFailure = useSelector(
     (state) => state.AuthReducer.isRegisteredFailure
   );
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
+
   console.log(isRegisteredLoading);
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const payload = {
       name,
       email,
@@ -48,28 +49,8 @@ const Signup = () => {
     }
   };
 
-  useEffect(() => {
-    if (isRegistered) {
-      toast({
-        title: "Account Created.",
-        description: `${name} your account successfully created`,
-        status: "success",
-        duration: 5000,
-        isClosable: true,
-      });
-    }
-    if (isRegisteredFailure) {
-      toast({
-        title: "Failed.",
-        description: `Failed to Register`,
-        status: "error",
-        duration: 5000,
-        isClosable: true,
-      });
-    }
-  }, [isRegistered, isRegisteredFailure]);
-  if(isRegistered){
-    navigate('/login')
+  if (isRegistered) {
+    navigate("/login");
   }
   return (
     <div>
@@ -81,7 +62,7 @@ const Signup = () => {
         />
       </Box>
 
-      <Container w={{ base: "60%", sm: "50%", md: "40%", lg: "29%" }}>
+      <Container w={{ base: "80%", sm: "65%", md: "40%", lg: "29%" }}>
         <Box m="auto" p="3" border="lightgrey solid 1px" borderRadius="5">
           <Text
             fontSize={{ base: "12", sm: "16", md: "24", lg: "28" }}
@@ -89,76 +70,52 @@ const Signup = () => {
           >
             Create Account
           </Text>
-          <form>
-            <FormLabel
-              mb="0.5"
-              mt="2"
-              fontSize={13}
-              fontWeight="bold"
-              type="text"
-            >
-              Your Name
+          <form onSubmit={handleSubmit}>
+            <FormLabel mb="0.5" mt="2" fontSize={13} fontWeight="bold">
+              Name
             </FormLabel>
-            <Input
-              mb="2"
-              h="9"
-              placeholder="First and last name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+            <input
+              className="inputBox"
+              placeholder="Enter your Name"
+              type="text"
               required
+              onChange={(e) => setName(e.target.value)}
             />
             <FormLabel mb="0.5" mt="2" fontSize={13} fontWeight="bold">
               Email
             </FormLabel>
-            <Input
-              mb="2"
-              m="auto"
-              h="9"
-              placeholder="Enter Your Email ID"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+            <input
+              className="inputBox"
+              placeholder="Enter your email address"
+              type="email"
               required
+              onChange={(e) => setEmail(e.target.value)}
             />
-
-            <FormLabel
-              mb="0.5"
-              mt="2"
-              fontSize={13}
-              fontWeight="bold"
-              type="text"
-            >
+            <FormLabel mb="0.5" mt="2" fontSize={13} fontWeight="bold">
               Password
             </FormLabel>
-            <Input
-              mb="2"
-              h="9"
-              placeholder="At least 6 characters"
+            <input
+              className="inputBox"
+              placeholder="Enter your Password"
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
               required
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <Text textAlign="left" fontSize={11} mt="-1" mb="3">
-              Passwords must be at least 6 characters.
-            </Text>
-            <Text textAlign="left" fontSize={14}>
-              By enrolling your mobile phone number, you consent to receive
-              automated security notifications via text message from Amazon.
-              Message and data rates may apply.
-            </Text>
-            <Button
-              isLoading={isRegisteredLoading}
-              loadingText="Submitting"
-              h="8"
-              bgColor="#f1c350"
-              w="100%"
-              mt="3"
-              mb="4"
-              onClick={handleSubmit}
-            >
-              Continue
-            </Button>
+            {!isRegisteredLoading && (
+              <input className="inputSubmitBtn" type="submit" />
+            )}
+            {isRegisteredLoading && (
+              <div className="InputSubmitBtnLoading">
+                <div>
+                  <img
+                    src="https://media.tenor.com/wpSo-8CrXqUAAAAi/loading-loading-forever.gif"
+                    alt="loading..."
+                  />
+                </div>
+              </div>
+            )}
           </form>
+
           <Box
             boxShadow="base"
             p="0.5"
@@ -203,6 +160,7 @@ const Signup = () => {
           © 1996-2023, Amazon.com, Inc. or its affiliates
         </Text>
       </Container>
+      <div id="snackbar"></div>
     </div>
   );
 };
