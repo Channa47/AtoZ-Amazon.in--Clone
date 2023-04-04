@@ -276,6 +276,7 @@ req.body
 
 
 admins Gamail : channa@gmail.com password : channa121
+NewDeployed Link : https://ato-z-amazon-in-clone.vercel.app/
 
 
 
