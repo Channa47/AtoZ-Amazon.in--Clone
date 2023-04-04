@@ -18,6 +18,7 @@ import {
   SimpleGrid,
   Stack,
   Skeleton,
+  Flex,
 } from "@chakra-ui/react";
 
 import { ChevronRightIcon } from "@chakra-ui/icons";
@@ -45,37 +46,18 @@ const Products = () => {
   const [page, setPage] = useState(1);
 
   const [sort, setSort] = useState("");
-  const [val, setVal] = useState("");
+
   const [cat, setCat] = useState(name);
-  //const [isLoading, setIsLoading] = useState(true);
-
-  // console.log(cat);
-
+  console.log("name ->>", name);
   const dispatch = useDispatch();
   const items = useSelector((state) => state.CartReducer.items);
   const productsLoading = useSelector(
     (state) => state.CartReducer.getProductsLoading
   );
-  console.log("----()()()()------>>", items);
-  // const getData = () => {
-  //   fetch(
-  //     `https://long-plum-ray-ring.cyclic.app/api/v1/products?category=${cat}&page=${page}`
-  //   )
-  //     .then((res) => res.json())
-  //     // .then((res)=>console.log(res))
-  //     .then((res) => {
-  //       setItems(res.products);
-  //       console.log(res.products);
-  //       console.log(items);
-  //       setIsLoading(false);
-  //     })
-
-  //     .catch((err) => console.log(err));
-  // };
 
   useEffect(() => {
-    dispatch(getProductsData(cat, page));
-  }, [cat, page]);
+    dispatch(getProductsData(name, cat, page));
+  }, [name, cat, page]);
 
   return (
     <div>
@@ -317,14 +299,24 @@ const Products = () => {
         </GridItem>
 
         {productsLoading ? (
-          <Stack w="80%" margin="auto" mt="100px" gap={8}>
-            <Skeleton height="120px" />
-            <Skeleton height="120px" />
-            <Skeleton height="120px" />
-            <Skeleton height="120px" />
-            <Skeleton height="120px" />
-            <Skeleton height="120px" />
-          </Stack>
+          <Flex>
+            <Stack w="20%" mt="100px" mr="1rem" gap={8}>
+              <Skeleton height="10rem" />
+              <Skeleton height="10rem" />
+              <Skeleton height="10rem" />
+              <Skeleton height="10rem" />
+              <Skeleton height="10rem" />
+              <Skeleton height="10rem" />
+            </Stack>
+            <Stack w="78%" mt="100px" gap={8}>
+              <Skeleton height="10rem" />
+              <Skeleton height="10rem" />
+              <Skeleton height="10rem" />
+              <Skeleton height="10rem" />
+              <Skeleton height="10rem" />
+              <Skeleton height="10rem" />
+            </Stack>
+          </Flex>
         ) : (
           <GridItem w="100%" h="auto">
             <Grid

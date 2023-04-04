@@ -26,7 +26,7 @@ const getProductsError = () => {
   return { type: types.GET_PRODUCTS_ERROR };
 };
 
-const getProductsData = (cat, page) => (dispatch) => {
+const getProductsData = (name, cat, page) => (dispatch) => {
   dispatch(getProductsLoading());
   return axios
     .get(

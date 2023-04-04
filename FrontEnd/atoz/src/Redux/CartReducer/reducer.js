@@ -1,5 +1,6 @@
 import * as types from "./actionTypes";
 
+// Inititial State of CartReducer
 const initialState = {
   isLoading: false,
   isError: false,
@@ -9,6 +10,7 @@ const initialState = {
   getProductsError: false,
 };
 
+//Reducer Function
 const reducer = (state = initialState, action) => {
   const { type, payload } = action;
 

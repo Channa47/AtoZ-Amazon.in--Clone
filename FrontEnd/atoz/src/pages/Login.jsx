@@ -1,3 +1,4 @@
+//import statements
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Login.css";
@@ -21,21 +22,26 @@ import { Toast } from "@chakra-ui/toast";
 import { GoTriangleRight } from "react-icons/go";
 import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { loginUser } from "../Redux/AuthReducer/action";
+
+//login component
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const comingFrom = location.state?.data || "/";
-  console.log("location", location);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const toast = useToast();
   const dispatch = useDispatch();
+
+  //getting various states using react-redux library hooks
   const isAuthLoading = useSelector((state) => state.AuthReducer.isAuthLoading);
   const isAuth = useSelector((state) => state.AuthReducer.isAuth);
   const isAuthFailure = useSelector((state) => state.AuthReducer.isAuthFailure);
 
+  //handling form after submitting with handleSubmit function
   const handleSubmit = (e) => {
     e.preventDefault();
     const payload = {
@@ -55,6 +61,8 @@ const Login = () => {
       });
     }
   };
+
+  //if logged in , return user to page from where it has came
   useEffect(() => {
     if (isAuth) {
       navigate(comingFrom, { replace: true });
@@ -69,7 +77,7 @@ const Login = () => {
           src="https://i.imgur.com/YVSZcA4.png"
         />
       </Box>
-
+      {/* F O R M   C O N T A I N E R  */}
       <Container w={{ base: "80%", sm: "60%", md: "40%", lg: "29%" }}>
         <Box m="auto" p="7" border="lightgrey solid 1px" borderRadius="5">
           <Text
@@ -78,6 +86,7 @@ const Login = () => {
           >
             Sign in
           </Text>
+          {/* F O R M */}
           <form onSubmit={handleSubmit}>
             <FormLabel mb="0.5" mt="2" fontSize={13} fontWeight="bold">
               Email
@@ -113,7 +122,7 @@ const Login = () => {
               </div>
             )}
           </form>
-
+          {/* F O R M   E N D S   H E R E */}
           <Text textAlign="left" fontSize={12} mt="3">
             By continuing, you agree to Amazon's
             <span style={{ color: "#2B6CB0" }}>
@@ -159,6 +168,9 @@ const Login = () => {
           © 1996-2023, Amazon.com, Inc. or its affiliates
         </Text>
       </Container>
+      {/* F O R M   C O N T A I N E R   E N D S   H E R E*/}
+
+      {/* SNACKBAR DIV FOR SHOWING TOAST */}
       <div id="snackbar"></div>
     </div>
   );
