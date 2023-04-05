@@ -18,6 +18,7 @@ import {
   AccordionIcon,
 } from "@chakra-ui/react";
 import { CheckCircleIcon } from "@chakra-ui/icons";
+import CartItem from "../Components/CartItem";
 import axios from "axios";
 import React from "react";
 import { useEffect, useState } from "react";
@@ -27,25 +28,25 @@ import { Navigation } from "../Components/Navigation";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const [cartData, setCartData] = useState([]);
+  const [recommend, setRecommend] = useState([]);
   const [cartTotal, setCartTotal] = useState([]);
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const navigate = useNavigate();
   let totalSum = 0;
-  cartItems.map((el) => {
-    totalSum += el.price;
-  });
+  // cartItems.map((el) => {
+  //   totalSum += el.price;
+  // });
 
   console.log(totalSum);
   useEffect(() => {
     axios
       .get(`https://long-plum-ray-ring.cyclic.app/api/v1/products`)
-      .then((res) => setCartData(res.data.products))
+      .then((res) => setRecommend(res.data.products))
       .catch((e) => {
         console.log(e);
       });
   }, []);
-  console.log(cartData);
+  console.log("cartItems - - > ", cartItems);
   return (
     <>
       <Header />
@@ -68,117 +69,128 @@ const Cart = () => {
             </Text>
             <Text textAlign="right">Price</Text>
             <Divider />
-            {!cartItems && (
+            {cartItems.length == 0 && (
               <Box>
                 <img
                   src="https://cdn.dribbble.com/users/2046015/screenshots/4591856/media/314560586aef7f1eae694d78a015c69c.gif"
                   alt="emptyCart"
                 />
+                <Text
+                  fontWeight="semibold"
+                  color="blue.500"
+                  fontSize={{ base: "12", sm: "16", md: "24", lg: "35" }}
+                >
+                  Cart is Empty
+                </Text>
               </Box>
             )}
-            {cartItems?.map((el) => {
-              return (
-                <Flex>
-                  <Box w={{ base: "26%", sm: "24%", md: "22%", lg: "20%" }}>
-                    <Image
-                      m="auto"
-                      h={{
-                        base: "80px",
-                        sm: "120px",
-                        md: "120px",
-                        lg: "160px",
-                      }}
-                      src={el.images[0].url}
-                      alt={el.name}
-                    />
-                  </Box>
-                  <Box w={{ base: "58%", sm: "57%", md: "56%", lg: "64%" }}>
-                    <Text
-                      noOfLines={2}
-                      fontWeight="semibold"
-                      textAlign="left"
-                      fontSize={{ base: "6", sm: "8", md: "10", lg: "16" }}
-                      mt="2"
-                      mb="1"
-                    >
-                      {el.name}-{el.description}
-                    </Text>
-                    <Text
-                      textAlign="left"
-                      color="green"
-                      fontSize={{ base: "6", sm: "8", md: "10", lg: "12" }}
-                    >
-                      In stock
-                    </Text>
-                    <Text
-                      color="gray"
-                      textAlign="left"
-                      fontSize={{ base: "3", sm: "5", md: "7", lg: "11" }}
-                      mt="1"
-                      mb="1"
-                    >
-                      Eligible for FREE Shipping
-                    </Text>
-                    <Image
-                      w={{ base: "6", sm: "7", md: "10", lg: "16" }}
-                      mt="1"
-                      mb="2"
-                      src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png"
-                    />
+            {cartItems &&
+              cartItems.map((el) => {
+                return (
+                  // return (
+                  //   <Flex>
+                  //     <Box w={{ base: "26%", sm: "24%", md: "22%", lg: "20%" }}>
+                  //       <Image
+                  //         m="auto"
+                  //         h={{
+                  //           base: "80px",
+                  //           sm: "120px",
+                  //           md: "120px",
+                  //           lg: "160px",
+                  //         }}
+                  //         src={el.images[0].url}
+                  //         alt={el.name}
+                  //       />
+                  //     </Box>
+                  //     <Box w={{ base: "58%", sm: "57%", md: "56%", lg: "64%" }}>
+                  //       <Text
+                  //         noOfLines={2}
+                  //         fontWeight="semibold"
+                  //         textAlign="left"
+                  //         fontSize={{ base: "6", sm: "8", md: "10", lg: "16" }}
+                  //         mt="2"
+                  //         mb="1"
+                  //       >
+                  //         {el.name}-{el.description}
+                  //       </Text>
+                  //       <Text
+                  //         textAlign="left"
+                  //         color="green"
+                  //         fontSize={{ base: "6", sm: "8", md: "10", lg: "12" }}
+                  //       >
+                  //         In stock
+                  //       </Text>
+                  //       <Text
+                  //         color="gray"
+                  //         textAlign="left"
+                  //         fontSize={{ base: "3", sm: "5", md: "7", lg: "11" }}
+                  //         mt="1"
+                  //         mb="1"
+                  //       >
+                  //         Eligible for FREE Shipping
+                  //       </Text>
+                  //       <Image
+                  //         w={{ base: "6", sm: "7", md: "10", lg: "16" }}
+                  //         mt="1"
+                  //         mb="2"
+                  //         src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png"
+                  //       />
 
-                    <SimpleGrid w="70%" minChildWidth="30px" gap="2">
-                      <Select
-                        placeholder={`Qty :`}
-                        bgColor="#f0f2f2"
-                        h={{ base: "6", sm: "7", md: "7", lg: "8" }}
-                      >
-                        <option value="option1">1</option>
-                        <option value="option2">2</option>
-                        <option value="option3">3</option>
-                        <option value="option1">4</option>
-                        <option value="option2">5</option>
-                        <option value="option3">6</option>
-                        <option value="option1">7</option>
-                        <option value="option2">8</option>
-                        <option value="option3">9</option>
-                        <option value="option3">10+</option>
-                      </Select>
+                  //       <SimpleGrid w="70%" minChildWidth="30px" gap="2">
+                  //         <Select
+                  //           placeholder={`Qty :`}
+                  //           bgColor="#f0f2f2"
+                  //           h={{ base: "6", sm: "7", md: "7", lg: "8" }}
+                  //         >
+                  //           <option value="option1">1</option>
+                  //           <option value="option2">2</option>
+                  //           <option value="option3">3</option>
+                  //           <option value="option1">4</option>
+                  //           <option value="option2">5</option>
+                  //           <option value="option3">6</option>
+                  //           <option value="option1">7</option>
+                  //           <option value="option2">8</option>
+                  //           <option value="option3">9</option>
+                  //           <option value="option3">10+</option>
+                  //         </Select>
 
-                      <Button
-                        color="blue.400"
-                        fontSize={{ base: "3", sm: "6", md: "8", lg: "12" }}
-                        bg="none"
-                      >
-                        Delete
-                      </Button>
+                  //         <Button
+                  //           color="blue.400"
+                  //           fontSize={{ base: "3", sm: "6", md: "8", lg: "12" }}
+                  //           bg="none"
+                  //         >
+                  //           Delete
+                  //         </Button>
 
-                      <Button
-                        color="blue.400"
-                        fontSize={{ base: "3", sm: "4", md: "8", lg: "12" }}
-                        bg="none"
-                      >
-                        Save for later
-                      </Button>
+                  //         <Button
+                  //           color="blue.400"
+                  //           fontSize={{ base: "3", sm: "4", md: "8", lg: "12" }}
+                  //           bg="none"
+                  //         >
+                  //           Save for later
+                  //         </Button>
 
-                      <Button
-                        color="blue.400"
-                        fontSize={{ base: "3", sm: "4", md: "8", lg: "12" }}
-                        bg="none"
-                      >
-                        See more like this
-                      </Button>
-                    </SimpleGrid>
-                  </Box>
-                  <Box
-                    w={{ base: "16%", sm: "18%", md: "22%", lg: "16%" }}
-                    fontWeight="semibold"
-                    fontSize={{ base: "8", sm: "10", md: "14", lg: "18" }}
-                  >
-                    ₹{el.price}
-                  </Box>
-                </Flex>
-              );
-            })}
+                  //         <Button
+                  //           color="blue.400"
+                  //           fontSize={{ base: "3", sm: "4", md: "8", lg: "12" }}
+                  //           bg="none"
+                  //         >
+                  //           See more like this
+                  //         </Button>
+                  //       </SimpleGrid>
+                  //     </Box>
+                  //     <Box
+                  //       w={{ base: "16%", sm: "18%", md: "22%", lg: "16%" }}
+                  //       fontWeight="semibold"
+                  //       fontSize={{ base: "8", sm: "10", md: "14", lg: "18" }}
+                  //     >
+                  //       ₹{el.price}
+                  //     </Box>
+                  //   </Flex>
+                  // );
+                  <CartItem {...el} />
+                );
+              })}
           </Box>
           {/* R I G H T   S I D E  O F    F L E X */}
           <Box w="24%" m="5" ml="0" bg="#eaeded">
@@ -257,8 +269,8 @@ const Cart = () => {
                 Similar products like this
               </Text>
 
-              {cartData &&
-                cartData.map((el) => {
+              {recommend &&
+                recommend.map((el) => {
                   return (
                     <Flex mt="4">
                       <Box w="35%">

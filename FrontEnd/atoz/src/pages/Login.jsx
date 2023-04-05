@@ -78,7 +78,7 @@ const Login = () => {
         />
       </Box>
       {/* F O R M   C O N T A I N E R  */}
-      <Container w={{ base: "80%", sm: "60%", md: "40%", lg: "29%" }}>
+      <Container m="auto" w={{ base: "80%", sm: "60%", md: "40%", lg: "29%" }}>
         <Box m="auto" p="7" border="lightgrey solid 1px" borderRadius="5">
           <Text
             fontSize={{ base: "18", sm: "16", md: "24", lg: "28" }}

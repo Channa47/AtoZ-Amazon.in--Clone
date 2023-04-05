@@ -26,6 +26,14 @@ const getProductsError = () => {
   return { type: types.GET_PRODUCTS_ERROR };
 };
 
+const updateQuantity = (payload) => {
+  return { type: types.UPDATE_QUANTITY, payload };
+};
+
+const deleteFromCart = (payload) => {
+  return { type: types.REMOVE_FROM_CART, payload };
+};
+
 const getProductsData = (name, cat, page) => (dispatch) => {
   dispatch(getProductsLoading());
   return axios
@@ -46,4 +54,6 @@ export {
   cartFailure,
   getProductsData,
   getProductsLoading,
+  updateQuantity,
+  deleteFromCart,
 };

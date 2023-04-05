@@ -4,7 +4,7 @@ import * as types from "./actionTypes";
 const initialState = {
   isLoading: false,
   isError: false,
-  cartData: [],
+  cartData: JSON.parse(localStorage.getItem("cartItems")) || [],
   items: [],
   getProductsLoading: false,
   getProductsError: false,
@@ -32,6 +32,22 @@ const reducer = (state = initialState, action) => {
       return { ...state, getProductsLoading: true };
     case types.GET_PRODUCTS_ERROR:
       return { ...state, getProductsError: true, getProductsLoading: false };
+    case types.UPDATE_QUANTITY:
+      let cartItemsLs = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      let itemIndexLs = cartItemsLs.findIndex((el) => el._id === payload._id);
+
+      let updatedQuantity = [...state.cartData];
+      updatedQuantity[itemIndexLs].quantity = payload.quantity;
+      let newState = {
+        ...state,
+        cartData: updatedQuantity,
+      };
+      localStorage.setItem("cartItems", JSON.stringify(newState.cartData));
+      return newState;
+
+    case types.REMOVE_FROM_CART:
+      return { ...state };
     default:
       return state;
   }

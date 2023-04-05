@@ -48,12 +48,13 @@ const Products = () => {
   const [sort, setSort] = useState("");
 
   const [cat, setCat] = useState(name);
-  console.log("name ->>", name);
+
   const dispatch = useDispatch();
   const items = useSelector((state) => state.CartReducer.items);
   const productsLoading = useSelector(
     (state) => state.CartReducer.getProductsLoading
   );
+  console.log("products ->>", items);
 
   useEffect(() => {
     dispatch(getProductsData(name, cat, page));
