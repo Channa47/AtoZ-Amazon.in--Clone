@@ -17,6 +17,7 @@ import {
   AccordionPanel,
   AccordionIcon,
 } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 import { CheckCircleIcon } from "@chakra-ui/icons";
 import CartItem from "../Components/CartItem";
 import axios from "axios";
@@ -30,14 +31,18 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const [recommend, setRecommend] = useState([]);
   const [cartTotal, setCartTotal] = useState([]);
+  const cartPageData = useState(
+    useSelector((state) => state.CartReducer.cartData) || []
+  );
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const navigate = useNavigate();
-  let totalSum = 0;
-  // cartItems.map((el) => {
-  //   totalSum += el.price;
-  // });
 
-  console.log(totalSum);
+  let total = 0;
+
+  for (let i = 0; i < cartItems.length; i++) {
+    total += cartItems[i].price * cartItems[i].quantity;
+  }
+
   useEffect(() => {
     axios
       .get(`https://long-plum-ray-ring.cyclic.app/api/v1/products`)
@@ -46,6 +51,10 @@ const Cart = () => {
         console.log(e);
       });
   }, []);
+  useEffect(
+    (cartItems = JSON.parse(localStorage.getItem("cartItems")) || []) => {},
+    [cartItems, total]
+  );
   console.log("cartItems - - > ", cartItems);
   return (
     <>
@@ -86,110 +95,7 @@ const Cart = () => {
             )}
             {cartItems &&
               cartItems.map((el) => {
-                return (
-                  // return (
-                  //   <Flex>
-                  //     <Box w={{ base: "26%", sm: "24%", md: "22%", lg: "20%" }}>
-                  //       <Image
-                  //         m="auto"
-                  //         h={{
-                  //           base: "80px",
-                  //           sm: "120px",
-                  //           md: "120px",
-                  //           lg: "160px",
-                  //         }}
-                  //         src={el.images[0].url}
-                  //         alt={el.name}
-                  //       />
-                  //     </Box>
-                  //     <Box w={{ base: "58%", sm: "57%", md: "56%", lg: "64%" }}>
-                  //       <Text
-                  //         noOfLines={2}
-                  //         fontWeight="semibold"
-                  //         textAlign="left"
-                  //         fontSize={{ base: "6", sm: "8", md: "10", lg: "16" }}
-                  //         mt="2"
-                  //         mb="1"
-                  //       >
-                  //         {el.name}-{el.description}
-                  //       </Text>
-                  //       <Text
-                  //         textAlign="left"
-                  //         color="green"
-                  //         fontSize={{ base: "6", sm: "8", md: "10", lg: "12" }}
-                  //       >
-                  //         In stock
-                  //       </Text>
-                  //       <Text
-                  //         color="gray"
-                  //         textAlign="left"
-                  //         fontSize={{ base: "3", sm: "5", md: "7", lg: "11" }}
-                  //         mt="1"
-                  //         mb="1"
-                  //       >
-                  //         Eligible for FREE Shipping
-                  //       </Text>
-                  //       <Image
-                  //         w={{ base: "6", sm: "7", md: "10", lg: "16" }}
-                  //         mt="1"
-                  //         mb="2"
-                  //         src="https://m.media-amazon.com/images/G/31/marketing/fba/fba-badge_18px._CB485936079_.png"
-                  //       />
-
-                  //       <SimpleGrid w="70%" minChildWidth="30px" gap="2">
-                  //         <Select
-                  //           placeholder={`Qty :`}
-                  //           bgColor="#f0f2f2"
-                  //           h={{ base: "6", sm: "7", md: "7", lg: "8" }}
-                  //         >
-                  //           <option value="option1">1</option>
-                  //           <option value="option2">2</option>
-                  //           <option value="option3">3</option>
-                  //           <option value="option1">4</option>
-                  //           <option value="option2">5</option>
-                  //           <option value="option3">6</option>
-                  //           <option value="option1">7</option>
-                  //           <option value="option2">8</option>
-                  //           <option value="option3">9</option>
-                  //           <option value="option3">10+</option>
-                  //         </Select>
-
-                  //         <Button
-                  //           color="blue.400"
-                  //           fontSize={{ base: "3", sm: "6", md: "8", lg: "12" }}
-                  //           bg="none"
-                  //         >
-                  //           Delete
-                  //         </Button>
-
-                  //         <Button
-                  //           color="blue.400"
-                  //           fontSize={{ base: "3", sm: "4", md: "8", lg: "12" }}
-                  //           bg="none"
-                  //         >
-                  //           Save for later
-                  //         </Button>
-
-                  //         <Button
-                  //           color="blue.400"
-                  //           fontSize={{ base: "3", sm: "4", md: "8", lg: "12" }}
-                  //           bg="none"
-                  //         >
-                  //           See more like this
-                  //         </Button>
-                  //       </SimpleGrid>
-                  //     </Box>
-                  //     <Box
-                  //       w={{ base: "16%", sm: "18%", md: "22%", lg: "16%" }}
-                  //       fontWeight="semibold"
-                  //       fontSize={{ base: "8", sm: "10", md: "14", lg: "18" }}
-                  //     >
-                  //       ₹{el.price}
-                  //     </Box>
-                  //   </Flex>
-                  // );
-                  <CartItem {...el} />
-                );
+                return <CartItem {...el} />;
               })}
           </Box>
           {/* R I G H T   S I D E  O F    F L E X */}
@@ -214,10 +120,11 @@ const Cart = () => {
                   fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
                   fontWeight="bold"
                 >
-                  ₹{totalSum}
+                  ₹{total}
                 </Text>
               </Text>
               <Button
+                isDisabled={total == 0}
                 w="100%"
                 mt="2"
                 mb="2"

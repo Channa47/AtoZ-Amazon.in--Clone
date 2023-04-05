@@ -47,7 +47,15 @@ const reducer = (state = initialState, action) => {
       return newState;
 
     case types.REMOVE_FROM_CART:
-      return { ...state };
+      let cartBox = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+      let update = cartBox.filter((el) => el._id !== payload);
+      let newCartState = {
+        ...state,
+        cartData: update,
+      };
+      localStorage.setItem("cartItems", JSON.stringify(newCartState.cartData));
+      return newCartState;
     default:
       return state;
   }

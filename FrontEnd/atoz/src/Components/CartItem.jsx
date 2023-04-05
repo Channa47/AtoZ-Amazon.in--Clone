@@ -13,8 +13,8 @@ import {
   useFocusEffect,
 } from "@chakra-ui/react";
 import { updateQuantity, deleteFromCart } from "../Redux/CartReducer/action";
-const CartItem = ({ name, images, category, price, quantity, id, temp }) => {
-  const [count, setCount] = useState(1);
+const CartItem = ({ name, images, category, price, quantity, _id }) => {
+  const [count, setCount] = useState(quantity);
   const [cartPageData, setCartPageData] = useState(
     JSON.parse(localStorage.getItem("cartItems")) || []
   );
@@ -25,7 +25,7 @@ const CartItem = ({ name, images, category, price, quantity, id, temp }) => {
 
     const payload = {
       quantity: count - 1,
-      id,
+      _id,
     };
     dispatch(updateQuantity(payload));
   };
@@ -35,14 +35,13 @@ const CartItem = ({ name, images, category, price, quantity, id, temp }) => {
 
     const payload = {
       quantity: count + 1,
-      id,
+      _id,
     };
     dispatch(updateQuantity(payload));
   };
   console.log("quantity", quantity);
   const handleDelete = () => {
-    dispatch(deleteFromCart(id));
-    temp(latest);
+    dispatch(deleteFromCart(_id));
   };
   let subTotal = price * count;
   useEffect(() => {}, [
@@ -51,6 +50,7 @@ const CartItem = ({ name, images, category, price, quantity, id, temp }) => {
     handleDecrement,
     quantity,
     count,
+    cartPageData,
   ]);
   console.log("cart item - - \\- - >", name, images);
   return (
@@ -99,7 +99,7 @@ const CartItem = ({ name, images, category, price, quantity, id, temp }) => {
         </Text>
         <Flex m="auto" mt="1">
           <Button
-            disabled={count === 1}
+            isDisabled={count <= 1}
             _hover={{ bg: "#DD6B20", color: "white" }}
             borderRadius={"0"}
             fontSize={"small"}
@@ -116,6 +116,7 @@ const CartItem = ({ name, images, category, price, quantity, id, temp }) => {
             {count}
           </Text>
           <Button
+            isDisabled={count >= 10}
             _hover={{ bg: "#DD6B20", color: "white" }}
             borderRadius={"0"}
             fontSize={"small"}
@@ -148,9 +149,7 @@ const CartItem = ({ name, images, category, price, quantity, id, temp }) => {
         >
           Remove
         </Button>
-        <Text fontSize={{ base: "6", md: "8", lg: "10", xl: "12" }}>
-          (For deleting Click Two times)
-        </Text>
+
         <Text
           mt="2"
           fontWeight="semibold"

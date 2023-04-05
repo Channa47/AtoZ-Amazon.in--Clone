@@ -119,7 +119,16 @@ function SinglePage() {
 
   const handelAddToCart = () => {
     let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
-    cartItems.push(MainData);
+    let itemIndexLs = cartItems.findIndex((el) => el._id === MainData._id);
+    console.log("itemIndex", itemIndexLs);
+    if (itemIndexLs == -1) {
+      MainData.quantity = 1;
+      cartItems.push(MainData);
+    } else {
+      MainData.quantity++;
+      cartItems[itemIndexLs].quantity = cartItems[itemIndexLs].quantity + 1;
+    }
+
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
     toast({
       description: `Item Added to Cart`,
