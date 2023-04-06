@@ -44,7 +44,9 @@
   padding: 16px;
   position: fixed;
   z-index: 1;
+  margin: auto;
   left: 50%;
+  transform: translate(-50%, -50%);
   bottom: 30px;
   font-size: 17px;
 }

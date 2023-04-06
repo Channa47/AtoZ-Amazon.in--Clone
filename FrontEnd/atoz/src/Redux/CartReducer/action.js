@@ -34,7 +34,7 @@ const deleteFromCart = (payload) => {
   return { type: types.REMOVE_FROM_CART, payload };
 };
 
-const getProductsData = (name, cat, page) => (dispatch) => {
+const getProductsData = (cat, page) => (dispatch) => {
   dispatch(getProductsLoading());
   return axios
     .get(

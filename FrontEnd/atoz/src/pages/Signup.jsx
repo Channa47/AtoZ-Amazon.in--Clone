@@ -74,7 +74,7 @@ const Signup = () => {
       <Container w={{ base: "80%", sm: "65%", md: "40%", lg: "29%" }}>
         <Box m="auto" p="3" border="lightgrey solid 1px" borderRadius="5">
           <Text
-            fontSize={{ base: "12", sm: "16", md: "24", lg: "28" }}
+            fontSize={{ base: "18", sm: "16", md: "24", lg: "28" }}
             textAlign="left"
           >
             Create Account
@@ -134,19 +134,31 @@ const Signup = () => {
             rounded="md"
             bg="white"
           ></Box>
-          <Text textAlign="left" fontSize={14} mt="2">
+          <Text
+            textAlign="left"
+            fontSize={{ base: "10", sm: "12", md: "14", lg: "14" }}
+            mt="2"
+          >
             Already have an account ?
             <Link color="blue" to="/login">
               <span style={{ color: "blue" }}> Sign in</span>
             </Link>
           </Text>
-          <Text textAlign="left" fontSize={14} mt="2">
+          <Text
+            textAlign="left"
+            fontSize={{ base: "10", sm: "12", md: "14", lg: "14" }}
+            mt="2"
+          >
             Buying for work ?
             <Link color="blue" to="/login">
               Create a free business account
             </Link>
           </Text>
-          <Text textAlign="left" fontSize={11} mt="4">
+          <Text
+            textAlign="left"
+            fontSize={{ base: "10", sm: "12", md: "14", lg: "14" }}
+            mt="4"
+          >
             By creating an account or logging in, you agree to Amazon’s{" "}
             <span style={{ color: "blue" }}>Conditions of Use</span> and{" "}
             <span style={{ color: "blue" }}>Privacy Policy.</span>

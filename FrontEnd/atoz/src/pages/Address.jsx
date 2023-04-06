@@ -29,7 +29,7 @@ import {
 } from "@chakra-ui/react";
 import logo1 from "../assets/logo1.png";
 import { useState, useEffect } from "react";
-import { Footer } from "./Footer";
+import { Footer } from "../Components/Footer";
 
 const Address = () => {
   const [isLoading, setIsLoading] = useState(true);

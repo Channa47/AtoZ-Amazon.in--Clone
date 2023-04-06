@@ -26,24 +26,24 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsWindows } from "react-icons/bs";
 import { RxCross2 } from "react-icons/rx";
-import ProductsCard from "./ProductsCard";
+import ProductsCard from "../Components/ProductsCard";
 import amzlogo from "../assets/amzlogo.png";
 import star4 from "../assets/star4.png";
 import star3 from "../assets/star3.png";
 import star2 from "../assets/star2.png";
 import star1 from "../assets/star1.png";
 import { useParams } from "react-router-dom";
-import { Header } from "./Header";
-import { Navigation } from "./Navigation";
-import { Footer } from "./Footer";
+import { Header } from "../Components/Header";
+import { Navigation } from "../Components/Navigation";
+import { Footer } from "../Components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsData } from "../Redux/CartReducer/action";
 
 //Products Component
 const Products = () => {
-  const { name } = useParams();
+  let { name } = useParams();
 
-  //nums array fr pagination
+  //nums array for pagination
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, "..."];
   const [min, setMin] = useState("");
   const [max, setMax] = useState("");
@@ -51,18 +51,19 @@ const Products = () => {
 
   const [sort, setSort] = useState("");
 
-  const [cat, setCat] = useState(name);
+  let [cat, setCat] = useState(name);
 
   const dispatch = useDispatch();
   const items = useSelector((state) => state.CartReducer.items);
   const productsLoading = useSelector(
     (state) => state.CartReducer.getProductsLoading
   );
-  console.log("products ->>", items);
+  // console.log("products ->>", items);
+  // console.log("<-----name------->", name);
 
   useEffect(() => {
-    dispatch(getProductsData(name, cat, page));
-  }, [name, cat, page]);
+    dispatch(getProductsData(cat, page));
+  }, [cat, page]);
 
   return (
     <div>
@@ -75,7 +76,6 @@ const Products = () => {
             h="auto"
             p="3"
             pl="4"
-            // border="1px"
             borderColor="gray.300"
             mt="2"
             align="left"

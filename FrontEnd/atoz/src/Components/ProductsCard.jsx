@@ -5,12 +5,10 @@ import { Link } from "react-router-dom";
 import amzlogo from "../assets/amzlogo.png";
 
 const ProductsCard = ({ img, title, price, id }) => {
-  // const [ wish, setWish ] = useState(false);
-  console.log(id);
+  //console.log(id);
   return (
     <div>
       <Box
-        // border="1px"
         borderColor="gray.300"
         display="flex"
         align="left"
@@ -21,7 +19,7 @@ const ProductsCard = ({ img, title, price, id }) => {
         <Box w="20%" mr={5} ml={5}>
           <Link to={`/single/${id}`}>
             <Box bg="gray.50">
-            <Image src={img} m="auto" h="180px" ></Image>
+              <Image src={img} m="auto" h="180px"></Image>
             </Box>
           </Link>
         </Box>
@@ -33,7 +31,6 @@ const ProductsCard = ({ img, title, price, id }) => {
                 ₹{price}
               </Text>
               <Text ml="2" color="grey" fontWeight="medium" mt={2}>
-       
                 ₹<del>5000</del>
               </Text>
               <Text ml="2" color="green" mt={2}>
