@@ -1,9 +1,9 @@
 .mainDiv {
-  /* border: 2px red; */
   display: flex;
   gap: 5%;
   margin-top: 3%;
 }
+
 /* Image Divs  */
 .MainImgDiv {
   /* border :2px solid black; */
@@ -13,6 +13,7 @@
   border-radius: 1rem;
   border: solid 1px #ccc;
   margin-left: 3%;
+  background-color: white;
 }
 /* .ImageDiv{
     /* border: 2px solid yellow; */
@@ -37,6 +38,7 @@
   margin-right: 3%;
   padding: 1rem;
   border-radius: 1rem;
+  background-color: white;
   border: solid 1px #ccc;
 }
 .MainOfferDiv > div {
@@ -45,17 +47,18 @@
   display: grid;
   text-align: left;
   justify-content: left;
-  border-bottom: 2px solid rgb(233, 226, 226);
 }
 .FullBoldText {
   font-weight: 900;
   font-size: 20px;
   margin-bottom: -20px;
+  font-family: "Roboto Mono", monospace;
 }
 .OfferText {
   color: rgb(226, 17, 17);
   font-weight: 500;
   font-size: 20px;
+  font-family: "Roboto Mono", monospace;
 }
 .DeliveryTexts {
   color: rgb(123, 123, 240);
@@ -76,16 +79,16 @@
 .ProductTitleDiv {
   margin-top: 1%;
   width: 100%;
-  border-bottom: 2px solid rgb(233, 226, 226);
+  border-bottom: 1px solid #ccc;
   display: grid;
   justify-content: left;
   text-align: left;
-  margin-left: 1%;
 }
 #ProductTitle {
   font-weight: 600;
-  font-size: 22px;
-  font-family: "Amazon Ember", Arial, sans-serif;
+  font-size: 1.5rem;
+  font-family: "Raleway", sans-serif;
+  letter-spacing: 0.2rem;
 }
 .Rating-And-Reviws-Div {
   display: flex;
@@ -99,13 +102,11 @@
   width: 100%;
 }
 .priceDiv {
-  /* border: 2px solid red; */
   width: 100%;
   margin-top: 2%;
   display: grid;
   justify-content: left;
   text-align: left;
-  border-bottom: 2px solid rgb(233, 226, 226);
 }
 .Price {
   font-size: 50px;
@@ -121,7 +122,6 @@
 /* TEXT */
 /* freedel */
 .freeDeliveryuDiv {
-  /* border: 2px solid black; */
   margin-top: 2%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -129,14 +129,11 @@
   justify-content: center;
   text-align: center;
   gap: 1%;
-  border-bottom: 2px solid rgb(233, 226, 226);
 }
 .freeDeliveryuDiv > div {
-  /* border: 2px solid green; */
   padding: 1%;
   display: grid;
   justify-content: center;
-  /* background-color: rgb(207, 223, 237); */
 }
 .freedeltext {
   font-weight: 400;
@@ -159,7 +156,6 @@
   font-weight: 900;
 }
 #BTNDIV {
-  /* border:2px solid  black; */
   display: grid;
   justify-content: center;
   text-align: center;
@@ -167,38 +163,47 @@
 }
 .AddToCart {
   background-color: #ffbd03;
+  padding: 0.2rem;
   width: 250px;
   margin-top: 1%;
   margin-bottom: 1%;
-  border-radius: 15px;
+  border-radius: 0.5rem;
   color: black;
   font-weight: 400;
   font-size: 20px;
+  font-family: Arial, sans-serif;
+}
+.AddToCart:hover {
+  cursor: pointer;
+  background-color: #ffd76a;
 }
 .BuyNow {
   background-color: #f68308;
+  padding: 0.2rem;
   width: 250px;
   margin-top: 1%;
   margin-bottom: 2%;
-  border-radius: 15px;
+  border-radius: 0.5rem;
   color: black;
   font-weight: 400;
+  font-family: Arial, sans-serif;
   font-size: 20px;
 }
-
+.BuyNow {
+  cursor: pointer;
+  background-color: #fc9b33;
+}
 @media screen and (max-width: 800px) {
   .mainDiv {
-    /* border: 2px red; */
     display: grid;
     gap: 20px;
     margin-top: 1%;
   }
   .MainImgDiv {
-    /* border :2px solid black; */
     width: 100%;
+    margin-left: 0;
   }
   .MainOfferDiv {
-    /* border: 2px solid blue; */
     width: 50%;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
       rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
@@ -213,7 +218,6 @@
 
 @media screen and (max-width: 500px) {
   .MainOfferDiv {
-    /* border: 2px solid blue; */
     width: 100%;
   }
   #ProductTitle {
@@ -228,7 +232,7 @@
   }
   .MainImgDiv {
     display: grid;
-    /* border: 2px solid red; */
+
     justify-content: center;
   }
   .IMGAGE {

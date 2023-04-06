@@ -150,7 +150,12 @@ function SinglePage() {
   const rray = new Array(rat).fill(0);
   // console.log(rray);
   return (
-    <div style={{ width: "100%" }}>
+    <div
+      style={{
+        width: "100%",
+        backgroundImage: "linear-gradient(to bottom right, #f6f8fa, #f6f8fa)",
+      }}
+    >
       <Header />
       <Navigation />
       <div className="mainDiv">
@@ -171,7 +176,7 @@ function SinglePage() {
                 {rray.map((e) => {
                   return <h1>⭐</h1>;
                 })}
-                <a className="visit">| Visit Samusun Store</a>
+                <a className="visit">| Visit Store</a>
               </div>
             </div>
             {/* === */}
@@ -201,18 +206,14 @@ function SinglePage() {
                   src="https://m.media-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-returns._CB484059092_.png"
                   alt=""
                 />
-                <p className="freedeltext">
-                  7 Days <br /> Replacement
-                </p>
+                <p className="freedeltext">7 Days Replace</p>
               </div>
               <div>
                 <img
                   src="https://m.media-amazon.com/images/G/31/A2I-Convert/mobile/IconFarm/icon-amazon-delivered._CB485933725_.png"
                   alt=""
                 />
-                <p className="freedeltext">
-                  Amazon <br /> Delivered
-                </p>
+                <p className="freedeltext">Fast Delivered</p>
               </div>
             </div>
             {/*  */}
@@ -233,7 +234,7 @@ function SinglePage() {
             <p className="OfferText">Upto 80% Off</p>
           </div>
           <div>
-            <p className="FullBoldText">✅Without Exchange </p>
+            <p className="FullBoldText">✅ Without Exchange </p>
             <br />
             <p className="OfferText">&#8377;{MainData && MainData.price}</p>
           </div>

@@ -1,5 +1,5 @@
+//import statements
 import { useState, useEffect } from "react";
-
 import { FaHome } from "react-icons/fa";
 import {
   Box,
@@ -19,6 +19,7 @@ import {
   Stack,
   Skeleton,
   Flex,
+  Heading,
 } from "@chakra-ui/react";
 
 import { ChevronRightIcon } from "@chakra-ui/icons";
@@ -38,8 +39,11 @@ import { Footer } from "./Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsData } from "../Redux/CartReducer/action";
 
+//Products Component
 const Products = () => {
   const { name } = useParams();
+
+  //nums array fr pagination
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, "..."];
   const [min, setMin] = useState("");
   const [max, setMax] = useState("");
@@ -361,6 +365,16 @@ const Products = () => {
             </Grid>
 
             <SimpleGrid columns={[1, 1, 1, 1, 1, 1]} spacing={2} mt="2">
+              {items.length == 0 && (
+                <Box w="80%" m="auto">
+                  <Heading color="blue.300">No Results</Heading>
+                  <Image
+                    src="https://cdn.dribbble.com/users/745861/screenshots/7889509/media/5891d9d48179ca0b3a8fcdf178db8737.png?compress=1&resize=768x576&vertical=top"
+                    alt="no items img"
+                    w="100%"
+                  />
+                </Box>
+              )}
               {items &&
                 items.map((el) => (
                   <ProductsCard
