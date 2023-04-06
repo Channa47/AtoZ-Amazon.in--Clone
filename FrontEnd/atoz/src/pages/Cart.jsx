@@ -1,3 +1,4 @@
+//import statements
 import {
   Heading,
   Flex,
@@ -28,21 +29,26 @@ import { Header } from "../Components/Header";
 import { Navigation } from "../Components/Navigation";
 import { useNavigate } from "react-router-dom";
 
+//cart component
 const Cart = () => {
   const [recommend, setRecommend] = useState([]);
   const [cartTotal, setCartTotal] = useState([]);
+
+  //getting state from redux store
   const cartPageData = useState(
     useSelector((state) => state.CartReducer.cartData) || []
   );
   let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
   const navigate = useNavigate();
 
+  //calculating total price of items inside cart
   let total = 0;
 
   for (let i = 0; i < cartItems.length; i++) {
     total += cartItems[i].price * cartItems[i].quantity;
   }
 
+  //fetching data for similar products
   useEffect(() => {
     axios
       .get(`https://long-plum-ray-ring.cyclic.app/api/v1/products`)
@@ -51,11 +57,12 @@ const Cart = () => {
         console.log(e);
       });
   }, []);
+
   useEffect(
     (cartItems = JSON.parse(localStorage.getItem("cartItems")) || []) => {},
     [cartItems, total]
   );
-  console.log("cartItems - - > ", cartItems);
+  // console.log("cartItems - - > ", cartItems);
   return (
     <>
       <Header />
@@ -73,6 +80,7 @@ const Cart = () => {
               textAlign="left"
               fontWeight="semibold"
               fontSize={{ base: "12", sm: "16", md: "24", lg: "27" }}
+              fontFamily="Raleway, sans-serif"
             >
               Shopping Cart
             </Text>
@@ -93,6 +101,7 @@ const Cart = () => {
                 </Text>
               </Box>
             )}
+            {/* mapping through cartItems and displaying in CartItem companent  */}
             {cartItems &&
               cartItems.map((el) => {
                 return <CartItem {...el} />;
@@ -115,7 +124,7 @@ const Cart = () => {
                 fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
                 fontWeight="semibold"
               >
-                Subtotal ({cartItems.length} items) :
+                Total ({cartItems.length} items) :
                 <Text
                   fontSize={{ base: "8", sm: "10", md: "16", lg: "20" }}
                   fontWeight="bold"
