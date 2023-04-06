@@ -36,7 +36,7 @@ const Login = () => {
   const toast = useToast();
   const dispatch = useDispatch();
 
-  //getting various states using react-redux library hooks
+  //getting  states using react-redux library hooks
   const isAuthLoading = useSelector((state) => state.AuthReducer.isAuthLoading);
   const isAuth = useSelector((state) => state.AuthReducer.isAuth);
   const isAuthFailure = useSelector((state) => state.AuthReducer.isAuthFailure);

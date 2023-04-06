@@ -1,4 +1,6 @@
+//import statements
 import React from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import {
   Image,
@@ -19,13 +21,16 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { registerUser } from "../Redux/AuthReducer/action";
-import { useEffect } from "react";
+
+//signup component
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const toast = useToast();
   const dispatch = useDispatch();
+
+  //getting  states using react-redux library hooks
   const isRegisteredLoading = useSelector(
     (state) => state.AuthReducer.isRegisteredLoading
   );
@@ -33,9 +38,12 @@ const Signup = () => {
   const isRegisteredFailure = useSelector(
     (state) => state.AuthReducer.isRegisteredFailure
   );
+
   const navigate = useNavigate();
 
-  console.log(isRegisteredLoading);
+  // console.log(isRegisteredLoading);
+
+  //handling form after submitting with handleSubmit function
   const handleSubmit = (e) => {
     e.preventDefault();
     const payload = {
@@ -49,6 +57,7 @@ const Signup = () => {
     }
   };
 
+  //if registered , redirecting user to login page
   if (isRegistered) {
     navigate("/login");
   }
@@ -61,7 +70,7 @@ const Signup = () => {
           src="https://i.imgur.com/YVSZcA4.png"
         />
       </Box>
-
+      {/* F O R M   C O N T A I N E R  */}
       <Container w={{ base: "80%", sm: "65%", md: "40%", lg: "29%" }}>
         <Box m="auto" p="3" border="lightgrey solid 1px" borderRadius="5">
           <Text
@@ -70,6 +79,7 @@ const Signup = () => {
           >
             Create Account
           </Text>
+          {/* F O R M */}
           <form onSubmit={handleSubmit}>
             <FormLabel mb="0.5" mt="2" fontSize={13} fontWeight="bold">
               Name
@@ -115,7 +125,7 @@ const Signup = () => {
               </div>
             )}
           </form>
-
+          {/* F O R M   E N D S   H E R E */}
           <Box
             boxShadow="base"
             p="0.5"
@@ -160,6 +170,9 @@ const Signup = () => {
           © 1996-2023, Amazon.com, Inc. or its affiliates
         </Text>
       </Container>
+      {/* F O R M   C O N T A I N E R   E N D S   H E R E*/}
+
+      {/* SNACKBAR DIV FOR SHOWING TOAST */}
       <div id="snackbar"></div>
     </div>
   );
