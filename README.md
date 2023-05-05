@@ -90,6 +90,9 @@
 <h4>Cart Page</h4>
 <img src="https://i.imgur.com/UaDLiBD.jpg"/>
 <br/>
+<h4>Checkout Page</h4>
+<img src="https://i.imgur.com/VwVqACn.jpg"/>
+<br/>
 
 <hr/>
 <h1 align="center">Backend</h1>
