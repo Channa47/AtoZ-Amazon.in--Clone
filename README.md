@@ -93,7 +93,9 @@
 <h4>Checkout Page</h4>
 <img src="https://i.imgur.com/VwVqACn.jpg"/>
 <br/>
-
+<h4>Payment Page</h4>
+<img src="https://i.imgur.com/1zBcEtU.jpg"/>
+<br/>
 <hr/>
 <h1 align="center">Backend</h1>
 ### Products
