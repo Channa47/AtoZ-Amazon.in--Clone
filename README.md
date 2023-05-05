@@ -80,7 +80,9 @@
 <br/>
 <h4>Login and Signup Page</h4>
 <img src="https://i.imgur.com/pRXNzU2.jpg"/>
-
+<br/>
+<h4>Products Page</h4>
+<img src="https://i.imgur.com/1bQYyBA.jpg"/>
 <br/>
 <hr/>
 <h1 align="center">Backend</h1>
