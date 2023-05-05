@@ -87,6 +87,9 @@
 <h4>Single Product Page</h4>
 <img src="https://i.imgur.com/b2ArG88.jpg"/>
 <br/>
+<h4>Cart Page</h4>
+<img src="https://i.imgur.com/UaDLiBD.jpg"/>
+<br/>
 
 <hr/>
 <h1 align="center">Backend</h1>
