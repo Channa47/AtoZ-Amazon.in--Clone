@@ -8,8 +8,7 @@
 <h4>Team Code :- reflective-decision-5937</h4>
 
 <br/>
-<img src="https://i.imgur.com/w3NzfPt.png"/>
-<br/>
+
 <h4 align="center">Deployed On:</h4>
 
 <p align="center">
@@ -74,6 +73,14 @@
 - Responsive Design
 
 <br />
+
+<h2>Screenshots</h2>
+<h4>Homepage</h4>
+<img src="https://i.imgur.com/w3NzfPt.png"/>
+<br/>
+<h4>Login and Signup Page</h4>
+<img src="https://i.imgur.com/pRXNzU2.jpg"/>
+
 <br/>
 <hr/>
 <h1 align="center">Backend</h1>
