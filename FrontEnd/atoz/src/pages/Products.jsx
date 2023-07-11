@@ -60,6 +60,23 @@ const Products = () => {
   // console.log("products ->>", items);
   //console.log("<-----name------->", name);
 
+  const sortByAsc = () => {
+    const sortAsc = items.slice();
+    sortAsc.sort((a, b) => {
+      return a.price - b.price;
+    });
+    return sortAsc;
+  };
+
+  const sortByDesc = () => {
+    const sortDesc = items.slice();
+    sortDesc.sort((a, b) => {
+      return a.price - b.price;
+    });
+    return sortDesc;
+  };
+
+  console.log("items are", items);
   useEffect(() => {
     dispatch(getProductsData(cat, page));
   }, [cat, page]);
@@ -154,7 +171,7 @@ const Products = () => {
               Shoes
             </Checkbox>
           </Box>
-          <Box
+          {/* <Box
             h="auto"
             p="3"
             pl="4"
@@ -191,9 +208,9 @@ const Products = () => {
             <Checkbox mt="2" colorScheme="blue">
               Realme
             </Checkbox>
-          </Box>
+          </Box> */}
 
-          <Box
+          {/* <Box
             h="auto"
             p="3"
             pl="4"
@@ -224,9 +241,9 @@ const Products = () => {
             <Checkbox mt="2" colorScheme="blue">
               <Image src={star1}></Image>
             </Checkbox>
-          </Box>
+          </Box> */}
 
-          <Box
+          {/* <Box
             h="auto"
             p="3"
             pl="4"
@@ -277,7 +294,7 @@ const Products = () => {
                 Go
               </Button>
             </Box>
-          </Box>
+          </Box> */}
 
           <Box
             h="auto"
@@ -348,16 +365,10 @@ const Products = () => {
                 <Box display="flex" mt="2" h="auto" align="right">
                   <Select fontSize="md" fontWeight="medium">
                     <option value="Featured">Featured</option>
-                    <option
-                      value="asc"
-                      onClick={(e) => setSort(e.target.value)}
-                    >
+                    <option value="asc" onClick={sortByAsc()}>
                       Price: Low to High
                     </option>
-                    <option
-                      value="asc"
-                      onClick={(e) => setSort(e.target.value)}
-                    >
+                    <option value="desc" onClick={sortByDesc()}>
                       Price: High to Low
                     </option>
                   </Select>
