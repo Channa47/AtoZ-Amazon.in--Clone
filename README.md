@@ -8,8 +8,7 @@
 <h4>Team Code :- reflective-decision-5937</h4>
 
 <br/>
-<img src="https://i.imgur.com/w3NzfPt.png"/>
-<br/>
+
 <h4 align="center">Deployed On:</h4>
 
 <p align="center">
@@ -74,6 +73,28 @@
 - Responsive Design
 
 <br />
+
+<h2>Screenshots</h2>
+<h4>Homepage</h4>
+<img src="https://i.imgur.com/w3NzfPt.png"/>
+<br/>
+<h4>Login and Signup Page</h4>
+<img src="https://i.imgur.com/pRXNzU2.jpg"/>
+<br/>
+<h4>Products Page</h4>
+<img src="https://i.imgur.com/1bQYyBA.jpg"/>
+<br/>
+<h4>Single Product Page</h4>
+<img src="https://i.imgur.com/b2ArG88.jpg"/>
+<br/>
+<h4>Cart Page</h4>
+<img src="https://i.imgur.com/UaDLiBD.jpg"/>
+<br/>
+<h4>Checkout Page</h4>
+<img src="https://i.imgur.com/VwVqACn.jpg"/>
+<br/>
+<h4>Payment Page</h4>
+<img src="https://i.imgur.com/1zBcEtU.jpg"/>
 <br/>
 <hr/>
 <h1 align="center">Backend</h1>
@@ -275,7 +296,7 @@ req.body
 [Back End] https://long-plum-ray-ring.cyclic.app/api/v1
 
 
-admins Gamail : channa@gmail.com password : channa121
+admins Gmail : ```channa@gmail.com``` password : ```channa121```
 NewDeployed Link : https://ato-z-amazon-in-clone.vercel.app/
 
 
