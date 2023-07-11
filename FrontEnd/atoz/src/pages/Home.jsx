@@ -246,7 +246,7 @@ function Home() {
   const cards = [
     {
       image:
-        "https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Carousels%20img/1.jpg",
+        "https://images-eu.ssl-images-amazon.com/images/G/31/prime/PD23/ACQ/hero/v2/PC_Hero_3000x1200_2X_EN._CB600991698_.jpg",
     },
     {
       image:

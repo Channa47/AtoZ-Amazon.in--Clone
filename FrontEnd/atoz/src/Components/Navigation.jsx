@@ -18,7 +18,7 @@ function Navigation() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [placement, setPlacement] = useState("left");
   const [user, setUser] = useState("sign in");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <div className={style.navigation_container}>
@@ -92,12 +92,6 @@ function Navigation() {
         All
       </div>
       <div className={style.nav_link}>
-        <Link to="/maintainance">Amazon Pay</Link>
-      </div>
-      <div className={style.nav_link}>
-        <Link to="/maintainance">Electronics</Link>
-      </div>
-      <div className={style.nav_link}>
         <Link to="/products/laptop">Computer</Link>
       </div>
       <div className={style.nav_link}>
@@ -113,10 +107,17 @@ function Navigation() {
         <Link to="/products/grocery">Household</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/maintainance">Health</Link>
+        <Link to="/products/mobiles">Technology</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/maintainance">Personal Care</Link>
+        <Link to="/products/grocery">Food</Link>
+      </div>
+
+      <div className={style.nav_link}>
+        <Link to="/products/shoes">Footwear</Link>
+      </div>
+      <div className={style.nav_link}>
+        <Link to="/products/laptop">Laptops</Link>
       </div>
     </div>
   );
