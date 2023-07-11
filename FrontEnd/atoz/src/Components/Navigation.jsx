@@ -1,4 +1,5 @@
 import { HamburgerIcon } from "@chakra-ui/icons";
+
 import {
   Drawer,
   useDisclosure,
@@ -9,7 +10,7 @@ import {
   Avatar,
   Heading,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
 import style from "./Navigation.module.css";
@@ -20,6 +21,7 @@ function Navigation() {
   const [user, setUser] = useState("sign in");
   const navigate = useNavigate();
 
+  useEffect(() => {}, [Link]);
   return (
     <div className={style.navigation_container}>
       <div className={style.nav_link}>
@@ -107,7 +109,7 @@ function Navigation() {
         <Link to="/products/grocery">Household</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/products/mobiles">Technology</Link>
+        <Link to="/products/mobile">Technology</Link>
       </div>
       <div className={style.nav_link}>
         <Link to="/products/grocery">Food</Link>

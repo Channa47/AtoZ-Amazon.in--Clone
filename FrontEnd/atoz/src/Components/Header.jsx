@@ -17,48 +17,47 @@ import { Link, useNavigate } from "react-router-dom";
 import { Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import Cookies from 'js-cookie'
+import Cookies from "js-cookie";
 import axios from "axios";
 
-
 function Header() {
-  const role =JSON.parse(localStorage.getItem('role'));
+  const role = JSON.parse(localStorage.getItem("role"));
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [placement, setPlacement] = useState("left");
   const [user, setUser] = useState("sign n"); // for showing logedin user name
-   // for showing total cart items count
+  // for showing total cart items count
   const [category, setCategory] = useState("");
   const [inputValue, setInputValue] = useState("");
   // const [query, setQuery] = useState({ category: "", search: "" });
-  const navigate = useNavigate()
-  let catItems = JSON.parse(localStorage.getItem('cartItems')) || 0
+  const navigate = useNavigate();
+  let catItems = JSON.parse(localStorage.getItem("cartItems")) || 0;
   const [count, setCount] = useState(catItems.length);
-  let cccc = useSelector((s)=>s.CartReducer.cartData)
-  console.log(cccc)
-  let loggedInUser =JSON.parse(localStorage.getItem('user')) || {}
+  let cccc = useSelector((s) => s.CartReducer.cartData);
+  //console.log(cccc)
+  let loggedInUser = JSON.parse(localStorage.getItem("user")) || {};
   const toast = useToast();
-  useEffect(()=>{
-    setCount(catItems.length)
-    if(loggedInUser.user){
-      setUser(loggedInUser.user.name)
+  useEffect(() => {
+    setCount(catItems.length);
+    if (loggedInUser.user) {
+      setUser(loggedInUser.user.name);
     }
-  },[catItems])
+  }, [catItems]);
 
   const handleSearch = (input) => {
     // setQuery({ category: category, search: input });
-    navigate(`/products/${inputValue}`)
+    navigate(`/products/${inputValue}`);
   };
 
-  const handleLogOut = () =>{
-     localStorage.clear()
-     toast({
+  const handleLogOut = () => {
+    localStorage.clear();
+    toast({
       description: `Logged Out`,
       status: "success",
       duration: 3000,
       isClosable: true,
-    })
+    });
     window.location.reload();
-  }
+  };
 
   // console.log(query);
 
@@ -104,7 +103,9 @@ function Header() {
                   <p className={style.drawer_opt}>Order History</p>
                 </Link>
                 <Link to="#">
-                  <p className={style.drawer_opt} onClick={handleLogOut}>Sign Out</p>
+                  <p className={style.drawer_opt} onClick={handleLogOut}>
+                    Sign Out
+                  </p>
                 </Link>
               </DrawerBody>
               <DrawerBody
@@ -238,12 +239,23 @@ function Header() {
                 </div>
               </MenuButton>
               <MenuList w="15px">
-                {loggedInUser.user ? <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }}onClick={handleLogOut} >
-                Sign Out
-                </MenuItem>:
-                <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }} onClick={()=>navigate('/login')} >
-                Sign In
-              </MenuItem> }
+                {loggedInUser.user ? (
+                  <MenuItem
+                    fontWeight="bold"
+                    _hover={{ bg: "#f08804" }}
+                    onClick={handleLogOut}
+                  >
+                    Sign Out
+                  </MenuItem>
+                ) : (
+                  <MenuItem
+                    fontWeight="bold"
+                    _hover={{ bg: "#f08804" }}
+                    onClick={() => navigate("/login")}
+                  >
+                    Sign In
+                  </MenuItem>
+                )}
               </MenuList>
             </Menu>
           ) : (
@@ -269,12 +281,23 @@ function Header() {
                 </div>
               </MenuButton>
               <MenuList>
-              {loggedInUser.user ? <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }}onClick={handleLogOut} >
-                Sign Out
-                </MenuItem>:
-                <MenuItem fontWeight="bold" _hover={{ bg: "#f08804" }} onClick={()=>navigate('/login')} >
-                Sign In
-              </MenuItem> }
+                {loggedInUser.user ? (
+                  <MenuItem
+                    fontWeight="bold"
+                    _hover={{ bg: "#f08804" }}
+                    onClick={handleLogOut}
+                  >
+                    Sign Out
+                  </MenuItem>
+                ) : (
+                  <MenuItem
+                    fontWeight="bold"
+                    _hover={{ bg: "#f08804" }}
+                    onClick={() => navigate("/login")}
+                  >
+                    Sign In
+                  </MenuItem>
+                )}
               </MenuList>
             </Menu>
           )}
@@ -283,7 +306,7 @@ function Header() {
         <div className={style.cart}>
           <div className={style.cart_icon}>
             <img
-              onClick={()=>navigate('/cart')}
+              onClick={() => navigate("/cart")}
               src="https://raw.githubusercontent.com/shubhamkr2/UploadImages/main/Amazon%20Cart.png"
               alt="Cart"
             />
@@ -293,7 +316,12 @@ function Header() {
         </div>
         {role === "admin" && (
           <div className={style.admin_btn}>
-            <button className={style.admin_btn} onClick={()=>navigate('/admin')}>Admin Panel</button>
+            <button
+              className={style.admin_btn}
+              onClick={() => navigate("/admin")}
+            >
+              Admin Panel
+            </button>
           </div>
         )}
       </div>

@@ -42,7 +42,6 @@ import { getProductsData } from "../Redux/CartReducer/action";
 //Products Component
 const Products = () => {
   let { name } = useParams();
-
   //nums array for pagination
   const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, "..."];
   const [min, setMin] = useState("");
@@ -59,12 +58,14 @@ const Products = () => {
     (state) => state.CartReducer.getProductsLoading
   );
   // console.log("products ->>", items);
-  // console.log("<-----name------->", name);
+  //console.log("<-----name------->", name);
 
   useEffect(() => {
     dispatch(getProductsData(cat, page));
   }, [cat, page]);
-
+  useEffect(() => {
+    dispatch(getProductsData(name, page));
+  }, [name]);
   return (
     <div>
       <Header />
