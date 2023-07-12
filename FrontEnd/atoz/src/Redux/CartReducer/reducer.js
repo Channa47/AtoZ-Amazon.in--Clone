@@ -32,6 +32,18 @@ const reducer = (state = initialState, action) => {
       return { ...state, getProductsLoading: true };
     case types.GET_PRODUCTS_ERROR:
       return { ...state, getProductsError: true, getProductsLoading: false };
+    case types.SORT_ASC: {
+      return {
+        ...state,
+        items: [...state.items].sort((a, b) => a.price - b.price),
+      };
+    }
+    case types.SORT_DESC: {
+      return {
+        ...state,
+        items: [...state.items].sort((a, b) => b.price - a.price),
+      };
+    }
     case types.UPDATE_QUANTITY:
       let cartItemsLs = JSON.parse(localStorage.getItem("cartItems")) || [];
 

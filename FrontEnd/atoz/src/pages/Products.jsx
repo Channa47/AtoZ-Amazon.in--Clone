@@ -37,7 +37,11 @@ import { Header } from "../Components/Header";
 import { Navigation } from "../Components/Navigation";
 import { Footer } from "../Components/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import { getProductsData } from "../Redux/CartReducer/action";
+import {
+  getProductsData,
+  sortByAscending,
+  sortByDescending,
+} from "../Redux/CartReducer/action";
 
 //Products Component
 const Products = () => {
@@ -60,23 +64,14 @@ const Products = () => {
   // console.log("products ->>", items);
   //console.log("<-----name------->", name);
 
-  const sortByAsc = () => {
-    const sortAsc = items.slice();
-    sortAsc.sort((a, b) => {
-      return a.price - b.price;
-    });
-    return sortAsc;
+  const handleSortByPrice = (e) => {
+    if (e.target.value == "asc") {
+      dispatch(sortByAscending(items));
+    } else if (e.target.value == "desc") {
+      dispatch(sortByDescending(items));
+    }
   };
 
-  const sortByDesc = () => {
-    const sortDesc = items.slice();
-    sortDesc.sort((a, b) => {
-      return a.price - b.price;
-    });
-    return sortDesc;
-  };
-
-  console.log("items are", items);
   useEffect(() => {
     dispatch(getProductsData(cat, page));
   }, [cat, page]);
@@ -363,14 +358,14 @@ const Products = () => {
               </GridItem>
               <GridItem w="auto" margin="auto" h="auto" mt="4">
                 <Box display="flex" mt="2" h="auto" align="right">
-                  <Select fontSize="md" fontWeight="medium">
+                  <Select
+                    fontSize="md"
+                    fontWeight="medium"
+                    onChange={(e) => handleSortByPrice(e)}
+                  >
                     <option value="Featured">Featured</option>
-                    <option value="asc" onClick={sortByAsc()}>
-                      Price: Low to High
-                    </option>
-                    <option value="desc" onClick={sortByDesc()}>
-                      Price: High to Low
-                    </option>
+                    <option value="asc">Price: Low to High</option>
+                    <option value="desc">Price: High to Low</option>
                   </Select>
                 </Box>
               </GridItem>
@@ -379,7 +374,9 @@ const Products = () => {
             <SimpleGrid columns={[1, 1, 1, 1, 1, 1]} spacing={2} mt="2">
               {items.length == 0 && (
                 <Box w="80%" m="auto">
-                  <Heading color="blue.300">No Results</Heading>
+                  <Heading p="2" color="blue.300">
+                    No Results
+                  </Heading>
                   <Image
                     src="https://cdn.dribbble.com/users/745861/screenshots/7889509/media/5891d9d48179ca0b3a8fcdf178db8737.png?compress=1&resize=768x576&vertical=top"
                     alt="no items img"

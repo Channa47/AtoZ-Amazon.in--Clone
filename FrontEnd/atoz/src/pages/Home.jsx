@@ -385,8 +385,9 @@ function Home() {
             </Box>
           </div>
           <div className={style.top_card}>
-            {product_arr?.map((product) => (
+            {product_arr?.map((product, index) => (
               <CardBanner
+                key={index}
                 heading={product.heading}
                 content={product.prod_card}
               />
@@ -401,8 +402,12 @@ function Home() {
           </div>
         </div>
         <div className={style.offer_cat}>
-          {product_arr2?.map((product) => (
-            <CardBanner heading={product.heading} content={product.prod_card} />
+          {product_arr2?.map((product, index) => (
+            <CardBanner
+              key={index}
+              heading={product.heading}
+              content={product.prod_card}
+            />
           ))}
         </div>
         <div className={style.product_carousel}>
@@ -479,8 +484,12 @@ function Home() {
           </Carousel>
         </div>
         <div className={style.bigcard}>
-          {prodBigcard_arr?.map((product) => (
-            <BigCardBanner heading={product.heading} image={product.image} />
+          {prodBigcard_arr?.map((product, index) => (
+            <BigCardBanner
+              key={index}
+              heading={product.heading}
+              image={product.image}
+            />
           ))}
         </div>
         <div id={style.grocry} className={style.product_carousel}>

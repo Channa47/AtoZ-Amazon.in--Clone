@@ -34,6 +34,14 @@ const deleteFromCart = (payload) => {
   return { type: types.REMOVE_FROM_CART, payload };
 };
 
+const sortByAscending = (payload) => {
+  return { type: types.SORT_ASC, payload };
+};
+
+const sortByDescending = (payload) => {
+  return { type: types.SORT_DESC, payload };
+};
+
 const getProductsData = (cat, page) => (dispatch) => {
   dispatch(getProductsLoading());
   return axios
@@ -56,4 +64,6 @@ export {
   getProductsLoading,
   updateQuantity,
   deleteFromCart,
+  sortByAscending,
+  sortByDescending,
 };

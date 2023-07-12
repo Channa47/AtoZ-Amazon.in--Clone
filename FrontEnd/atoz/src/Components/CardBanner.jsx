@@ -10,8 +10,8 @@ function CardBanner({ heading, content }) {
         {heading}
       </Heading>
       <div className={style.product_card_container}>
-        {content?.map((product) => (
-          <div className={style.grid_product}>
+        {content?.map((product, index) => (
+          <div key={index} className={style.grid_product}>
             <img src={product.img} />
             <p>{product.title}</p>
           </div>

@@ -13,3 +13,7 @@ export const GET_PRODUCTS_ERROR = "GET_PRODUCTS_ERROR";
 export const UPDATE_QUANTITY = "UPDATE_QUANTITY";
 
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+
+export const SORT_ASC = "SORT_ASC";
+
+export const SORT_DESC = "SORT_DESC";

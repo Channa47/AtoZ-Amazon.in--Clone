@@ -106,7 +106,7 @@ function Navigation() {
         <Link to="/products/mobile">Mobiles</Link>
       </div>
       <div className={style.nav_link}>
-        <Link to="/products/grocery">Household</Link>
+        <Link to="/products/grocery">Grocery</Link>
       </div>
       <div className={style.nav_link}>
         <Link to="/products/mobile">Technology</Link>
