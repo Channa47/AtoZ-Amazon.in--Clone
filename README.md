@@ -2,18 +2,19 @@
  <h1  align="center">AtoZ.in -Amazon Website Clone</h1>
 
 
-<h4 align="center">AtoZ is E-Commerce Web Application were users can able buy all  kind of products through online
- it is basically clone of  Amazon.in, Built with team of Five members using MongoDB,Express,React,NodeJS (MERN Stack) in Five Days</h4>
+<h4 align="center">AtoZ is an E-Commerce Web Application where users can able buy all  kind of products through online
+ it is basically a clone of  Amazon.in, Built with a team of Five members using MongoDB, Express, React, and NodeJS (MERN Stack) in Five Days</h4>
 <br/>
-<h4>Team Code :- reflective-decision-5937</h4>
 
 <br/>
 
 <h4 align="center">Deployed On:</h4>
-
 <p align="center">
-  <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="netlify" />
+  <img src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" align="center" alt="netlify"/>
+<img src="https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=whit" align="center" alt="vercel"/>
 </p>
+
+
 
 <br />
 
