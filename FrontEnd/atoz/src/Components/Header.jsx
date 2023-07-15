@@ -114,20 +114,18 @@ function Header() {
                 borderBottom="1px solid #d5dbdb"
               >
                 <Heading fontSize="lg">Shop By Category</Heading>
-                <Link to="#">
+                <Link to="/products/grocery">
+                  <p className={style.drawer_opt}>Grocery</p>
+                </Link>
+                <Link to="/products/shoes">
+                  <p className={style.drawer_opt}>Footwear</p>
+                </Link>
+
+                <Link to="/products/clothes">
+                  <p className={style.drawer_opt}>Clothing</p>
+                </Link>
+                <Link to="/products/laptop">
                   <p className={style.drawer_opt}>Electronics</p>
-                </Link>
-                <Link to="#">
-                  <p className={style.drawer_opt}>Fashion</p>
-                </Link>
-                {/* <Link to="#">
-                  <p className={style.drawer_opt}>Women's Fashion</p>
-                </Link> */}
-                <Link to="#">
-                  <p className={style.drawer_opt}>Health</p>
-                </Link>
-                <Link to="#">
-                  <p className={style.drawer_opt}>Household</p>
                 </Link>
               </DrawerBody>
               <DrawerBody

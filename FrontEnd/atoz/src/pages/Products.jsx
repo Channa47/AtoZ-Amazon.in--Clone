@@ -109,7 +109,6 @@ const Products = () => {
           <Box
             h="auto"
             p="3"
-            pl="4"
             // border="1px"
             borderColor="gray.300"
             mt="2"
@@ -131,7 +130,7 @@ const Products = () => {
               value="mobile"
               onChange={(e) => setCat(e.target.value)}
             >
-              Smartphones
+              Mobiles
             </Checkbox>
             <Checkbox
               mt="2"
@@ -166,136 +165,10 @@ const Products = () => {
               Shoes
             </Checkbox>
           </Box>
-          {/* <Box
-            h="auto"
-            p="3"
-            pl="4"
-            // border="1px"
-            borderColor="gray.300"
-            mt="2"
-            align="left"
-            display="grid"
-            bg="white"
-          >
-            <Text
-              align="left"
-              fontSize="md"
-              fontWeight="medium"
-              color="blackAlpha.800"
-            >
-              Brand
-            </Text>
-            <Checkbox mt="2" colorScheme="blue">
-              Samsung
-            </Checkbox>
-            <Checkbox mt="2" colorScheme="blue">
-              Xiaomi
-            </Checkbox>
-            <Checkbox mt="2" colorScheme="blue">
-              OPPO
-            </Checkbox>
-            <Checkbox mt="2" colorScheme="blue">
-              Tecno
-            </Checkbox>
-            <Checkbox mt="2" colorScheme="blue">
-              VIVO
-            </Checkbox>
-            <Checkbox mt="2" colorScheme="blue">
-              Realme
-            </Checkbox>
-          </Box> */}
-
-          {/* <Box
-            h="auto"
-            p="3"
-            pl="4"
-            // border="1px"
-            borderColor="gray.300"
-            mt="2"
-            align="left"
-            display="grid"
-            bg="white"
-          >
-            <Text
-              align="left"
-              fontSize="md"
-              fontWeight="medium"
-              color="blackAlpha.800"
-            >
-              Customer Review
-            </Text>
-            <Checkbox mt="2" colorScheme="blue">
-              <Image src={star4}></Image>
-            </Checkbox>
-            <Checkbox mt="2" colorScheme="blue">
-              <Image src={star3}></Image>
-            </Checkbox>
-            <Checkbox mt="2" colorScheme="blue">
-              <Image src={star2}></Image>
-            </Checkbox>
-            <Checkbox mt="2" colorScheme="blue">
-              <Image src={star1}></Image>
-            </Checkbox>
-          </Box> */}
-
-          {/* <Box
-            h="auto"
-            p="3"
-            pl="4"
-            // border="1px"
-            borderColor="gray.300"
-            mt="2"
-            bg="white"
-          >
-            <Text
-              align="left"
-              fontSize="md"
-              fontWeight="bold"
-              color="blackAlpha.800"
-            >
-              Price
-            </Text>
-            <Text align="left">Under ₹1,000</Text>
-            <Text align="left">₹1,000 - ₹5,000</Text>
-            <Text align="left">₹5,000 - ₹10,000</Text>
-            <Text align="left">₹10,000 - ₹20,000</Text>
-            <Text align="left">Over ₹20,000</Text>
-            <Box display="flex">
-              <Input
-                w="35%"
-                borderRadius="none"
-                borderColor="black"
-                value={min}
-                onChange={(e) => setMin(e.target.value)}
-                placeholder="₹ Min"
-              ></Input>
-              <Text p="2">to</Text>
-              <Input
-                w="35%"
-                borderRadius="none"
-                borderColor="black"
-                value={max}
-                onChange={(e) => setMax(e.target.value)}
-                placeholder="₹ Max"
-              ></Input>
-              <Button
-                bg="white"
-                border="1px"
-                borderRadius="5px"
-                borderColor="black"
-                ml="2"
-                color="black"
-              >
-                Go
-              </Button>
-            </Box>
-          </Box> */}
 
           <Box
             h="auto"
             p="3"
-            pl="4"
-            // border="1px"
             borderColor="gray.300"
             mt="2"
             align="left"
